@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol FilterModuleInput: class {
+protocol FilterModule: class {
     var viewController: UIViewController { get }
-    
-    func didSelectMinAge(_ minAge: Int)
-    func didSelectMaxAge(_ maxAge: Int)
 }
 
-class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModuleInput {
+class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     var view:FilterViewInput!
     var interactor: FilterInteractorInput!
     var router: FilterRouterInput!
@@ -27,11 +24,9 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModuleInp
     }
     
     private var cellModelsConverter: FilterCellModelsConverter!
-    private var moduleConfigurator: FilterModuleConfigurator!
     
     init() {
         cellModelsConverter = FilterCellModelsConverter(withViewOutput: self)
-        moduleConfigurator = FilterModuleConfigurator(withModuleInput: self)
     }
     
     //MARK : FilterViewOutput
@@ -49,13 +44,21 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModuleInp
     }
     
     func viewDidTapMinAgeButton(_ minAge: String) {
-        let configuration = moduleConfigurator.createMinAgeSelectionModuleConfiguration(withInitialValue: Int(minAge)!)
-        router.openAgeSelectionModule(withConfiguration: configuration)
+        router.openAgeSelectionModule { (ageSelectionModule) in
+            ageSelectionModule.configure(initialValue: Int(minAge)!,
+                                         doneHandler: { [unowned self] (newMinAge) in
+                                            self.interactor.didSelectMinAge(newMinAge)
+                                        })
+        }
     }
     
     func viewDidTapMaxAgeButton(_ maxAge: String) {
-        let configuration = moduleConfigurator.createMaxAgeSelectionModuleConfiguration(withInitialValue: Int(maxAge)!)
-        router.openAgeSelectionModule(withConfiguration: configuration)
+        router.openAgeSelectionModule { (ageSelectionModule) in
+            ageSelectionModule.configure(initialValue: Int(maxAge)!,
+                                         doneHandler: { [unowned self] (newMaxAge) in
+                                            self.interactor.didSelectMaxAge(newMaxAge)
+            })
+        }
     }
     
     //MARK : FilterInteractorOutput
@@ -63,16 +66,6 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModuleInp
     func interactorDidGetFilterSettings(_ filterSettings: FilterSettings) {
         let cellModels = cellModelsConverter.convertModels(withFilterSettings: filterSettings)
         view.update(withCellModels: cellModels)
-    }
-    
-    //MARK : FilterModuleInput
-    
-    func didSelectMinAge(_ minAge: Int) {
-        interactor.didSelectMinAge(minAge)
-    }
-    
-    func didSelectMaxAge(_ maxAge: Int) {
-        interactor.didSelectMaxAge(maxAge)
     }
 }
 

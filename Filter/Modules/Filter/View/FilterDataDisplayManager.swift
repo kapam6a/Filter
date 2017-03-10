@@ -11,7 +11,10 @@ import UIKit
 protocol FilterCellModel {
     var cellIdentifier: String { get }
     var cellClass: AnyClass { get }
+    var footerClass: AnyClass { get }
+    var footerIdentifier: String { get }
     var footerTitle: String { get }
+    var headerTitle: String { get }
 }
 
 protocol FilterCell {
@@ -32,8 +35,8 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
         self.cellModels = cellModels
         for cellModel in cellModels {
             tableView.register(cellModel.cellClass, forCellReuseIdentifier: cellModel.cellIdentifier)
+            tableView.register(cellModel.footerClass, forHeaderFooterViewReuseIdentifier: cellModel.footerIdentifier)
         }
-        tableView.register(FilterTableViewFooter.self, forHeaderFooterViewReuseIdentifier: "footer")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,16 +48,27 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = tableView.backgroundColor
+        cell.backgroundColor = .clear
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = DesignBook.Fonts.tableViewFooterFont
+        header.textLabel?.textColor = DesignBook.Colors.secondary
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return cellModels[section].headerTitle
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "footer") as! FilterTableViewFooter
-        footer.title = cellModels[section].footerTitle
+        let model = cellModels[section]
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: model.footerIdentifier) as! FilterTableViewFooter
+        footer.title = model.footerTitle
         return footer
     }
     

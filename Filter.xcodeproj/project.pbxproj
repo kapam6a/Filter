@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B050AE241E6EEA0300F4EB5F /* FilterTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */; };
+		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
+		B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */; };
+		B050AE2F1E729D1600F4EB5F /* RotatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2E1E729D1600F4EB5F /* RotatedView.swift */; };
 		B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */; };
 		B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */; };
 		B0A05EFE1E6D37B100B5D1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A05EFD1E6D37B100B5D1AD /* Assets.xcassets */; };
@@ -21,7 +24,6 @@
 		B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1C1E6D8F9800B5D1AD /* FilterInteractor.swift */; };
 		B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */; };
 		B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */; };
-		B0FAB8251E6EC51C00E5F06A /* FilterModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8241E6EC51C00E5F06A /* FilterModuleConfigurator.swift */; };
 		B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */; };
 		B0FAB8351E6EDDD800E5F06A /* AgeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */; };
 		B0FAB8371E6EDE3F00E5F06A /* AgeSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8361E6EDE3F00E5F06A /* AgeSelectionPresenter.swift */; };
@@ -32,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTableViewFooter.swift; path = Modules/Filter/View/FilterTableViewFooter.swift; sourceTree = "<group>"; };
+		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
+		B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueScaleView.swift; path = Modules/AgeSelection/View/AgeScaleView/ValueScaleView.swift; sourceTree = "<group>"; };
+		B050AE2E1E729D1600F4EB5F /* RotatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RotatedView.swift; path = Modules/AgeSelection/View/AgeScaleView/RotatedView.swift; sourceTree = "<group>"; };
 		B0A05EF31E6D37B100B5D1AD /* Filter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = Modules/Filter/View/FilterViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +52,6 @@
 		B0A05F1C1E6D8F9800B5D1AD /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterInteractor.swift; path = Modules/Filter/Interactor/FilterInteractor.swift; sourceTree = "<group>"; };
 		B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSettingsService.swift; path = Services/SearchSettingsService.swift; sourceTree = "<group>"; };
 		B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterRouter.swift; path = Modules/Filter/Router/FilterRouter.swift; sourceTree = "<group>"; };
-		B0FAB8241E6EC51C00E5F06A /* FilterModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterModuleConfigurator.swift; path = Modules/Filter/Presenter/FilterModuleConfigurator.swift; sourceTree = "<group>"; };
 		B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCellModelsConverter.swift; path = Modules/Filter/Presenter/FilterCellModelsConverter.swift; sourceTree = "<group>"; };
 		B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionViewController.swift; path = Modules/AgeSelection/View/AgeSelectionViewController.swift; sourceTree = "<group>"; };
 		B0FAB8361E6EDE3F00E5F06A /* AgeSelectionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionPresenter.swift; path = Modules/AgeSelection/Presenter/AgeSelectionPresenter.swift; sourceTree = "<group>"; };
@@ -67,6 +71,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B050AE251E71458F00F4EB5F /* DesignBook */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE261E7145BD00F4EB5F /* DesignBook.swift */,
+			);
+			name = DesignBook;
+			sourceTree = "<group>";
+		};
+		B050AE281E71584F00F4EB5F /* Footers */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */,
+			);
+			name = Footers;
+			sourceTree = "<group>";
+		};
+		B050AE2D1E729CDA00F4EB5F /* AgeScaleView */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */,
+				B050AE2E1E729D1600F4EB5F /* RotatedView.swift */,
+			);
+			name = AgeScaleView;
+			sourceTree = "<group>";
+		};
 		B0A05EEA1E6D37B100B5D1AD = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +116,7 @@
 		B0A05EF51E6D37B100B5D1AD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				B050AE251E71458F00F4EB5F /* DesignBook */,
 				B0FAB8281E6EDAFB00E5F06A /* Modules */,
 				B0A05F1E1E6D909D00B5D1AD /* Services */,
 				B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */,
@@ -100,9 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */,
-				B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */,
-				B0A05F171E6D8D5E00B5D1AD /* Cells */,
 				B0A05F0D1E6D408400B5D1AD /* FilterDataDisplayManager.swift */,
+				B0A05F171E6D8D5E00B5D1AD /* Cells */,
+				B050AE281E71584F00F4EB5F /* Footers */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -112,7 +142,6 @@
 			children = (
 				B0A05F111E6D4DD300B5D1AD /* FilterPresenter.swift */,
 				B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */,
-				B0FAB8241E6EC51C00E5F06A /* FilterModuleConfigurator.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -195,6 +224,7 @@
 		B0FAB82D1E6EDD7600E5F06A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B050AE2D1E729CDA00F4EB5F /* AgeScaleView */,
 				B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */,
 			);
 			name = View;
@@ -305,7 +335,6 @@
 			files = (
 				B0FAB83D1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift in Sources */,
 				B0FAB8371E6EDE3F00E5F06A /* AgeSelectionPresenter.swift in Sources */,
-				B0FAB8251E6EC51C00E5F06A /* FilterModuleConfigurator.swift in Sources */,
 				B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */,
 				B0FAB8351E6EDDD800E5F06A /* AgeSelectionViewController.swift in Sources */,
 				B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */,
@@ -313,14 +342,17 @@
 				B0A05F191E6D8D7800B5D1AD /* AgeCell.swift in Sources */,
 				B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */,
 				B0A05F121E6D4DD300B5D1AD /* FilterPresenter.swift in Sources */,
+				B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
 				B0A05F141E6D4EAF00B5D1AD /* FilterAssembly.swift in Sources */,
 				B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */,
 				B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */,
 				B0FAB83B1E6EDE5100E5F06A /* AgeSelectionRouter.swift in Sources */,
+				B050AE2F1E729D1600F4EB5F /* RotatedView.swift in Sources */,
 				B0A05F0E1E6D408400B5D1AD /* FilterDataDisplayManager.swift in Sources */,
 				B050AE241E6EEA0300F4EB5F /* FilterTableViewFooter.swift in Sources */,
+				B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */,
 				B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

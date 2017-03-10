@@ -9,11 +9,6 @@
 import UIKit
 
 class FilterTableViewFooter: UITableViewHeaderFooterView {
-    var separatorColor: UIColor {
-        didSet {
-            separator.backgroundColor = separatorColor
-        }
-    }
     var title: String {
         didSet {
             titleLabel.text = title
@@ -25,11 +20,11 @@ class FilterTableViewFooter: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         separator = UIView(frame: .zero)
-        separatorColor = UIColor(red: 63 / 255.0, green: 128 / 255.0, blue: 203 / 255.0, alpha: 1.0)
+        separator.backgroundColor = DesignBook.Colors.secondary
         
         titleLabel = UILabel(frame: .zero)
-        titleLabel.font = UIFont.systemFont(ofSize: 9)
-        titleLabel.textColor = UIColor(red: 69 / 255.0, green: 192 / 255.0, blue: 241 / 255.0, alpha: 1.0)
+        titleLabel.font = DesignBook.Fonts.tableViewFooterFont
+        titleLabel.textColor = DesignBook.Colors.secondary
         title = ""
         
         super.init(reuseIdentifier: reuseIdentifier)
@@ -43,7 +38,7 @@ class FilterTableViewFooter: UITableViewHeaderFooterView {
     }
     
     override func layoutSubviews() {
-        let layout = Layout(bounds: contentView.bounds)
+        let layout = Layout(bounds: self.bounds)
         separator.frame = layout.separatorFrame()
         titleLabel.frame = layout.titleLabelFrame()
     }

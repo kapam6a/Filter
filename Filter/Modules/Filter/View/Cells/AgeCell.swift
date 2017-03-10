@@ -8,15 +8,33 @@
 
 import UIKit
 
+fileprivate struct Constants {
+    static let cellIdentifier    = "AgeCell"
+    static let footerTitle       = "возраст"
+    static let fromLabelTitle    = "от"
+    static let toLabelTitle      = "до"
+    static let footerIdentifier  = "FilterTableViewFooter"
+    static let headerTitle       = ""
+}
+
 struct AgeCellModel: FilterCellModel {
     var cellIdentifier: String {
-        return "AgeCell"
+        return Constants.cellIdentifier
     }
     var cellClass: AnyClass {
         return AgeCell.self
     }
+    var footerClass: AnyClass {
+        return FilterTableViewFooter.self
+    }
+    var footerIdentifier: String {
+        return Constants.footerIdentifier
+    }
     var footerTitle: String {
-        return "возраст"
+        return Constants.footerTitle
+    }
+    var headerTitle: String {
+        return Constants.headerTitle
     }
     let minAge: String
     let maxAge: String
@@ -43,27 +61,27 @@ class AgeCell: UITableViewCell, FilterCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         minAgeButton.addTarget(self, action: #selector(didTapMinAgeButton(_ :)), for: .touchUpInside)
-        minAgeButton.setBackgroundImage(UIImage(named: "oval_icon.png"), for: .normal)
-        minAgeButton.setTitleColor(UIColor(red: 68 / 255.0, green: 192 / 255.0, blue: 241 / 255.0, alpha: 1.0), for: .normal)
-        minAgeButton.titleLabel!.font = UIFont.systemFont(ofSize: 13)
+        minAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
+        minAgeButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
+        minAgeButton.titleLabel!.font = DesignBook.Fonts.thirteenSizeSystemFontMedium
         contentView.addSubview(minAgeButton)
         
         maxAgeButton.addTarget(self, action: #selector(didTapMaxAgeButton(_ :)), for: .touchUpInside)
-        maxAgeButton.setBackgroundImage(UIImage(named: "oval_icon.png"), for: .normal)
-        maxAgeButton.setTitleColor(UIColor(red: 68 / 255.0, green: 192 / 255.0, blue: 241 / 255.0, alpha: 1.0), for: .normal)
-        maxAgeButton.titleLabel!.font = UIFont.systemFont(ofSize: 13)
+        maxAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
+        maxAgeButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
+        maxAgeButton.titleLabel!.font = DesignBook.Fonts.thirteenSizeSystemFontMedium
         contentView.addSubview(maxAgeButton)
         
-        fromLabel.text = "от"
-        fromLabel.font = UIFont.systemFont(ofSize: 10)
+        fromLabel.text = Constants.fromLabelTitle
+        fromLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
         fromLabel.textAlignment = .center
-        fromLabel.textColor = UIColor(red: 37 / 255.0, green: 115 / 255.0, blue: 191 / 255.0, alpha: 1.0)
+        fromLabel.textColor = DesignBook.Colors.secondary
         contentView.addSubview(fromLabel)
         
-        toLabel.text = "до"
-        toLabel.font = UIFont.systemFont(ofSize: 10)
+        toLabel.text = Constants.toLabelTitle
+        toLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
         toLabel.textAlignment = .center
-        toLabel.textColor = UIColor(red: 37 / 255.0, green: 115 / 255.0, blue: 191 / 255.0, alpha: 1.0)
+        toLabel.textColor = DesignBook.Colors.secondary
         contentView.addSubview(toLabel)
     }
     
@@ -120,14 +138,14 @@ fileprivate struct Layout {
     func fromLabelFrame() -> CGRect {
         return CGRect(x: 15,
                       y: bounds.height / 2 - 12 / 2,
-                      width: 12,
-                      height: 12)
+                      width: 15,
+                      height: 15)
     }
     
     func toLabelFrame() -> CGRect {
         return CGRect(x: 98,
                       y: bounds.height / 2 - 12 / 2,
-                      width: 13,
-                      height: 12)
+                      width: 15,
+                      height: 15)
     }
 }

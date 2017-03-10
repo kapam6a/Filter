@@ -18,8 +18,9 @@ final class DesignBook {
     
     final class Fonts {
         static let elevenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: UIFontWeightMedium)
-        static let tenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: UIFontWeightMedium)
+        static let tenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 10, weight: UIFontWeightMedium)
         static let thirteenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 13, weight: UIFontWeightMedium)
-        static let tableViewFooterFont = UIFont.monospacedDigitSystemFont(ofSize: 13, weight: UIFontWeightMedium)
+        static let tableViewFooterFont = UIFont.monospacedDigitSystemFont(ofSize: 9, weight: UIFontWeightMedium)
+        static let thirtySizeSystemFontRegular = UIFont.monospacedDigitSystemFont(ofSize: 30, weight: UIFontWeightRegular)
     }
 }

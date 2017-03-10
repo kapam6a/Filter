@@ -8,19 +8,38 @@
 
 import UIKit
 
-protocol AgeSelectionModuleInput: class {
+protocol AgeSelectionModule: class {
     var viewController: UIViewController { get }
+    func configure(initialValue: Int, doneHandler: @escaping (Int) -> Void)
 }
 
-class AgeSelectionPresenter: AgeSelectionViewOutput, AgeSelectionModuleInput, AgeSelectionInteractorOutput {
+class AgeSelectionPresenter: AgeSelectionViewOutput, AgeSelectionModule, AgeSelectionInteractorOutput {
     var view: AgeSelectionViewInput!
     var interactor: AgeSelectionInteractorInput!
     var router: AgeSelectionRouterInput!
     
-    //MARK : AgeSelectionModuleInput
+    private var initialValue: Int
+    private var doneHandler: ((Int) -> Void)!
+    
+    init() {
+        initialValue = 0
+    }
+    
+    //MARK : AgeSelectionModule
     
     var viewController: UIViewController {
         return view as! UIViewController
+    }
+    
+    func configure(initialValue: Int, doneHandler: @escaping (Int) -> Void) {
+        self.initialValue = initialValue
+        self.doneHandler = doneHandler
+    }
+    
+    //MARK : AgeSelectionViewOutput
+    
+    func viewDidLoad() {
+        view.update(withValue: initialValue)
     }
 }
 

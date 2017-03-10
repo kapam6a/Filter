@@ -33,8 +33,9 @@ class FilterViewController: UIViewController, FilterViewInput {
 
         super.init(nibName: nil, bundle: nil)
         
-        tableView.backgroundColor = UIColor(red: 22 / 255.0, green: 77 / 255.0, blue: 189 / 255.0, alpha: 1.0)
+        tableView.backgroundColor = DesignBook.Colors.background
         tableView.separatorStyle = .none
+        tableView.layer.cornerRadius = 4
         tableView.bounces = false
         
         dataDisplayManager.register(in: tableView)
@@ -49,7 +50,8 @@ class FilterViewController: UIViewController, FilterViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        
+        view.backgroundColor = .white
+
         output.viewDidLoad()
     }
 
@@ -70,7 +72,10 @@ fileprivate struct Layout {
     let bounds: CGRect
     
     func tableViewFrame() -> CGRect {
-        return bounds
+        return CGRect(x: 15,
+                      y: 20,
+                      width: bounds.width - 15 * 2,
+                      height: bounds.height - 20 * 2)
     }
 }
 

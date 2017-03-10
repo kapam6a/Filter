@@ -63,10 +63,10 @@ class FilterInteractor: FilterInteractorInput {
     }
     
     func didSelectMinAge(_ minAge: Int) {
-        
+        currentFilterSettings.minAge = minAge
     }
     
     func didSelectMaxAge(_ maxAge: Int) {
-        
+        currentFilterSettings.maxAge = maxAge
     }
 }

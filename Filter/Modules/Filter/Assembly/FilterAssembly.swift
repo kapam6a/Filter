@@ -9,7 +9,7 @@
 import Foundation
 
 class FilterAssembly {
-    func createFilterModule() -> FilterModuleInput {
+    func createFilterModule() -> FilterModule {
         let vc = FilterViewController()
         let presenter = FilterPresenter()
         let interactor = FilterInteractor(withSearchSettingsService: SearchSettingsServiceImpl())

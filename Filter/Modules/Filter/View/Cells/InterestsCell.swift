@@ -8,15 +8,31 @@
 
 import UIKit
 
+fileprivate struct Constants {
+    static let cellIdentifier    = "InterestsCell"
+    static let footerTitle       = "интересы"
+    static let footerIdentifier  = "FilterTableViewFooter"
+    static let headerTitle       = "выберите хэштег для поиска похожих интересов или использовать панель поиска"
+}
+
 struct InterestsCellModel: FilterCellModel {
     var cellIdentifier: String {
-        return "InterestsCell"
+        return Constants.cellIdentifier
     }
     var cellClass: AnyClass {
         return InterestsCell.self
     }
     var footerTitle: String {
-        return "интересы"
+        return Constants.footerTitle
+    }
+    var footerClass: AnyClass {
+        return FilterTableViewFooter.self
+    }
+    var footerIdentifier: String {
+        return Constants.footerIdentifier
+    }
+    var headerTitle: String {
+        return Constants.headerTitle
     }
     let interests: [String]
 }
