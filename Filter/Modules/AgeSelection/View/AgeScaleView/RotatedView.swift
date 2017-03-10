@@ -28,7 +28,7 @@ class RotatedView: UIView {
     
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
-        let radianForSection:CGFloat = CGFloat(2 * M_PI / Double(Constants.buttonsNumber))
+        let radianForSection: CGFloat = CGFloat(2 * M_PI / Double(Constants.buttonsNumber))
         var startAngle: CGFloat = 0
         var endAngle = radianForSection
         

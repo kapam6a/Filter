@@ -11,6 +11,7 @@
 		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
 		B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */; };
 		B050AE2F1E729D1600F4EB5F /* RotatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2E1E729D1600F4EB5F /* RotatedView.swift */; };
+		B050AE311E72D5D300F4EB5F /* FitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* FitView.swift */; };
 		B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */; };
 		B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */; };
 		B0A05EFE1E6D37B100B5D1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A05EFD1E6D37B100B5D1AD /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
 		B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueScaleView.swift; path = Modules/AgeSelection/View/AgeScaleView/ValueScaleView.swift; sourceTree = "<group>"; };
 		B050AE2E1E729D1600F4EB5F /* RotatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RotatedView.swift; path = Modules/AgeSelection/View/AgeScaleView/RotatedView.swift; sourceTree = "<group>"; };
+		B050AE301E72D5D300F4EB5F /* FitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FitView.swift; path = Modules/Filter/View/Cells/InterestsCell/FitView.swift; sourceTree = "<group>"; };
 		B0A05EF31E6D37B100B5D1AD /* Filter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = Modules/Filter/View/FilterViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		B0A05F131E6D4EAF00B5D1AD /* FilterAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterAssembly.swift; path = Modules/Filter/Assembly/FilterAssembly.swift; sourceTree = "<group>"; };
 		B0A05F151E6D5CD700B5D1AD /* SexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SexCell.swift; path = Modules/Filter/View/Cells/SexCell.swift; sourceTree = "<group>"; };
 		B0A05F181E6D8D7800B5D1AD /* AgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeCell.swift; path = Modules/Filter/View/Cells/AgeCell.swift; sourceTree = "<group>"; };
-		B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCell.swift; path = Modules/Filter/View/Cells/InterestsCell.swift; sourceTree = "<group>"; };
+		B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCell.swift; sourceTree = "<group>"; };
 		B0A05F1C1E6D8F9800B5D1AD /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterInteractor.swift; path = Modules/Filter/Interactor/FilterInteractor.swift; sourceTree = "<group>"; };
 		B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSettingsService.swift; path = Services/SearchSettingsService.swift; sourceTree = "<group>"; };
 		B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterRouter.swift; path = Modules/Filter/Router/FilterRouter.swift; sourceTree = "<group>"; };
@@ -94,6 +96,15 @@
 				B050AE2E1E729D1600F4EB5F /* RotatedView.swift */,
 			);
 			name = AgeScaleView;
+			sourceTree = "<group>";
+		};
+		B050AE321E72D5D700F4EB5F /* InterestsCell */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE301E72D5D300F4EB5F /* FitView.swift */,
+				B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */,
+			);
+			name = InterestsCell;
 			sourceTree = "<group>";
 		};
 		B0A05EEA1E6D37B100B5D1AD = {
@@ -173,9 +184,9 @@
 		B0A05F171E6D8D5E00B5D1AD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B050AE321E72D5D700F4EB5F /* InterestsCell */,
 				B0A05F151E6D5CD700B5D1AD /* SexCell.swift */,
 				B0A05F181E6D8D7800B5D1AD /* AgeCell.swift */,
-				B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 				TargetAttributes = {
 					B0A05EF21E6D37B100B5D1AD = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = V3CDYERL25;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -342,6 +354,7 @@
 				B0A05F191E6D8D7800B5D1AD /* AgeCell.swift in Sources */,
 				B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */,
 				B0A05F121E6D4DD300B5D1AD /* FilterPresenter.swift in Sources */,
+				B050AE311E72D5D300F4EB5F /* FitView.swift in Sources */,
 				B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
@@ -455,7 +468,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V3CDYERL25;
 				INFOPLIST_FILE = Filter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NNO.Filter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -467,7 +482,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V3CDYERL25;
 				INFOPLIST_FILE = Filter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NNO.Filter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

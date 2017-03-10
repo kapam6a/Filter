@@ -45,7 +45,7 @@ class ValueScaleView: UIView {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touchPoint = touches.first!.location(in: self)
         let previousTouchPoint = touches.first!.previousLocation(in: self)
-        let angle = atan2(touchPoint.y - center.y, touchPoint.x - center.x)  - atan2(previousTouchPoint.y - center.y, previousTouchPoint.x - center.x)
+        let angle = atan2(touchPoint.y - rotatedView.center.y, touchPoint.x - rotatedView.center.x)  - atan2(previousTouchPoint.y - rotatedView.center.y, previousTouchPoint.x - rotatedView.center.x)
         rotatedView.transform = rotatedView.transform.rotated(by: angle)
     }
 }
@@ -59,7 +59,7 @@ fileprivate struct Layout {
                       width: self.bounds.width * 2,
                       height: self.bounds.height)
     }
-    
+
     func valueLabelFrame() -> CGRect {
        return CGRect(x: self.bounds.width / 5,
                      y: self.bounds.height / 2 - 20,
