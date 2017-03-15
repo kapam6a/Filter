@@ -10,13 +10,10 @@ import UIKit
 
 fileprivate struct Constants {
     static let cellIdentifier    = "SexCell"
-    static let footerTitle       = "пол"
     static let femaleButtonTitle = "женский"
     static let maleButtonTitle   = "мужской"
     static let middleLabelTitle  = "или"
-    static let footerIdentifier  = "FilterTableViewFooter"
-    static let headerTitle       = ""
-    
+
     static let buttonTitleLeftOffset:CGFloat = 10
 }
 
@@ -26,18 +23,6 @@ struct SexCellModel: FilterCellModel {
     }
     var cellClass: AnyClass {
         return SexCell.self
-    }
-    var footerClass: AnyClass {
-        return FilterTableViewFooter.self
-    }
-    var footerIdentifier: String {
-        return Constants.footerIdentifier
-    }
-    var footerTitle: String {
-        return Constants.footerTitle
-    }
-    var headerTitle: String {
-        return Constants.headerTitle
     }
     let maleButtonIsSelected: Bool
     let femaleButtonIsSelected: Bool
@@ -67,7 +52,6 @@ class SexCell: UITableViewCell, FilterCell {
         femaleButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
         femaleButton.setTitleColor(DesignBook.Colors.selected, for: .selected)
         femaleButton.titleLabel!.font = DesignBook.Fonts.elevenSizeSystemFontMedium
-        femaleButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: Constants.buttonTitleLeftOffset, bottom: 0, right: 0)
         contentView.addSubview(femaleButton)
         
         maleButton.addTarget(self, action: #selector(didTapMaleButton(_ :)), for: .touchUpInside)
@@ -77,7 +61,6 @@ class SexCell: UITableViewCell, FilterCell {
         maleButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
         maleButton.setTitleColor(DesignBook.Colors.selected, for: .selected)
         maleButton.titleLabel!.font = DesignBook.Fonts.elevenSizeSystemFontMedium
-        maleButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: Constants.buttonTitleLeftOffset, bottom: 0, right: 0)
         contentView.addSubview(maleButton)
 
         middleLabel.text = Constants.middleLabelTitle
@@ -96,6 +79,8 @@ class SexCell: UITableViewCell, FilterCell {
         maleButton.frame = layout.maleButtonFrame()
         femaleButton.frame = layout.femaleButtonFrame()
         middleLabel.frame = layout.middleLabelFrame()
+        maleButton.imageEdgeInsets = layout.maleImageViewInset()
+        femaleButton.imageEdgeInsets = layout.femaleImageViewInset()
     }
     
     //MARK : FilterCell
@@ -125,24 +110,38 @@ fileprivate struct Layout {
     let bounds: CGRect
     
     func maleButtonFrame() -> CGRect {
-        return CGRect(x: 133,
+        return CGRect(x: 118,
                       y: bounds.height / 2 - 30 / 2,
                       width: 98,
                       height: 30)
     }
     
     func femaleButtonFrame() -> CGRect {
-        return CGRect(x: 15,
+        return CGRect(x: 0,
                       y: bounds.height / 2 - 30 / 2,
                       width: 98,
                       height: 30)
     }
     
     func middleLabelFrame() -> CGRect {
-        return CGRect(x: 114,
+        return CGRect(x: 89,
                       y: bounds.height / 2 - 12 / 2,
                       width: 22,
                       height: 12)
+    }
+    
+    func maleImageViewInset() -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0,
+                            left: -25,
+                            bottom: 0,
+                            right: 0)
+    }
+    
+    func femaleImageViewInset() -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0,
+                            left: -25,
+                            bottom: 0,
+                            right: 0)
     }
 }
 

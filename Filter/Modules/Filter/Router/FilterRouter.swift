@@ -9,7 +9,8 @@
 import UIKit
 
 protocol FilterRouterInput {
-    func openAgeSelectionModule(_ callback: (AgeSelectionModule) -> Void)
+    func openAgeModule(_ callback: (AgeModule) -> Void)
+    func openInterestsModule(_ callback: (NewInterestsModule) -> Void)
 }
 
 class FilterRouter: FilterRouterInput {
@@ -17,9 +18,17 @@ class FilterRouter: FilterRouterInput {
     
     //MARK : FilterRouterInput
     
-    func openAgeSelectionModule(_ callback: (AgeSelectionModule) -> Void) {
-        let ageSelectionModule = AgeSelectionAssembly().createAgeSelectionModule()
-        callback(ageSelectionModule)
-        viewController.present(ageSelectionModule.viewController, animated: true, completion: nil)
+    func openAgeModule(_ callback: (AgeModule) -> Void) {
+        let ageModule = AgeAssembly().createAgeModule()
+        callback(ageModule)
+        viewController.navigationController!.pushViewController(ageModule.viewController, animated: true)
+    }
+    
+    func openInterestsModule(_ callback: (NewInterestsModule) -> Void) {
+        let newInterestsModule = NewInterestsAssembly().createNewInterestsModule()
+        callback(newInterestsModule)
+        let vc = newInterestsModule.viewController
+        vc.modalPresentationStyle = .overCurrentContext
+        viewController.navigationController!.pushViewController(newInterestsModule.viewController, animated: true)
     }
 }

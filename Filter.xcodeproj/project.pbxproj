@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B050AE241E6EEA0300F4EB5F /* FilterTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */; };
 		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
-		B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */; };
-		B050AE2F1E729D1600F4EB5F /* RotatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2E1E729D1600F4EB5F /* RotatedView.swift */; };
-		B050AE311E72D5D300F4EB5F /* FitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* FitView.swift */; };
+		B050AE2C1E716B1B00F4EB5F /* MeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2B1E716B1B00F4EB5F /* MeterView.swift */; };
+		B050AE2F1E729D1600F4EB5F /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2E1E729D1600F4EB5F /* ScaleView.swift */; };
+		B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */; };
+		B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */; };
+		B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE3B1E76AFEA00F4EB5F /* NewInterestsViewController.swift */; };
+		B050AE3E1E76B03800F4EB5F /* NewInterestsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE3D1E76B03800F4EB5F /* NewInterestsPresenter.swift */; };
+		B050AE401E76B07F00F4EB5F /* NewInterestsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE3F1E76B07F00F4EB5F /* NewInterestsInteractor.swift */; };
+		B050AE421E76B09600F4EB5F /* NewInterestsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE411E76B09600F4EB5F /* NewInterestsRouter.swift */; };
+		B050AE441E76B0BC00F4EB5F /* NewInterestsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE431E76B0BC00F4EB5F /* NewInterestsAssembly.swift */; };
+		B050AE481E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE471E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift */; };
+		B050AE4A1E76D91D00F4EB5F /* InterestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE491E76D91D00F4EB5F /* InterestsService.swift */; };
+		B050AE4C1E76DC0C00F4EB5F /* AddInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE4B1E76DC0C00F4EB5F /* AddInterestCell.swift */; };
+		B050AE4F1E77E75200F4EB5F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE4E1E77E75200F4EB5F /* SearchCell.swift */; };
+		B050AE521E77FD9D00F4EB5F /* TextFieldWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */; };
+		B093A6F11E78088F0059DECA /* NewInterestSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F01E78088F0059DECA /* NewInterestSearchCell.swift */; };
+		B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */; };
+		B093A6F51E79415F0059DECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F41E79415F0059DECA /* ViewController.swift */; };
+		B093A6F81E79727E0059DECA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F71E79727E0059DECA /* Extensions.swift */; };
 		B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */; };
 		B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */; };
 		B0A05EFE1E6D37B100B5D1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A05EFD1E6D37B100B5D1AD /* Assets.xcassets */; };
@@ -26,19 +40,33 @@
 		B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */; };
 		B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */; };
 		B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */; };
-		B0FAB8351E6EDDD800E5F06A /* AgeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */; };
-		B0FAB8371E6EDE3F00E5F06A /* AgeSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8361E6EDE3F00E5F06A /* AgeSelectionPresenter.swift */; };
-		B0FAB8391E6EDE4900E5F06A /* AgeSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8381E6EDE4900E5F06A /* AgeSelectionInteractor.swift */; };
-		B0FAB83B1E6EDE5100E5F06A /* AgeSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB83A1E6EDE5100E5F06A /* AgeSelectionRouter.swift */; };
-		B0FAB83D1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB83C1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift */; };
+		B0FAB8351E6EDDD800E5F06A /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */; };
+		B0FAB8371E6EDE3F00E5F06A /* AgePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8361E6EDE3F00E5F06A /* AgePresenter.swift */; };
+		B0FAB8391E6EDE4900E5F06A /* AgeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8381E6EDE4900E5F06A /* AgeInteractor.swift */; };
+		B0FAB83B1E6EDE5100E5F06A /* AgeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB83A1E6EDE5100E5F06A /* AgeRouter.swift */; };
+		B0FAB83D1E6EDE5A00E5F06A /* AgeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB83C1E6EDE5A00E5F06A /* AgeAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterTableViewFooter.swift; path = Modules/Filter/View/FilterTableViewFooter.swift; sourceTree = "<group>"; };
 		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
-		B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueScaleView.swift; path = Modules/AgeSelection/View/AgeScaleView/ValueScaleView.swift; sourceTree = "<group>"; };
-		B050AE2E1E729D1600F4EB5F /* RotatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RotatedView.swift; path = Modules/AgeSelection/View/AgeScaleView/RotatedView.swift; sourceTree = "<group>"; };
-		B050AE301E72D5D300F4EB5F /* FitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FitView.swift; path = Modules/Filter/View/Cells/InterestsCell/FitView.swift; sourceTree = "<group>"; };
+		B050AE2B1E716B1B00F4EB5F /* MeterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeterView.swift; path = Modules/Age/View/AgeScaleView/MeterView.swift; sourceTree = "<group>"; };
+		B050AE2E1E729D1600F4EB5F /* ScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScaleView.swift; path = Modules/Age/View/AgeScaleView/ScaleView.swift; sourceTree = "<group>"; };
+		B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCollectionViewCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsDataDisplayManager.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsDataDisplayManager.swift; sourceTree = "<group>"; };
+		B050AE3B1E76AFEA00F4EB5F /* NewInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsViewController.swift; path = Modules/NewInterests/View/NewInterestsViewController.swift; sourceTree = "<group>"; };
+		B050AE3D1E76B03800F4EB5F /* NewInterestsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsPresenter.swift; path = Modules/NewInterests/Presenter/NewInterestsPresenter.swift; sourceTree = "<group>"; };
+		B050AE3F1E76B07F00F4EB5F /* NewInterestsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsInteractor.swift; path = Modules/NewInterests/Interactor/NewInterestsInteractor.swift; sourceTree = "<group>"; };
+		B050AE411E76B09600F4EB5F /* NewInterestsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsRouter.swift; path = Modules/NewInterests/Router/NewInterestsRouter.swift; sourceTree = "<group>"; };
+		B050AE431E76B0BC00F4EB5F /* NewInterestsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsAssembly.swift; path = Modules/NewInterests/Assembly/NewInterestsAssembly.swift; sourceTree = "<group>"; };
+		B050AE471E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsDataDisplayManager.swift; path = Modules/NewInterests/View/NewInterestsDataDisplayManager.swift; sourceTree = "<group>"; };
+		B050AE491E76D91D00F4EB5F /* InterestsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsService.swift; path = Services/InterestsService.swift; sourceTree = "<group>"; };
+		B050AE4B1E76DC0C00F4EB5F /* AddInterestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddInterestCell.swift; path = Modules/NewInterests/View/Cells/AddInterestCell.swift; sourceTree = "<group>"; };
+		B050AE4E1E77E75200F4EB5F /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = Modules/Filter/View/Cells/SearchCell.swift; sourceTree = "<group>"; };
+		B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldWithButton.swift; path = Views/TextFieldWithButton.swift; sourceTree = "<group>"; };
+		B093A6F01E78088F0059DECA /* NewInterestSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestSearchCell.swift; path = Modules/NewInterests/View/Cells/NewInterestSearchCell.swift; sourceTree = "<group>"; };
+		B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsCellModelsConverter.swift; path = Modules/NewInterests/Presenter/NewInterestsCellModelsConverter.swift; sourceTree = "<group>"; };
+		B093A6F41E79415F0059DECA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Views/ViewController.swift; sourceTree = "<group>"; };
+		B093A6F71E79727E0059DECA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
 		B0A05EF31E6D37B100B5D1AD /* Filter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = Modules/Filter/View/FilterViewController.swift; sourceTree = "<group>"; };
@@ -55,11 +83,11 @@
 		B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSettingsService.swift; path = Services/SearchSettingsService.swift; sourceTree = "<group>"; };
 		B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterRouter.swift; path = Modules/Filter/Router/FilterRouter.swift; sourceTree = "<group>"; };
 		B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCellModelsConverter.swift; path = Modules/Filter/Presenter/FilterCellModelsConverter.swift; sourceTree = "<group>"; };
-		B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionViewController.swift; path = Modules/AgeSelection/View/AgeSelectionViewController.swift; sourceTree = "<group>"; };
-		B0FAB8361E6EDE3F00E5F06A /* AgeSelectionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionPresenter.swift; path = Modules/AgeSelection/Presenter/AgeSelectionPresenter.swift; sourceTree = "<group>"; };
-		B0FAB8381E6EDE4900E5F06A /* AgeSelectionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionInteractor.swift; path = Modules/AgeSelection/Interactor/AgeSelectionInteractor.swift; sourceTree = "<group>"; };
-		B0FAB83A1E6EDE5100E5F06A /* AgeSelectionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionRouter.swift; path = Modules/AgeSelection/Router/AgeSelectionRouter.swift; sourceTree = "<group>"; };
-		B0FAB83C1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeSelectionAssembly.swift; path = Modules/AgeSelection/Assembly/AgeSelectionAssembly.swift; sourceTree = "<group>"; };
+		B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeViewController.swift; path = Modules/Age/View/AgeViewController.swift; sourceTree = "<group>"; };
+		B0FAB8361E6EDE3F00E5F06A /* AgePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgePresenter.swift; path = Modules/Age/Presenter/AgePresenter.swift; sourceTree = "<group>"; };
+		B0FAB8381E6EDE4900E5F06A /* AgeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeInteractor.swift; path = Modules/Age/Interactor/AgeInteractor.swift; sourceTree = "<group>"; };
+		B0FAB83A1E6EDE5100E5F06A /* AgeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeRouter.swift; path = Modules/Age/Router/AgeRouter.swift; sourceTree = "<group>"; };
+		B0FAB83C1E6EDE5A00E5F06A /* AgeAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeAssembly.swift; path = Modules/Age/Assembly/AgeAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,30 +109,104 @@
 			name = DesignBook;
 			sourceTree = "<group>";
 		};
-		B050AE281E71584F00F4EB5F /* Footers */ = {
+		B050AE2D1E729CDA00F4EB5F /* MeterView */ = {
 			isa = PBXGroup;
 			children = (
-				B050AE231E6EEA0300F4EB5F /* FilterTableViewFooter.swift */,
+				B050AE2B1E716B1B00F4EB5F /* MeterView.swift */,
+				B050AE2E1E729D1600F4EB5F /* ScaleView.swift */,
 			);
-			name = Footers;
-			sourceTree = "<group>";
-		};
-		B050AE2D1E729CDA00F4EB5F /* AgeScaleView */ = {
-			isa = PBXGroup;
-			children = (
-				B050AE2B1E716B1B00F4EB5F /* ValueScaleView.swift */,
-				B050AE2E1E729D1600F4EB5F /* RotatedView.swift */,
-			);
-			name = AgeScaleView;
+			name = MeterView;
 			sourceTree = "<group>";
 		};
 		B050AE321E72D5D700F4EB5F /* InterestsCell */ = {
 			isa = PBXGroup;
 			children = (
-				B050AE301E72D5D300F4EB5F /* FitView.swift */,
+				B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */,
+				B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */,
 				B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */,
 			);
 			name = InterestsCell;
+			sourceTree = "<group>";
+		};
+		B050AE351E76AE7100F4EB5F /* NewInterests */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE3A1E76AFC900F4EB5F /* Assembly */,
+				B050AE391E76AFC200F4EB5F /* Router */,
+				B050AE381E76AFBB00F4EB5F /* Interactor */,
+				B050AE371E76AFB300F4EB5F /* Presenter */,
+				B050AE361E76AFAE00F4EB5F /* View */,
+			);
+			name = NewInterests;
+			sourceTree = "<group>";
+		};
+		B050AE361E76AFAE00F4EB5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE4D1E77D1DB00F4EB5F /* Cells */,
+				B050AE3B1E76AFEA00F4EB5F /* NewInterestsViewController.swift */,
+				B050AE471E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B050AE371E76AFB300F4EB5F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE3D1E76B03800F4EB5F /* NewInterestsPresenter.swift */,
+				B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		B050AE381E76AFBB00F4EB5F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE3F1E76B07F00F4EB5F /* NewInterestsInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		B050AE391E76AFC200F4EB5F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE411E76B09600F4EB5F /* NewInterestsRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B050AE3A1E76AFC900F4EB5F /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE431E76B0BC00F4EB5F /* NewInterestsAssembly.swift */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		B050AE4D1E77D1DB00F4EB5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE4B1E76DC0C00F4EB5F /* AddInterestCell.swift */,
+				B093A6F01E78088F0059DECA /* NewInterestSearchCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		B050AE501E77FD7D00F4EB5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */,
+				B093A6F41E79415F0059DECA /* ViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B093A6F61E7972620059DECA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B093A6F71E79727E0059DECA /* Extensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		B0A05EEA1E6D37B100B5D1AD = {
@@ -127,6 +229,8 @@
 		B0A05EF51E6D37B100B5D1AD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				B093A6F61E7972620059DECA /* Extensions */,
+				B050AE501E77FD7D00F4EB5F /* Views */,
 				B050AE251E71458F00F4EB5F /* DesignBook */,
 				B0FAB8281E6EDAFB00E5F06A /* Modules */,
 				B0A05F1E1E6D909D00B5D1AD /* Services */,
@@ -143,7 +247,6 @@
 				B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */,
 				B0A05F0D1E6D408400B5D1AD /* FilterDataDisplayManager.swift */,
 				B0A05F171E6D8D5E00B5D1AD /* Cells */,
-				B050AE281E71584F00F4EB5F /* Footers */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -187,6 +290,7 @@
 				B050AE321E72D5D700F4EB5F /* InterestsCell */,
 				B0A05F151E6D5CD700B5D1AD /* SexCell.swift */,
 				B0A05F181E6D8D7800B5D1AD /* AgeCell.swift */,
+				B050AE4E1E77E75200F4EB5F /* SearchCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -195,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */,
+				B050AE491E76D91D00F4EB5F /* InterestsService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -202,7 +307,8 @@
 		B0FAB8281E6EDAFB00E5F06A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B0FAB82A1E6EDB1E00E5F06A /* AgeSelection */,
+				B050AE351E76AE7100F4EB5F /* NewInterests */,
+				B0FAB82A1E6EDB1E00E5F06A /* Age */,
 				B0FAB8291E6EDB0300E5F06A /* Filter */,
 			);
 			name = Modules;
@@ -220,7 +326,7 @@
 			name = Filter;
 			sourceTree = "<group>";
 		};
-		B0FAB82A1E6EDB1E00E5F06A /* AgeSelection */ = {
+		B0FAB82A1E6EDB1E00E5F06A /* Age */ = {
 			isa = PBXGroup;
 			children = (
 				B0FAB8311E6EDD9200E5F06A /* Assembly */,
@@ -229,14 +335,14 @@
 				B0FAB82E1E6EDD7C00E5F06A /* Presenter */,
 				B0FAB82D1E6EDD7600E5F06A /* View */,
 			);
-			name = AgeSelection;
+			name = Age;
 			sourceTree = "<group>";
 		};
 		B0FAB82D1E6EDD7600E5F06A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B050AE2D1E729CDA00F4EB5F /* AgeScaleView */,
-				B0FAB8341E6EDDD800E5F06A /* AgeSelectionViewController.swift */,
+				B050AE2D1E729CDA00F4EB5F /* MeterView */,
+				B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -244,7 +350,7 @@
 		B0FAB82E1E6EDD7C00E5F06A /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				B0FAB8361E6EDE3F00E5F06A /* AgeSelectionPresenter.swift */,
+				B0FAB8361E6EDE3F00E5F06A /* AgePresenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -252,7 +358,7 @@
 		B0FAB82F1E6EDD8200E5F06A /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				B0FAB8381E6EDE4900E5F06A /* AgeSelectionInteractor.swift */,
+				B0FAB8381E6EDE4900E5F06A /* AgeInteractor.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -260,7 +366,7 @@
 		B0FAB8301E6EDD8B00E5F06A /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				B0FAB83A1E6EDE5100E5F06A /* AgeSelectionRouter.swift */,
+				B0FAB83A1E6EDE5100E5F06A /* AgeRouter.swift */,
 			);
 			name = Router;
 			sourceTree = "<group>";
@@ -268,7 +374,7 @@
 		B0FAB8311E6EDD9200E5F06A /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				B0FAB83C1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift */,
+				B0FAB83C1E6EDE5A00E5F06A /* AgeAssembly.swift */,
 			);
 			name = Assembly;
 			sourceTree = "<group>";
@@ -345,28 +451,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FAB83D1E6EDE5A00E5F06A /* AgeSelectionAssembly.swift in Sources */,
-				B0FAB8371E6EDE3F00E5F06A /* AgeSelectionPresenter.swift in Sources */,
+				B0FAB83D1E6EDE5A00E5F06A /* AgeAssembly.swift in Sources */,
+				B0FAB8371E6EDE3F00E5F06A /* AgePresenter.swift in Sources */,
 				B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */,
-				B0FAB8351E6EDDD800E5F06A /* AgeSelectionViewController.swift in Sources */,
+				B0FAB8351E6EDDD800E5F06A /* AgeViewController.swift in Sources */,
 				B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */,
-				B0FAB8391E6EDE4900E5F06A /* AgeSelectionInteractor.swift in Sources */,
+				B050AE4F1E77E75200F4EB5F /* SearchCell.swift in Sources */,
+				B050AE481E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift in Sources */,
+				B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */,
+				B093A6F11E78088F0059DECA /* NewInterestSearchCell.swift in Sources */,
+				B0FAB8391E6EDE4900E5F06A /* AgeInteractor.swift in Sources */,
+				B050AE4C1E76DC0C00F4EB5F /* AddInterestCell.swift in Sources */,
+				B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */,
 				B0A05F191E6D8D7800B5D1AD /* AgeCell.swift in Sources */,
+				B050AE421E76B09600F4EB5F /* NewInterestsRouter.swift in Sources */,
 				B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */,
 				B0A05F121E6D4DD300B5D1AD /* FilterPresenter.swift in Sources */,
-				B050AE311E72D5D300F4EB5F /* FitView.swift in Sources */,
-				B050AE2C1E716B1B00F4EB5F /* ValueScaleView.swift in Sources */,
+				B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */,
+				B050AE2C1E716B1B00F4EB5F /* MeterView.swift in Sources */,
+				B050AE441E76B0BC00F4EB5F /* NewInterestsAssembly.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
+				B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */,
 				B0A05F141E6D4EAF00B5D1AD /* FilterAssembly.swift in Sources */,
 				B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */,
 				B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */,
-				B0FAB83B1E6EDE5100E5F06A /* AgeSelectionRouter.swift in Sources */,
-				B050AE2F1E729D1600F4EB5F /* RotatedView.swift in Sources */,
+				B093A6F81E79727E0059DECA /* Extensions.swift in Sources */,
+				B093A6F51E79415F0059DECA /* ViewController.swift in Sources */,
+				B0FAB83B1E6EDE5100E5F06A /* AgeRouter.swift in Sources */,
+				B050AE2F1E729D1600F4EB5F /* ScaleView.swift in Sources */,
 				B0A05F0E1E6D408400B5D1AD /* FilterDataDisplayManager.swift in Sources */,
-				B050AE241E6EEA0300F4EB5F /* FilterTableViewFooter.swift in Sources */,
+				B050AE4A1E76D91D00F4EB5F /* InterestsService.swift in Sources */,
 				B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */,
 				B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */,
+				B050AE401E76B07F00F4EB5F /* NewInterestsInteractor.swift in Sources */,
+				B050AE521E77FD9D00F4EB5F /* TextFieldWithButton.swift in Sources */,
+				B050AE3E1E76B03800F4EB5F /* NewInterestsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

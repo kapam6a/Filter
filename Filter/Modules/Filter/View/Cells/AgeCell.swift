@@ -10,11 +10,8 @@ import UIKit
 
 fileprivate struct Constants {
     static let cellIdentifier    = "AgeCell"
-    static let footerTitle       = "возраст"
     static let fromLabelTitle    = "от"
     static let toLabelTitle      = "до"
-    static let footerIdentifier  = "FilterTableViewFooter"
-    static let headerTitle       = ""
 }
 
 struct AgeCellModel: FilterCellModel {
@@ -23,18 +20,6 @@ struct AgeCellModel: FilterCellModel {
     }
     var cellClass: AnyClass {
         return AgeCell.self
-    }
-    var footerClass: AnyClass {
-        return FilterTableViewFooter.self
-    }
-    var footerIdentifier: String {
-        return Constants.footerIdentifier
-    }
-    var footerTitle: String {
-        return Constants.footerTitle
-    }
-    var headerTitle: String {
-        return Constants.headerTitle
     }
     let minAge: String
     let maxAge: String
@@ -74,7 +59,7 @@ class AgeCell: UITableViewCell, FilterCell {
         
         fromLabel.text = Constants.fromLabelTitle
         fromLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
-        fromLabel.textAlignment = .center
+        fromLabel.textAlignment = .left
         fromLabel.textColor = DesignBook.Colors.secondary
         contentView.addSubview(fromLabel)
         
@@ -122,28 +107,28 @@ fileprivate struct Layout {
     let bounds: CGRect
     
     func minAgeButtonFrame() -> CGRect {
-        return CGRect(x: 47,
+        return CGRect(x: 32,
                       y: bounds.height / 2 - 31 / 2,
                       width: 31,
                       height: 31)
     }
     
     func maxAgeButtonFrame() -> CGRect {
-        return CGRect(x: 131,
+        return CGRect(x: 116,
                       y: bounds.height / 2 - 31 / 2,
                       width: 31,
                       height: 31)
     }
     
     func fromLabelFrame() -> CGRect {
-        return CGRect(x: 15,
+        return CGRect(x: 0,
                       y: bounds.height / 2 - 12 / 2,
                       width: 15,
                       height: 15)
     }
     
     func toLabelFrame() -> CGRect {
-        return CGRect(x: 98,
+        return CGRect(x: 83,
                       y: bounds.height / 2 - 12 / 2,
                       width: 15,
                       height: 15)

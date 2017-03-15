@@ -17,16 +17,16 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     var interactor: FilterInteractorInput!
     var router: FilterRouterInput!
     
+    private var modelsConverter: FilterSectionModelsConverter!
+    
     //MARK : FilterModuleInput
     
     var viewController: UIViewController {
         return view as! UIViewController
     }
     
-    private var cellModelsConverter: FilterCellModelsConverter!
-    
     init() {
-        cellModelsConverter = FilterCellModelsConverter(withViewOutput: self)
+        modelsConverter = FilterSectionModelsConverter(withViewOutput: self)
     }
     
     //MARK : FilterViewOutput
@@ -44,28 +44,36 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapMinAgeButton(_ minAge: String) {
-        router.openAgeSelectionModule { (ageSelectionModule) in
-            ageSelectionModule.configure(initialValue: Int(minAge)!,
-                                         doneHandler: { [unowned self] (newMinAge) in
-                                            self.interactor.didSelectMinAge(newMinAge)
-                                        })
+        router.openAgeModule { (ageModule) in
+            ageModule.configure(initialValue: Int(minAge)!,
+                                doneHandler: { [unowned self] (newMinAge) in
+                                    self.interactor.didSelectMinAge(newMinAge)
+                                })
         }
     }
     
     func viewDidTapMaxAgeButton(_ maxAge: String) {
-        router.openAgeSelectionModule { (ageSelectionModule) in
-            ageSelectionModule.configure(initialValue: Int(maxAge)!,
-                                         doneHandler: { [unowned self] (newMaxAge) in
-                                            self.interactor.didSelectMaxAge(newMaxAge)
-            })
+        router.openAgeModule { (ageModule) in
+            ageModule.configure(initialValue: Int(maxAge)!,
+                                doneHandler: { [unowned self] (newMaxAge) in
+                                    self.interactor.didSelectMaxAge(newMaxAge)
+                                })
+        }
+    }
+    
+    func viewDidTapSearchBar() {
+        router.openInterestsModule { (interestsModule) in
+            interestsModule.configure(doneHandler: { (newInterest) in
+                                         self.interactor.didSelectInterest(newInterest)
+                                      })
         }
     }
     
     //MARK : FilterInteractorOutput
     
     func interactorDidGetFilterSettings(_ filterSettings: FilterSettings) {
-        let cellModels = cellModelsConverter.convertModels(withFilterSettings: filterSettings)
-        view.update(withCellModels: cellModels)
+        let sectionModels = modelsConverter.convertModels(withFilterSettings: filterSettings)
+        view.update(withSectionModels: sectionModels)
     }
 }
 

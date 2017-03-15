@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FilterViewInput {
-    func update(withCellModels cellModels: [FilterCellModel])
+    func update(withSectionModels sectionModels: [FilterSectionModel]) 
 }
 
 protocol FilterViewOutput:class {
@@ -18,9 +18,10 @@ protocol FilterViewOutput:class {
     func viewDidTapFemaleButton()
     func viewDidTapMinAgeButton(_ minAge: String)
     func viewDidTapMaxAgeButton(_ maxAge: String)
+    func viewDidTapSearchBar()
 }
 
-class FilterViewController: UIViewController, FilterViewInput {
+class FilterViewController: ViewController, FilterViewInput {
     weak var output:FilterViewOutput!
     
     private let tableView: UITableView!
@@ -33,9 +34,9 @@ class FilterViewController: UIViewController, FilterViewInput {
 
         super.init(nibName: nil, bundle: nil)
         
-        tableView.backgroundColor = DesignBook.Colors.background
-        tableView.separatorStyle = .none
-        tableView.layer.cornerRadius = 4
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = .zero
+        tableView.backgroundColor = .clear
         tableView.bounces = false
         
         dataDisplayManager.register(in: tableView)
@@ -49,22 +50,24 @@ class FilterViewController: UIViewController, FilterViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
-        view.backgroundColor = .white
-
+        container.addSubview(tableView)
+        
         output.viewDidLoad()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let layout = Layout(bounds: view.bounds)
+        let layout = Layout(bounds: container.bounds)
         tableView.frame = layout.tableViewFrame()
+        tableView.contentInset = layout.tableViewContentInset()
+        tableView.sizeToFit()
+        adjustContainerSize(withSize: tableView.frame.size)
     }
     
     //MARK : FilterViewInput
     
-    func update(withCellModels cellModels: [FilterCellModel]) {
-        dataDisplayManager.setup(withCellModels: cellModels)
+    func update(withSectionModels sectionModels: [FilterSectionModel]) {
+        dataDisplayManager.setup(withSectionModels: sectionModels)
     }
 }
 
@@ -72,10 +75,17 @@ fileprivate struct Layout {
     let bounds: CGRect
     
     func tableViewFrame() -> CGRect {
-        return CGRect(x: 15,
-                      y: 20,
-                      width: bounds.width - 15 * 2,
-                      height: bounds.height - 20 * 2)
+        return CGRect(x: 0,
+                      y: 0,
+                      width: bounds.width,
+                      height: bounds.height)
+    }
+    
+    func tableViewContentInset() -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0,
+                            left: 0,
+                            bottom: 0,
+                            right: 0)
     }
 }
 

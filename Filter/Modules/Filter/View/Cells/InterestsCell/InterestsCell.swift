@@ -9,10 +9,7 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let cellIdentifier    = "InterestsCell"
-    static let footerTitle       = "интересы"
-    static let footerIdentifier  = "FilterTableViewFooter"
-    static let headerTitle       = "выберите хэштег для поиска похожих интересов или использовать панель поиска"
+    static let cellIdentifier = "InterestsCell"
 }
 
 struct InterestsCellModel: FilterCellModel {
@@ -22,33 +19,31 @@ struct InterestsCellModel: FilterCellModel {
     var cellClass: AnyClass {
         return InterestsCell.self
     }
-    var footerTitle: String {
-        return Constants.footerTitle
-    }
-    var footerClass: AnyClass {
-        return FilterTableViewFooter.self
-    }
-    var footerIdentifier: String {
-        return Constants.footerIdentifier
-    }
-    var headerTitle: String {
-        return Constants.headerTitle
-    }
     let interests: [String]
 }
 
-class InterestsCell: UITableViewCell, FilterCell, FitViewDataSource {
-    private let fitView: FitView
-    private var interests: [String]
+class InterestsCell: UITableViewCell, FilterCell, UISearchBarDelegate {
+    private let interestsView: UICollectionView
+    private let dataDisplayManager: InterestsDataDisplayManager
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        fitView = FitView(frame: .zero)
-        interests = []
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 5
+        interestsView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
+        dataDisplayManager = InterestsDataDisplayManager()
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        fitView.dataSource = self
-        addSubview(fitView)
+
+        interestsView.backgroundColor = .clear
+        dataDisplayManager.register(in: interestsView)
+
+        contentView.addSubview(interestsView)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        interestsView.frame = .zero
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,44 +52,27 @@ class InterestsCell: UITableViewCell, FilterCell, FitViewDataSource {
     
     override func layoutSubviews() {
         let layout = Layout(bounds: bounds)
-        fitView.frame = layout.fitViewFrame()
+        interestsView.frame = layout.interestsViewFrame()
+        interestsView.frame.size = interestsView.collectionViewLayout.collectionViewContentSize
+        frame.size.height = interestsView.frame.size.height
     }
     
     //MARK : FilterCell
     
     func configure(withCellModel cellModel: FilterCellModel) {
         let model = cellModel as! InterestsCellModel
-        interests = model.interests
-        fitView.reloadData()
-    }
-    
-    //MARK : FitViewDataSource
-    
-    func numberOfItems(in fitView: FitView) -> Int {
-        return interests.count
-    }
-    func fitView(_ fitView: FitView, heightForItemAtIndex index: Int) -> CGFloat {
-        return 29
-    }
-    
-    func fitView(_ fitView: FitView, titleForItemAtIndex index: Int) -> String {
-        return interests[index]
-    }
-    
-    func fitView(_ fitView: FitView, colorForNormalStateItemAtIndex index: Int) -> UIColor {
-        return DesignBook.Colors.primary
-    }
-    
-    func fitView(_ fitView: FitView, colorForSelectedItemAtIndex index: Int) -> UIColor {
-        return DesignBook.Colors.selected
+        
+        dataDisplayManager.setup(withCellModels: model.interests)
     }
 }
 
 fileprivate struct Layout {
     let bounds: CGRect
     
-    func fitViewFrame() -> CGRect {
-        return bounds
+    func interestsViewFrame() -> CGRect {
+        return CGRect(x: 0,
+                      y: 0,
+                      width: bounds.width,
+                      height: bounds.height)
     }
 }
-

@@ -14,6 +14,7 @@ protocol FilterInteractorInput {
     func didSelectFemale()
     func didSelectMinAge(_ minAge: Int)
     func didSelectMaxAge(_ maxAge: Int)
+    func didSelectInterest(_ interest: String)
 }
 
 protocol FilterInteractorOutput:class {
@@ -68,5 +69,9 @@ class FilterInteractor: FilterInteractorInput {
     
     func didSelectMaxAge(_ maxAge: Int) {
         currentFilterSettings.maxAge = maxAge
+    }
+    
+    func didSelectInterest(_ interest: String) {
+        currentFilterSettings.interests.append(interest)
     }
 }
