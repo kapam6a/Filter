@@ -8,12 +8,12 @@
 
 import Foundation
 
-class AgeSelectionAssembly {
-    func createAgeSelectionModule() -> AgeSelectionModule {
-        let vc = AgeSelectionViewController()
-        let presenter = AgeSelectionPresenter()
-        let interactor = AgeSelectionInteractor()
-        let router = AgeSelectionRouter()
+class AgeAssembly {
+    func createAgeModule() -> AgeModule {
+        let vc = AgeViewController()
+        let presenter = AgePresenter()
+        let interactor = AgeInteractor()
+        let router = AgeRouter()
         
         vc.output = presenter
         

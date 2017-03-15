@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol AgeSelectionRouterInput {
+protocol AgeRouterInput {
     func closeModule()
 }
 
-class AgeSelectionRouter: AgeSelectionRouterInput {
+class AgeRouter: AgeRouterInput {
     weak var viewController: UIViewController!
     
-    //MARK : FilterRouterInput
+    //MARK : AgeRouterInput
     
     func closeModule() {
         viewController.dismiss(animated: true, completion:nil)

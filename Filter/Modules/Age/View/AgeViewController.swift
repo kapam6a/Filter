@@ -8,25 +8,23 @@
 
 import UIKit
 
-protocol AgeSelectionViewInput {
+protocol AgeViewInput {
     func update(withValue initialValue: Int)
 }
 
-protocol AgeSelectionViewOutput: class {
+protocol AgeViewOutput: class {
     func viewDidLoad()
 }
 
-class AgeSelectionViewController:UIViewController, AgeSelectionViewInput {
-    weak var output: AgeSelectionViewOutput!
+class AgeViewController:ViewController, AgeViewInput {
+    var output: AgeViewOutput!
     
-    private let ageScaleView: ValueScaleView
+    private let meterView: MeterView
     
     init() {
-        ageScaleView = ValueScaleView(frame: .zero)
+        meterView = MeterView(frame: .zero, numberOfItems: 100)
         
         super.init(nibName: nil, bundle: nil)
-        
-        ageScaleView.backgroundColor = DesignBook.Colors.background
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,21 +33,21 @@ class AgeSelectionViewController:UIViewController, AgeSelectionViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(ageScaleView)
+        container.addSubview(meterView)
         
         output.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let layout = Layout(bounds: view.bounds)
-        ageScaleView.frame = layout.ageScaleViewFrame()
+        let layout = Layout(bounds: container.bounds)
+        meterView.frame = layout.ageScaleViewFrame()
     }
     
-    //MARK : AgeSelectionViewInput
+    //MARK : AgeViewInput
     
     func update(withValue initialValue: Int) {
-        ageScaleView.value = initialValue
+        meterView.setupValue(initialValue)
     }
 }
 
@@ -60,3 +58,4 @@ fileprivate struct Layout {
         return bounds
     }
 }
+

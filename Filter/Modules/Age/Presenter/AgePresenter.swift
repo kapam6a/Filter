@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol AgeSelectionModule: class {
+protocol AgeModule: class {
     var viewController: UIViewController { get }
     func configure(initialValue: Int, doneHandler: @escaping (Int) -> Void)
 }
 
-class AgeSelectionPresenter: AgeSelectionViewOutput, AgeSelectionModule, AgeSelectionInteractorOutput {
-    var view: AgeSelectionViewInput!
-    var interactor: AgeSelectionInteractorInput!
-    var router: AgeSelectionRouterInput!
+class AgePresenter: AgeViewOutput, AgeModule, AgeInteractorOutput {
+    var view: AgeViewInput!
+    var interactor: AgeInteractorInput!
+    var router: AgeRouterInput!
     
     private var initialValue: Int
     private var doneHandler: ((Int) -> Void)!
@@ -25,7 +25,7 @@ class AgeSelectionPresenter: AgeSelectionViewOutput, AgeSelectionModule, AgeSele
         initialValue = 0
     }
     
-    //MARK : AgeSelectionModule
+    //MARK : AgeModule
     
     var viewController: UIViewController {
         return view as! UIViewController
@@ -36,7 +36,7 @@ class AgeSelectionPresenter: AgeSelectionViewOutput, AgeSelectionModule, AgeSele
         self.doneHandler = doneHandler
     }
     
-    //MARK : AgeSelectionViewOutput
+    //MARK : AgeViewOutput
     
     func viewDidLoad() {
         view.update(withValue: initialValue)
