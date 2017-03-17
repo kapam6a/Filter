@@ -10,53 +10,54 @@ import UIKit
 import AudioToolbox
 
 class MeterView: UIView {
-    private let scaleView: ScaleView
+    private let wheelView: WheelView
     private let valueLabel: UILabel
-        
+    
+    private var currentIndex: Int
+    private var numberOfItems: Int
+    
     init(frame: CGRect, numberOfItems:Int) {
-        scaleView = ScaleView(frame: .zero, numberOfItems: numberOfItems)
+        wheelView = WheelView(frame: .zero, numberOfItems: numberOfItems)
         valueLabel = UILabel(frame: .zero)
+        
+        currentIndex = 0
+        self.numberOfItems = numberOfItems
         
         super.init(frame: frame)
         
         clipsToBounds = true
 
-        valueLabel.textColor = DesignBook.Colors.selected
-        valueLabel.font = DesignBook.Fonts.thirtySizeSystemFontRegular
+        valueLabel.textColor = DesignBook.Colors.avtWhite
+        valueLabel.font = DesignBook.Fonts.avtTextStyle5
         addSubview(valueLabel)
 
-        addSubview(scaleView)
+        addSubview(wheelView)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var toggle = true
-    
     override func layoutSubviews() {
-        if (!toggle) {
-            return
-        }
-        let layout = Layout(bounds: self.bounds)
-        scaleView.frame = layout.scaleViewFrame()
+        let layout = Layout(bounds: bounds)
+        wheelView.frame = layout.wheelViewFrame()
         valueLabel.frame = layout.valueLabelFrame()
-        toggle = false
     }
     
     //MARK : UIResponder
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scaleView.rotateToNextItem()
-        AudioServicesPlaySystemSound(1306)
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touchPoint = touches.first!.location(in: self)
-        let previousTouchPoint = touches.first!.previousLocation(in: self)
-        let angle = atan2(touchPoint.y - scaleView.center.y, touchPoint.x - scaleView.center.x)  - atan2(previousTouchPoint.y - scaleView.center.y, previousTouchPoint.x - scaleView.center.x)
-        scaleView.transform = scaleView.transform.rotated(by: angle)
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let nextIndex = (currentIndex + 1) % numberOfItems
+//        wheelView.rotateToItem(atIndex: nextIndex)
+//        currentIndex = nextIndex
+//    }
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        AudioServicesPlaySystemSound(1306)
+//        let touchPoint = touches.first!.location(in: self)
+//        let previousTouchPoint = touches.first!.previousLocation(in: self)
+//        wheelView.rotate(fromPoint: previousTouchPoint, toPoint: touchPoint)
+//    }
     
     //MARK : Public
     
@@ -68,7 +69,7 @@ class MeterView: UIView {
 fileprivate struct Layout {
     let bounds: CGRect
     
-    func scaleViewFrame() -> CGRect {
+    func wheelViewFrame() -> CGRect {
         return CGRect(x: self.bounds.width / 2,
                       y: 0,
                       width: self.bounds.height,

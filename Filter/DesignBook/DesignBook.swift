@@ -8,19 +8,26 @@
 
 import UIKit
 
-final class DesignBook {
+final class DesignBook {    
     final class Colors {
-        static let background = UIColor(red: 3 / 255.0, green: 26 / 255.0, blue: 189 / 255.0, alpha: 1.0)
-        static let selected = UIColor.white
-        static let primary = UIColor(red: 69 / 255.0, green: 192 / 255.0, blue: 241 / 255.0, alpha: 1.0)
-        static let secondary = UIColor(red: 37 / 255.0, green: 115 / 255.0, blue: 191 / 255.0, alpha: 1.0)
+        static let avtDarkSkyBlue = UIColor(red: 69.0 / 255.0, green: 192.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+        static let avtWhite = UIColor(white: 255.0 / 255.0, alpha: 1.0)
+        static let avtBlueBlue = UIColor(red: 22.0 / 255.0, green: 83.0 / 255.0, blue: 203.0 / 255.0, alpha: 1.0)
+        static let avtTwilightBlue = UIColor(red: 11.0 / 255.0, green: 42.0 / 255.0, blue: 106.0 / 255.0, alpha: 1.0)
+        static let avtWarmBlue = UIColor(red: 62.0 / 255.0, green: 82.0 / 255.0, blue: 207.0 / 255.0, alpha: 1.0)
+        static let avtBluish = UIColor(red: 37.0 / 255.0, green: 115.0 / 255.0, blue: 191.0 / 255.0, alpha: 1.0)
+        static let avtBlurple = UIColor(red: 61.0 / 255.0, green: 54.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+        static let avtSalmon = UIColor(red: 255.0 / 255.0, green: 120.0 / 255.0, blue: 120.0 / 255.0, alpha: 1.0)
+        static let avtWindowsBlue = UIColor(red: 63.0 / 255.0, green: 128.0 / 255.0, blue: 203.0 / 255.0, alpha: 1.0)
+        static let avtSkyBlue = UIColor(red: 93.0 / 255.0, green: 173.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
     
     final class Fonts {
-        static let elevenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 11, weight: UIFontWeightMedium)
-        static let tenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 10, weight: UIFontWeightMedium)
-        static let thirteenSizeSystemFontMedium = UIFont.monospacedDigitSystemFont(ofSize: 13, weight: UIFontWeightMedium)
-        static let tableViewFooterFont = UIFont.monospacedDigitSystemFont(ofSize: 9, weight: UIFontWeightMedium)
-        static let thirtySizeSystemFontRegular = UIFont.monospacedDigitSystemFont(ofSize: 30, weight: UIFontWeightRegular)
+        static let avtTextStyle6 = UIFont.systemFont(ofSize: 17.0, weight: UIFontWeightMedium)
+        static let avtTextStyle5 = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightMedium)
+        static let avtTextStyle4 = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightMedium)
+        static let avtTextStyle3 = UIFont.systemFont(ofSize: 11.0, weight: UIFontWeightMedium)
+        static let avtTextStyle2 = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightMedium)
+        static let avtTextStyle1 = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightMedium)
     }
 }

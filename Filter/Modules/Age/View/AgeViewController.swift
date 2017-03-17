@@ -17,7 +17,7 @@ protocol AgeViewOutput: class {
 }
 
 class AgeViewController:ViewController, AgeViewInput {
-    var output: AgeViewOutput!
+    weak var output: AgeViewOutput!
     
     private let meterView: MeterView
     

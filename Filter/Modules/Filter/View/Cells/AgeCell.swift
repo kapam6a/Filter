@@ -47,26 +47,26 @@ class AgeCell: UITableViewCell, FilterCell {
         
         minAgeButton.addTarget(self, action: #selector(didTapMinAgeButton(_ :)), for: .touchUpInside)
         minAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
-        minAgeButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
-        minAgeButton.titleLabel!.font = DesignBook.Fonts.thirteenSizeSystemFontMedium
+        minAgeButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
+        minAgeButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(minAgeButton)
         
         maxAgeButton.addTarget(self, action: #selector(didTapMaxAgeButton(_ :)), for: .touchUpInside)
         maxAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
-        maxAgeButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
-        maxAgeButton.titleLabel!.font = DesignBook.Fonts.thirteenSizeSystemFontMedium
+        maxAgeButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
+        maxAgeButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(maxAgeButton)
         
         fromLabel.text = Constants.fromLabelTitle
-        fromLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
+        fromLabel.font = DesignBook.Fonts.avtTextStyle2
         fromLabel.textAlignment = .left
-        fromLabel.textColor = DesignBook.Colors.secondary
+        fromLabel.textColor = DesignBook.Colors.avtBluish
         contentView.addSubview(fromLabel)
         
         toLabel.text = Constants.toLabelTitle
-        toLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
+        toLabel.font = DesignBook.Fonts.avtTextStyle2
         toLabel.textAlignment = .center
-        toLabel.textColor = DesignBook.Colors.secondary
+        toLabel.textColor = DesignBook.Colors.avtBluish
         contentView.addSubview(toLabel)
     }
     

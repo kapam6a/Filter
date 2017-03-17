@@ -11,6 +11,7 @@ import UIKit
 protocol FilterRouterInput {
     func openAgeModule(_ callback: (AgeModule) -> Void)
     func openInterestsModule(_ callback: (NewInterestsModule) -> Void)
+    func openMapSearchModule(_ callback: (MapSearchModule) -> Void)
 }
 
 class FilterRouter: FilterRouterInput {
@@ -27,8 +28,12 @@ class FilterRouter: FilterRouterInput {
     func openInterestsModule(_ callback: (NewInterestsModule) -> Void) {
         let newInterestsModule = NewInterestsAssembly().createNewInterestsModule()
         callback(newInterestsModule)
-        let vc = newInterestsModule.viewController
-        vc.modalPresentationStyle = .overCurrentContext
         viewController.navigationController!.pushViewController(newInterestsModule.viewController, animated: true)
+    }
+    
+    func openMapSearchModule(_ callback: (MapSearchModule) -> Void) {
+        let mapSearchModule = MapSearchAssembly().createMapSearchModule()
+        callback(mapSearchModule)
+        viewController.navigationController!.pushViewController(mapSearchModule.viewController, animated: true)
     }
 }

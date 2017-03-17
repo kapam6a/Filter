@@ -17,15 +17,7 @@ class NewInterestsCellModelsConverter {
     
     func convertModels(withInterests interests: [InterestsEntity]) -> [NewInterestsCellModel]{
         var cellModels: [NewInterestsCellModel] = []
-        
-        let searchCellModel = NewInterestsSearchCellModel(buttonTitle: "Закрыть",
-                                                          textFieldAction: { newSearchText in
-                                                                                self.viewOutput.viewDidChange(searchText: newSearchText)
-                                                                            }) {
-                                                                                self.viewOutput.viewDidTapCloseButton()
-                                                                            }
-        cellModels.append(searchCellModel)
-        
+                
         for entity in interests {
             let cellModel = AddInterestCellModel(name: entity.name,
                                                  plusButtonAction: { title in

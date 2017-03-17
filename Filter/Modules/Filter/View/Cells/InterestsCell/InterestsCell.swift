@@ -51,10 +51,10 @@ class InterestsCell: UITableViewCell, FilterCell, UISearchBarDelegate {
     }
     
     override func layoutSubviews() {
-        let layout = Layout(bounds: bounds)
+        let layout = Layout(bounds: contentView.bounds)
         interestsView.frame = layout.interestsViewFrame()
-        interestsView.frame.size = interestsView.collectionViewLayout.collectionViewContentSize
-        frame.size.height = interestsView.frame.size.height
+//        interestsView.frame.size = interestsView.collectionViewLayout.collectionViewContentSize
+//        frame.size.height = interestsView.frame.size.height
     }
     
     //MARK : FilterCell

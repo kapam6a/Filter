@@ -19,27 +19,42 @@ protocol FilterViewOutput:class {
     func viewDidTapMinAgeButton(_ minAge: String)
     func viewDidTapMaxAgeButton(_ maxAge: String)
     func viewDidTapSearchBar()
+    func viewDidTapMapButton()
 }
 
 class FilterViewController: ViewController, FilterViewInput {
     weak var output:FilterViewOutput!
     
-    private let tableView: UITableView!
+    private let tableView: UITableView
     private let dataDisplayManager: FilterDataDisplayManager
+    
+    private let doneButton: UIButton
 
     init() {
         tableView = UITableView(frame: .zero, style: .grouped)
- 
         dataDisplayManager = FilterDataDisplayManager()
+        
+        doneButton = UIButton(type: .custom)
 
         super.init(nibName: nil, bundle: nil)
-        
-        tableView.separatorStyle = .singleLine
-        tableView.separatorInset = .zero
+    
         tableView.backgroundColor = .clear
         tableView.bounces = false
         
         dataDisplayManager.register(in: tableView)
+        
+        doneButton.backgroundColor = DesignBook.Colors.avtBlurple
+        doneButton.setTitle("Готово", for: .normal)
+        doneButton.setTitleColor(DesignBook.Colors.avtWhite, for: .normal)
+        doneButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle4
+        
+        navigationItem.title = "поиск"
+        
+        let mapBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigation_item_search_icon"),
+                                               style: .plain,
+                                               target: self,
+                                               action: #selector(didTapMapBarButtonItem(_ :)))
+        navigationItem.setRightBarButton(mapBarButtonItem, animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +66,7 @@ class FilterViewController: ViewController, FilterViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         container.addSubview(tableView)
+        container.addSubview(doneButton)
         
         output.viewDidLoad()
     }
@@ -59,15 +75,19 @@ class FilterViewController: ViewController, FilterViewInput {
         super.viewDidLayoutSubviews()
         let layout = Layout(bounds: container.bounds)
         tableView.frame = layout.tableViewFrame()
-        tableView.contentInset = layout.tableViewContentInset()
-        tableView.sizeToFit()
-        adjustContainerSize(withSize: tableView.frame.size)
+        doneButton.frame = layout.doneButtonFrame()
     }
     
     //MARK : FilterViewInput
     
     func update(withSectionModels sectionModels: [FilterSectionModel]) {
         dataDisplayManager.setup(withSectionModels: sectionModels)
+    }
+    
+    //MARK : Actions
+    
+    func didTapMapBarButtonItem(_ sender: UIBarButtonItem) {
+        output.viewDidTapMapButton()
     }
 }
 
@@ -82,10 +102,15 @@ fileprivate struct Layout {
     }
     
     func tableViewContentInset() -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0,
-                            left: 0,
-                            bottom: 0,
-                            right: 0)
+        return .zero
     }
+    
+    func doneButtonFrame() -> CGRect {
+        return CGRect(x: 0,
+                      y: bounds.height - 49,
+                      width: bounds.width,
+                      height: 49)
+    }
+
 }
 

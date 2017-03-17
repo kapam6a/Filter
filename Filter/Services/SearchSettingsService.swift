@@ -26,6 +26,7 @@ class SearchSettingsServiceImpl: SearchSettingsService{
                                     female: true,
                                     minAge: 26,
                                     maxAge: 33,
-                                    interests: ["witch-house", "rapcore", "dogs", "auto - layout", "horror - movie"])
+                                    interests: ["witch-house", "rapcore", "dogs", "auto - layout", "horror - movie",
+                                                "play", "cards", "weather", "black tea", "chocolate"])
     }
 }

@@ -19,6 +19,10 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     
     private var modelsConverter: FilterSectionModelsConverter!
     
+    private var ageModule: AgeModule?
+    private var newInterestsModule: NewInterestsModule?
+    private var mapSearchModule: MapSearchModule?
+    
     //MARK : FilterModuleInput
     
     var viewController: UIViewController {
@@ -45,27 +49,42 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     
     func viewDidTapMinAgeButton(_ minAge: String) {
         router.openAgeModule { (ageModule) in
+            self.ageModule = ageModule
             ageModule.configure(initialValue: Int(minAge)!,
                                 doneHandler: { [unowned self] (newMinAge) in
                                     self.interactor.didSelectMinAge(newMinAge)
-                                })
+                                    self.ageModule = nil
+            })
         }
     }
     
     func viewDidTapMaxAgeButton(_ maxAge: String) {
         router.openAgeModule { (ageModule) in
+            self.ageModule = ageModule
             ageModule.configure(initialValue: Int(maxAge)!,
                                 doneHandler: { [unowned self] (newMaxAge) in
                                     self.interactor.didSelectMaxAge(newMaxAge)
-                                })
+                                    self.ageModule = nil
+            })
         }
     }
     
     func viewDidTapSearchBar() {
-        router.openInterestsModule { (interestsModule) in
-            interestsModule.configure(doneHandler: { (newInterest) in
-                                         self.interactor.didSelectInterest(newInterest)
-                                      })
+        router.openInterestsModule { (newInterestsModule) in
+            self.newInterestsModule = newInterestsModule
+            newInterestsModule.configure(doneHandler: { (newInterest) in
+                self.interactor.didSelectInterest(newInterest)
+                self.newInterestsModule = nil
+            })
+        }
+    }
+    
+    func viewDidTapMapButton() {
+        router.openMapSearchModule { (mapSearchModule) in
+            self.mapSearchModule = mapSearchModule
+            mapSearchModule.configure(doneHandler: { (newInterest) in
+                self.mapSearchModule = nil
+            })
         }
     }
     

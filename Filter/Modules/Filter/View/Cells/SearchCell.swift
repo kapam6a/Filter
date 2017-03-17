@@ -32,12 +32,12 @@ class SearchCell: UITableViewCell, FilterCell, UITextFieldDelegate {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         loupe = UIImageView(image: #imageLiteral(resourceName: "search_icon"))
         textField = UITextField(frame: .zero)
-        
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         textField.attributedPlaceholder = NSAttributedString(string: Constants.title,
-                                                             attributes: [NSForegroundColorAttributeName: DesignBook.Colors.secondary,
-                                                                          NSFontAttributeName:DesignBook.Fonts.elevenSizeSystemFontMedium])
+                                                             attributes: [NSForegroundColorAttributeName: DesignBook.Colors.avtBluish,
+                                                                          NSFontAttributeName:DesignBook.Fonts.avtTextStyle3])
         textField.delegate = self
         contentView.addSubview(textField)
         
@@ -49,7 +49,7 @@ class SearchCell: UITableViewCell, FilterCell, UITextFieldDelegate {
     }
     
     override func layoutSubviews() {
-        let layout = Layout(bounds: bounds)
+        let layout = Layout(bounds: contentView.bounds)
         loupe.frame = layout.loupeFrame()
         textField.frame = layout.textFieldFrame()
     }
@@ -80,7 +80,7 @@ fileprivate struct Layout {
     }
     
     func textFieldFrame() -> CGRect {
-        let x = loupeFrame().width + 10
+        let x = loupeFrame().maxX + 10
         return CGRect(x: x ,
                       y: 0,
                       width: bounds.width - x,

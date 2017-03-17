@@ -39,7 +39,7 @@ class InterestsDataDisplayManager:NSObject, UICollectionViewDelegate, UICollecti
     //MARK : UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let textSize = cellModels[indexPath.row].size(attributes: [NSFontAttributeName: DesignBook.Fonts.elevenSizeSystemFontMedium])
+        let textSize = cellModels[indexPath.row].size(attributes: [NSFontAttributeName: DesignBook.Fonts.avtTextStyle3])
         return CGSize(width: textSize.width + 10, height: textSize.height + 8)
     }
 }

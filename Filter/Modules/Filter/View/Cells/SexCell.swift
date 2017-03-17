@@ -49,24 +49,24 @@ class SexCell: UITableViewCell, FilterCell {
         femaleButton.setImage(#imageLiteral(resourceName: "female_icon_normal"), for: .normal)
         femaleButton.setImage(#imageLiteral(resourceName: "female_icon_selected"), for: .selected)
         femaleButton.setTitle(Constants.femaleButtonTitle, for: .normal)
-        femaleButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
-        femaleButton.setTitleColor(DesignBook.Colors.selected, for: .selected)
-        femaleButton.titleLabel!.font = DesignBook.Fonts.elevenSizeSystemFontMedium
+        femaleButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
+        femaleButton.setTitleColor(DesignBook.Colors.avtWhite, for: .selected)
+        femaleButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(femaleButton)
         
         maleButton.addTarget(self, action: #selector(didTapMaleButton(_ :)), for: .touchUpInside)
         maleButton.setImage(#imageLiteral(resourceName: "male_icon_normal"), for: .normal)
         maleButton.setImage(#imageLiteral(resourceName: "male_icon_selected"), for: .selected)
         maleButton.setTitle(Constants.maleButtonTitle, for: .normal)
-        maleButton.setTitleColor(DesignBook.Colors.primary, for: .normal)
-        maleButton.setTitleColor(DesignBook.Colors.selected, for: .selected)
-        maleButton.titleLabel!.font = DesignBook.Fonts.elevenSizeSystemFontMedium
+        maleButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
+        maleButton.setTitleColor(DesignBook.Colors.avtWhite, for: .selected)
+        maleButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(maleButton)
 
         middleLabel.text = Constants.middleLabelTitle
-        middleLabel.font = DesignBook.Fonts.tenSizeSystemFontMedium
+        middleLabel.font = DesignBook.Fonts.avtTextStyle2
         middleLabel.textAlignment = .center
-        middleLabel.textColor = DesignBook.Colors.secondary
+        middleLabel.textColor = DesignBook.Colors.avtBluish
         contentView.addSubview(middleLabel)
     }
     

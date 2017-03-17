@@ -52,6 +52,7 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
+        cell.contentView.frame = CGRect(x: 15, y: 0, width: cell.contentView.frame.width - 15 * 2, height: cell.contentView.frame.height )
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
@@ -60,8 +61,8 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = DesignBook.Fonts.tableViewFooterFont
-        header.textLabel?.textColor = DesignBook.Colors.secondary
+        header.textLabel?.font = DesignBook.Fonts.avtTextStyle1
+        header.textLabel?.textColor = DesignBook.Colors.avtBluish
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -70,8 +71,8 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         let footer = view as! UITableViewHeaderFooterView
-        footer.textLabel?.font = DesignBook.Fonts.tableViewFooterFont
-        footer.textLabel?.textColor = DesignBook.Colors.secondary
+        footer.textLabel?.font = DesignBook.Fonts.avtTextStyle1
+        footer.textLabel?.textColor = DesignBook.Colors.avtBluish
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
@@ -83,5 +84,11 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! FilterCell
         cell.configure(withCellModel: cellModel)
         return cell as! UITableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let height: CGFloat = 44
+        return height
     }
 }

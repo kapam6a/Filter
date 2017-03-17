@@ -18,6 +18,6 @@ class NewInterestsRouter: NewInterestsRouterInput {
     //MARK : NewInterestsRouterInput
     
     func closeModule() {
-        viewController.navigationController?.popViewController(animated: true)
+        let _ = viewController.navigationController?.popViewController(animated: true)
     }
 }

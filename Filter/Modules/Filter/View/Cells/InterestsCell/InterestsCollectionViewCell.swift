@@ -16,12 +16,12 @@ class InterestsCollectionViewCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        layer.borderColor = DesignBook.Colors.primary.cgColor
+        layer.borderColor = DesignBook.Colors.avtDarkSkyBlue.cgColor
         layer.borderWidth = 1
         
-        titleLabel.textColor = DesignBook.Colors.primary
+        titleLabel.textColor = DesignBook.Colors.avtDarkSkyBlue
         titleLabel.textAlignment = .center
-        titleLabel.font = DesignBook.Fonts.elevenSizeSystemFontMedium
+        titleLabel.font = DesignBook.Fonts.avtTextStyle3
         
         addSubview(titleLabel)
     }

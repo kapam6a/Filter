@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: rootModule.viewController)
         window?.makeKeyAndVisible()
+        
+        GMSServices.provideAPIKey("AIzaSyBskBANCZoBNNDLMhkVbmU1wjLCnEdlmTc")
         
         return true
     }
