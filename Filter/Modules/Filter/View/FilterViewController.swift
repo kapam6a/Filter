@@ -16,10 +16,11 @@ protocol FilterViewOutput:class {
     func viewDidLoad()
     func viewDidTapMaleButton()
     func viewDidTapFemaleButton()
-    func viewDidTapMinAgeButton(_ minAge: String)
-    func viewDidTapMaxAgeButton(_ maxAge: String)
+    func viewDidTapMinAgeButton(_ minAge: Int)
+    func viewDidTapMaxAgeButton(_ maxAge: Int)
     func viewDidTapSearchBar()
     func viewDidTapMapButton()
+    func viewDidTapDoneButton()
 }
 
 class FilterViewController: ViewController, FilterViewInput {
@@ -33,7 +34,7 @@ class FilterViewController: ViewController, FilterViewInput {
     init() {
         tableView = UITableView(frame: .zero, style: .grouped)
         dataDisplayManager = FilterDataDisplayManager()
-        
+
         doneButton = UIButton(type: .custom)
 
         super.init(nibName: nil, bundle: nil)
@@ -47,6 +48,9 @@ class FilterViewController: ViewController, FilterViewInput {
         doneButton.setTitle("Готово", for: .normal)
         doneButton.setTitleColor(DesignBook.Colors.avtWhite, for: .normal)
         doneButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle4
+        doneButton.addTarget(self,
+                             action: #selector(didTapDoneButton),
+                             for: .touchUpInside)
         
         navigationItem.title = "поиск"
         
@@ -82,12 +86,17 @@ class FilterViewController: ViewController, FilterViewInput {
     
     func update(withSectionModels sectionModels: [FilterSectionModel]) {
         dataDisplayManager.setup(withSectionModels: sectionModels)
+        tableView.reloadData()
     }
     
     //MARK : Actions
     
     func didTapMapBarButtonItem(_ sender: UIBarButtonItem) {
         output.viewDidTapMapButton()
+    }
+    
+    func didTapDoneButton(_ sender: UIButton) {
+        output.viewDidTapDoneButton()
     }
 }
 

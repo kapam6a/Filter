@@ -15,8 +15,8 @@ class NewInterestsCellModelsConverter {
         self.viewOutput = viewOutput
     }
     
-    func convertModels(withInterests interests: [InterestsEntity]) -> [NewInterestsCellModel]{
-        var cellModels: [NewInterestsCellModel] = []
+    func convertModels(withInterests interests: [InterestsEntity]) -> [BasicTableViewCellModel]{
+        var cellModels: [BasicTableViewCellModel] = []
                 
         for entity in interests {
             let cellModel = AddInterestCellModel(name: entity.name,

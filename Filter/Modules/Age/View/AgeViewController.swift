@@ -9,22 +9,37 @@
 import UIKit
 
 protocol AgeViewInput {
+    func update(withCellModels cellModels: [WheelCollectionViewCellModel])
     func update(withValue initialValue: Int)
 }
 
 protocol AgeViewOutput: class {
     func viewDidLoad()
+    func viewDidSelect(age: Int)
 }
 
 class AgeViewController:ViewController, AgeViewInput {
     weak var output: AgeViewOutput!
     
-    private let meterView: MeterView
+    private let wheelCollectionView: WheelCollectionView
+    
+    private var dataDisplayManager: WheelDataDisplayManager
+    
+    private let valueLabel: UILabel
     
     init() {
-        meterView = MeterView(frame: .zero, numberOfItems: 100)
+        wheelCollectionView = WheelCollectionView(frame: .zero, collectionViewLayout: WheelCollectionViewLayout())
+        dataDisplayManager = WheelDataDisplayManager()
+        
+        valueLabel = UILabel(frame: .zero)
         
         super.init(nibName: nil, bundle: nil)
+        
+        wheelCollectionView.backgroundColor = .clear
+        dataDisplayManager.register(in: wheelCollectionView)
+        
+        valueLabel.textColor = DesignBook.Colors.avtWhite
+        valueLabel.font = DesignBook.Fonts.avtTextStyle5
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +48,8 @@ class AgeViewController:ViewController, AgeViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        container.addSubview(meterView)
+        container.addSubview(wheelCollectionView)
+        container.addSubview(valueLabel)
         
         output.viewDidLoad()
     }
@@ -41,21 +57,33 @@ class AgeViewController:ViewController, AgeViewInput {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let layout = Layout(bounds: container.bounds)
-        meterView.frame = layout.ageScaleViewFrame()
+        wheelCollectionView.frame = layout.wheelCollectionViewFrame()
+        valueLabel.frame = layout.valueLabelFrame()
     }
     
     //MARK : AgeViewInput
     
+    func update(withCellModels cellModels: [WheelCollectionViewCellModel]) {
+        dataDisplayManager.setup(withCellModels: cellModels)
+    }
+    
     func update(withValue initialValue: Int) {
-        meterView.setupValue(initialValue)
+        valueLabel.text = String(initialValue)
     }
 }
 
 fileprivate struct Layout {
     let bounds: CGRect
     
-    func ageScaleViewFrame() -> CGRect {
+    func wheelCollectionViewFrame() -> CGRect {
         return bounds
+    }
+    
+    func valueLabelFrame() -> CGRect {
+        return CGRect(x: bounds.width / 5,
+                      y: bounds.height / 2 - 30 / 2,
+                      width: 30,
+                      height: 30)
     }
 }
 

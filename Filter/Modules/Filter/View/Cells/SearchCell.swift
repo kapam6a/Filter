@@ -13,7 +13,7 @@ fileprivate struct Constants {
     static let title           = "Поиск по интересам"
 }
 
-struct SearchCellModel: FilterCellModel {
+struct SearchCellModel: BasicTableViewCellModel {
     var cellIdentifier: String {
         return Constants.cellIdentifier
     }
@@ -23,7 +23,7 @@ struct SearchCellModel: FilterCellModel {
     let searchCellAction: () -> Void
 }
 
-class SearchCell: UITableViewCell, FilterCell, UITextFieldDelegate {
+class SearchCell: UITableViewCell, BasicTableViewCell, UITextFieldDelegate {
     private let loupe: UIImageView
     private let textField: UITextField
     
@@ -54,9 +54,9 @@ class SearchCell: UITableViewCell, FilterCell, UITextFieldDelegate {
         textField.frame = layout.textFieldFrame()
     }
     
-    //MARK : FilterCell
+    //MARK : BasicTableViewCell
     
-    func configure(withCellModel cellModel: FilterCellModel) {
+    func configure(withCellModel cellModel: BasicTableViewCellModel) {
         let model = cellModel as! SearchCellModel
         searchCellAction = model.searchCellAction
     }

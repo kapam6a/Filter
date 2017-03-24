@@ -8,17 +8,8 @@
 
 import UIKit
 
-protocol FilterCellModel {
-    var cellIdentifier: String { get }
-    var cellClass: AnyClass { get }
-}
-
-protocol FilterCell {
-    func configure(withCellModel cellModel: FilterCellModel)
-}
-
 struct FilterSectionModel{
-    let cellModels: [FilterCellModel]
+    let cellModels: [BasicTableViewCellModel]
     let footerTitle: String
     let headerTitle :String
 }
@@ -26,6 +17,8 @@ struct FilterSectionModel{
 class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     private var sectionModels: [FilterSectionModel]!
     private weak var tableView: UITableView!
+    
+    //MARK : Public
         
     func register(in tableView: UITableView) {
         self.tableView = tableView
@@ -35,12 +28,13 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func setup(withSectionModels sectionModels: [FilterSectionModel]) {
         self.sectionModels = sectionModels
-        for sectionModel in sectionModels {
-            for cellModel in sectionModel.cellModels {
-                tableView.register(cellModel.cellClass, forCellReuseIdentifier: cellModel.cellIdentifier)
-            }
+        let cellModels: [BasicTableViewCellModel] = sectionModels.flatMap { $0.cellModels }
+        cellModels.forEach { model in
+            tableView.register(model.cellClass, forCellReuseIdentifier: model.cellIdentifier)
         }
     }
+    
+    //MARK : UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionModels.count
@@ -49,6 +43,18 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionModels[section].cellModels.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = sectionModels[indexPath.section].cellModels[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! BasicTableViewCell
+        cell.configure(withCellModel: cellModel)
+        let filtercell  =  cell  as! UITableViewCell
+        filtercell.invalidateIntrinsicContentSize()
+
+        return cell as! UITableViewCell
+    }
+    
+    //MARK : UITableViewDelegate
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
@@ -79,16 +85,9 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
         return sectionModels[section].footerTitle
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = sectionModels[indexPath.section].cellModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! FilterCell
-        cell.configure(withCellModel: cellModel)
-        return cell as! UITableViewCell
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let height: CGFloat = 44
-        return height
+        return UITableViewAutomaticDimension
     }
 }
+
+

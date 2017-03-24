@@ -28,18 +28,21 @@ class InterestsDataDisplayManager:NSObject, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellModels.count
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let interestsCell = cell as! InterestsCollectionViewCell
+        interestsCell.title = cellModels[indexPath.row]
+        interestsCell.layer.cornerRadius = interestsCell.frame.height / 2
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestsCollectionViewCell", for: indexPath) as! InterestsCollectionViewCell
-        cell.titleLabel.text = cellModels[indexPath.row]
-        cell.layer.cornerRadius = cell.frame.height / 2
         return cell
     }
     
     //MARK : UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let textSize = cellModels[indexPath.row].size(attributes: [NSFontAttributeName: DesignBook.Fonts.avtTextStyle3])
-        return CGSize(width: textSize.width + 10, height: textSize.height + 8)
+         return InterestsCollectionViewCell.size(title: cellModels[indexPath.row])
     }
 }
+

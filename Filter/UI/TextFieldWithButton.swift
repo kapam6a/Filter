@@ -20,10 +20,11 @@ protocol TextFieldWithButtonDelegate: class {
 }
 
 class TextFieldWithButton: UIView {
-    private let textField: TextField
+    private let textField: TextFieldWithFixedRightView
     private let button: UIButton
     private let separator: UIView
     private let loupe: UIImageView
+    private let showLoupe: Bool
     
     var placeHolder: String {
         didSet {
@@ -42,12 +43,13 @@ class TextFieldWithButton: UIView {
     weak var delegate: TextFieldWithButtonDelegate?
     
     init(frame: CGRect, showLoupe: Bool) {
-        textField = TextField(frame: .zero)
+        textField = TextFieldWithFixedRightView(frame: .zero)
         button = UIButton(type: .custom)
         separator = UIView(frame: .zero)
         placeHolder = ""
         buttonTitle =  ""
         loupe = UIImageView(image: #imageLiteral(resourceName: "search_icon"))
+        self.showLoupe = showLoupe
  
         super.init(frame: frame)
 
@@ -85,7 +87,8 @@ class TextFieldWithButton: UIView {
     
     override func layoutSubviews() {
         let layout = Layout(bounds: bounds,
-                            button: button)
+                            button: button,
+                            showLoupe: showLoupe)
         loupe.frame = layout.loupeFrame()
         button.frame = layout.buttonFrame()
         separator.frame = layout.separatorFrame()
@@ -112,18 +115,21 @@ class TextFieldWithButton: UIView {
 fileprivate struct Layout {
     let bounds: CGRect
     let button: UIButton
+    let showLoupe: Bool
     
     private let separatorPadding: CGFloat = 22
+    private let loupeSide: CGFloat = 15
+    private let textFieldLeftOffset: CGFloat = 10
     
     func loupeFrame() -> CGRect {
         return CGRect(x: 0,
-                      y: bounds.height / 2 - 15 / 2,
-                      width: 15,
-                      height: 15)
+                      y: bounds.height / 2 - loupeSide / 2,
+                      width: loupeSide,
+                      height: loupeSide)
     }
     
     func buttonFrame() -> CGRect {
-        let textSize = button.titleLabel!.intrinsicContentSize
+        let textSize = button.titleLabel!.sizeThatFits(.zero)
         return CGRect(x: bounds.width - textSize.width,
                       y: 0,
                       width: textSize.width,
@@ -140,7 +146,7 @@ fileprivate struct Layout {
     }
     
     func textFieldFrame() -> CGRect {
-        let x = loupeFrame().maxX + 10
+        let x = loupeFrame().maxX + textFieldLeftOffset
         return CGRect(x: x,
                       y: 0,
                       width: separatorFrame().minX - separatorPadding - x,

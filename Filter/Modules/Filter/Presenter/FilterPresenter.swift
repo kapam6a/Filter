@@ -22,6 +22,7 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     private var ageModule: AgeModule?
     private var newInterestsModule: NewInterestsModule?
     private var mapSearchModule: MapSearchModule?
+    private var photosModule: PhotosModule?
     
     //MARK : FilterModuleInput
     
@@ -47,23 +48,25 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
         interactor.didSelectFemale()
     }
     
-    func viewDidTapMinAgeButton(_ minAge: String) {
+    func viewDidTapMinAgeButton(_ minAge: Int) {
         router.openAgeModule { (ageModule) in
             self.ageModule = ageModule
-            ageModule.configure(initialValue: Int(minAge)!,
+            ageModule.configure(initialValue: minAge,
                                 doneHandler: { [unowned self] (newMinAge) in
                                     self.interactor.didSelectMinAge(newMinAge)
+                                    self.interactor.getCurrentFilterSettings()
                                     self.ageModule = nil
             })
         }
     }
     
-    func viewDidTapMaxAgeButton(_ maxAge: String) {
+    func viewDidTapMaxAgeButton(_ maxAge: Int) {
         router.openAgeModule { (ageModule) in
             self.ageModule = ageModule
-            ageModule.configure(initialValue: Int(maxAge)!,
+            ageModule.configure(initialValue: maxAge,
                                 doneHandler: { [unowned self] (newMaxAge) in
                                     self.interactor.didSelectMaxAge(newMaxAge)
+                                    self.interactor.getCurrentFilterSettings()
                                     self.ageModule = nil
             })
         }
@@ -83,6 +86,15 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
         router.openMapSearchModule { (mapSearchModule) in
             self.mapSearchModule = mapSearchModule
             mapSearchModule.configure(doneHandler: { (newInterest) in
+                self.mapSearchModule = nil
+            })
+        }
+    }
+    
+    func viewDidTapDoneButton() {
+        router.openPhotosModule { (photosModule) in
+            self.photosModule = photosModule
+            photosModule.configure(doneHandler: { (selectedPhoto) in
                 self.mapSearchModule = nil
             })
         }

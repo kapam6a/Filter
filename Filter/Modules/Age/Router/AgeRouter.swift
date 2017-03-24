@@ -18,6 +18,6 @@ class AgeRouter: AgeRouterInput {
     //MARK : AgeRouterInput
     
     func closeModule() {
-        viewController.dismiss(animated: true, completion:nil)
+        let _ = viewController.navigationController?.popViewController(animated: true)
     }
 }

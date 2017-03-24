@@ -8,17 +8,8 @@
 
 import UIKit
 
-protocol NewInterestsCellModel {
-    var cellIdentifier: String { get }
-    var cellClass: AnyClass { get }
-}
-
-protocol NewInterestsCell {
-    func configure(withCellModel cellModel: NewInterestsCellModel)
-}
-
 class NewInterestsDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-    private var cellModels: [NewInterestsCellModel]!
+    private var cellModels: [BasicTableViewCellModel]!
     private weak var tableView: UITableView!
     
     func register(in tableView: UITableView) {
@@ -27,11 +18,11 @@ class NewInterestsDataDisplayManager: NSObject, UITableViewDelegate, UITableView
         self.tableView.delegate = self
     }
     
-    func setup(withCellModels cellModels: [NewInterestsCellModel]) {
+    func setup(withCellModels cellModels: [BasicTableViewCellModel]) {
         self.cellModels = cellModels
-        for cellModel in cellModels {
+        self.cellModels.forEach({ cellModel in
             tableView.register(cellModel.cellClass, forCellReuseIdentifier: cellModel.cellIdentifier)
-        }
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +39,7 @@ class NewInterestsDataDisplayManager: NSObject, UITableViewDelegate, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellModel = cellModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! NewInterestsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! BasicTableViewCell
         cell.configure(withCellModel: cellModel)
         return cell as! UITableViewCell
     }

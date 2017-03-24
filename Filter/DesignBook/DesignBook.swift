@@ -20,9 +20,11 @@ final class DesignBook {
         static let avtSalmon = UIColor(red: 255.0 / 255.0, green: 120.0 / 255.0, blue: 120.0 / 255.0, alpha: 1.0)
         static let avtWindowsBlue = UIColor(red: 63.0 / 255.0, green: 128.0 / 255.0, blue: 203.0 / 255.0, alpha: 1.0)
         static let avtSkyBlue = UIColor(red: 93.0 / 255.0, green: 173.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+        static let avtBackgroundColor = UIColor(red: 2.0 / 255.0, green: 15.0 / 255.0, blue: 42.0 / 255.0, alpha: 0.45)
     }
     
     final class Fonts {
+        static let avtTextStyle7 = UIFont.italicSystemFont(ofSize: 11.0)
         static let avtTextStyle6 = UIFont.systemFont(ofSize: 17.0, weight: UIFontWeightMedium)
         static let avtTextStyle5 = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightMedium)
         static let avtTextStyle4 = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightMedium)

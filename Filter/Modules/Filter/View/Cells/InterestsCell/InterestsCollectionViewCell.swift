@@ -9,9 +9,16 @@
 import UIKit
 
 class InterestsCollectionViewCell: UICollectionViewCell {
-    let titleLabel: UILabel
+    var title: String {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    private let titleLabel: UILabel
     
     override init(frame: CGRect) {
+        title = "Set text"
         titleLabel = UILabel(frame: .zero)
         
         super.init(frame: frame)
@@ -33,6 +40,13 @@ class InterestsCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {        
         let layout = Layout(bounds: bounds)
         titleLabel.frame = layout.titleLabelFrame()
+    }
+    
+    //MARK : Static methods
+    
+    static func size(title: String) -> CGSize {
+        let textSize = title.size(attributes: [NSFontAttributeName: DesignBook.Fonts.avtTextStyle3])
+        return CGSize(width: textSize.width + 10, height: textSize.height + 8)
     }
 }
 

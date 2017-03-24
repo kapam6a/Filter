@@ -12,7 +12,7 @@ fileprivate struct Constants {
     static let cellIdentifier = "InterestsCell"
 }
 
-struct InterestsCellModel: FilterCellModel {
+struct InterestsCellModel: BasicTableViewCellModel {
     var cellIdentifier: String {
         return Constants.cellIdentifier
     }
@@ -22,17 +22,19 @@ struct InterestsCellModel: FilterCellModel {
     let interests: [String]
 }
 
-class InterestsCell: UITableViewCell, FilterCell, UISearchBarDelegate {
+class InterestsCell: UITableViewCell, BasicTableViewCell, UISearchBarDelegate {
     private let interestsView: UICollectionView
     private let dataDisplayManager: InterestsDataDisplayManager
+    private let collectionViewFlowLayout: UICollectionViewFlowLayout
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumInteritemSpacing = 5
-        interestsView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionViewFlowLayout = UICollectionViewFlowLayout()
+
+        interestsView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
         
         dataDisplayManager = InterestsDataDisplayManager()
-        
+        collectionViewFlowLayout.minimumInteritemSpacing = 5
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         interestsView.backgroundColor = .clear
@@ -53,16 +55,18 @@ class InterestsCell: UITableViewCell, FilterCell, UISearchBarDelegate {
     override func layoutSubviews() {
         let layout = Layout(bounds: contentView.bounds)
         interestsView.frame = layout.interestsViewFrame()
-//        interestsView.frame.size = interestsView.collectionViewLayout.collectionViewContentSize
-//        frame.size.height = interestsView.frame.size.height
     }
     
-    //MARK : FilterCell
+    //MARK : BasicTableViewCell
     
-    func configure(withCellModel cellModel: FilterCellModel) {
+    func configure(withCellModel cellModel: BasicTableViewCellModel) {
         let model = cellModel as! InterestsCellModel
         
         dataDisplayManager.setup(withCellModels: model.interests)
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 50.0, height: 155.0)
     }
 }
 

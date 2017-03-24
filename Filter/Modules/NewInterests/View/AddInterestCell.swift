@@ -12,7 +12,7 @@ fileprivate struct Constants {
     static let cellIdentifier = "NewInterestsCellImpl"
 }
 
-struct AddInterestCellModel: NewInterestsCellModel {
+struct AddInterestCellModel: BasicTableViewCellModel {
     var cellIdentifier: String {
         return Constants.cellIdentifier
     }
@@ -23,7 +23,7 @@ struct AddInterestCellModel: NewInterestsCellModel {
     let plusButtonAction: (String) -> Void
 }
 
-class AddInterestCell: UITableViewCell, NewInterestsCell{
+class AddInterestCell: UITableViewCell, BasicTableViewCell{
     private let plusButton: UIButton
     private let titleLabel: UILabel
     
@@ -55,9 +55,9 @@ class AddInterestCell: UITableViewCell, NewInterestsCell{
         titleLabel.frame = layout.titleLabelFrame()
     }
     
-    //MARK : NewInterestsCell
+    //MARK : BasicTableViewCell
     
-    func configure(withCellModel cellModel: NewInterestsCellModel) {
+    func configure(withCellModel cellModel: BasicTableViewCellModel) {
         let model = cellModel as! AddInterestCellModel
         titleLabel.text = model.name
         plusButtonAction = model.plusButtonAction

@@ -31,13 +31,14 @@ class FilterSectionModelsConverter {
         sectionModels.append(sexSection)
         
         
-        let ageCellModel = AgeCellModel(minAge: String(filterSettings.minAge),
-                                        maxAge: String(filterSettings.maxAge),
+        let ageCellModel = AgeCellModel(minAge: filterSettings.minAge,
+                                        maxAge: filterSettings.maxAge,
                                         minAgeButtonAction: { minAge in
                                             self.viewOutput.viewDidTapMinAgeButton(minAge)
-        }) { maxAge in
-            self.viewOutput.viewDidTapMaxAgeButton(maxAge)
-        }
+                                        },
+                                        maxAgeButtonAction: { maxAge in
+                                            self.viewOutput.viewDidTapMaxAgeButton(maxAge)
+                                        })
         let ageSection = FilterSectionModel(cellModels:[ageCellModel],
                                             footerTitle:"возраст",
                                             headerTitle:"")

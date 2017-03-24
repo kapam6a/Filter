@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NewInterestsViewInput {
-    func update(withCellModels cellModels: [NewInterestsCellModel])
+    func update(withCellModels cellModels: [BasicTableViewCellModel])
 }
 
 protocol NewInterestsViewOutput: class {
@@ -69,7 +69,7 @@ class NewInterestsViewController:ViewController, NewInterestsViewInput, TextFiel
     
     //MARK : NewInterestsViewInput
     
-    func update(withCellModels cellModels: [NewInterestsCellModel]) {
+    func update(withCellModels cellModels: [BasicTableViewCellModel]) {
         dataDisplayManager.setup(withCellModels: cellModels)
         tableView.reloadData()
         tableView.sizeToFit()

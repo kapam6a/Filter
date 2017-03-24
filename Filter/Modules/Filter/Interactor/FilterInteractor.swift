@@ -10,6 +10,7 @@ import Foundation
 
 protocol FilterInteractorInput {
     func getFilterSettings()
+    func getCurrentFilterSettings()
     func didSelectMale()
     func didSelectFemale()
     func didSelectMinAge(_ minAge: Int)
@@ -52,6 +53,10 @@ class FilterInteractor: FilterInteractorInput {
         currentFilterSettings.maxAge = searchSettingsEntity.maxAge
         currentFilterSettings.interests = searchSettingsEntity.interests
 
+        output.interactorDidGetFilterSettings(currentFilterSettings)
+    }
+    
+    func getCurrentFilterSettings() {
         output.interactorDidGetFilterSettings(currentFilterSettings)
     }
     

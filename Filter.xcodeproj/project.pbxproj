@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		990297BEF7CEEEBF636CAF19 /* Pods_Filter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18527CC2BCD0C62F4D9FAF31 /* Pods_Filter.framework */; };
+		B001025F1E83B8EE00A86AC2 /* ShortProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001025E1E83B8EE00A86AC2 /* ShortProfileViewController.swift */; };
+		B00102611E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102601E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift */; };
+		B00102631E83BC9800A86AC2 /* ShortProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102621E83BC9800A86AC2 /* ShortProfilePresenter.swift */; };
+		B00102651E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102641E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift */; };
+		B00102671E83BD9B00A86AC2 /* ShortProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102661E83BD9B00A86AC2 /* ShortProfileInteractor.swift */; };
+		B00102691E83BDED00A86AC2 /* ShortProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102681E83BDED00A86AC2 /* ShortProfileRouter.swift */; };
+		B001026B1E83BE2D00A86AC2 /* ShortProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001026A1E83BE2D00A86AC2 /* ShortProfileAssembly.swift */; };
+		B00102701E83BF3C00A86AC2 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001026F1E83BF3C00A86AC2 /* ProfileService.swift */; };
+		B00102721E83C39E00A86AC2 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102711E83C39E00A86AC2 /* StatusTableViewCell.swift */; };
+		B00102741E83CB3300A86AC2 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102731E83CB3300A86AC2 /* BasicTableViewCell.swift */; };
+		B00102761E83E8D000A86AC2 /* InterestsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00102751E83E8D000A86AC2 /* InterestsCell.xib */; };
 		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
-		B050AE2C1E716B1B00F4EB5F /* MeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2B1E716B1B00F4EB5F /* MeterView.swift */; };
-		B050AE2F1E729D1600F4EB5F /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE2E1E729D1600F4EB5F /* WheelView.swift */; };
 		B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */; };
 		B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */; };
 		B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE3B1E76AFEA00F4EB5F /* NewInterestsViewController.swift */; };
@@ -30,10 +39,28 @@
 		B058E9781E7BB5D200BF4895 /* MapSearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9771E7BB5D200BF4895 /* MapSearchAssembly.swift */; };
 		B058E97A1E7BCDD500BF4895 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B058E9791E7BCDD500BF4895 /* mapStyle.json */; };
 		B058E97C1E7BD00700BF4895 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E97B1E7BD00700BF4895 /* LocationService.swift */; };
+		B058E97E1E7FCE2F00BF4895 /* WheelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */; };
+		B058E9811E8127DD00BF4895 /* WheelDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9801E8127DD00BF4895 /* WheelDataDisplayManager.swift */; };
+		B058E9831E81280500BF4895 /* WheelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */; };
+		B058E9851E812A1000BF4895 /* WheelCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */; };
+		B058E98D1E815E2A00BF4895 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E98C1E815E2A00BF4895 /* PhotosViewController.swift */; };
+		B058E98F1E815EDE00BF4895 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E98E1E815EDE00BF4895 /* PhotosPresenter.swift */; };
+		B058E9911E815F6B00BF4895 /* PhotosCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9901E815F6B00BF4895 /* PhotosCellModelsConverter.swift */; };
+		B058E9931E81605900BF4895 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9921E81605900BF4895 /* PhotosInteractor.swift */; };
+		B058E9951E8160C600BF4895 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9941E8160C600BF4895 /* PhotosService.swift */; };
+		B058E9971E81611B00BF4895 /* PhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9961E81611B00BF4895 /* PhotosRouter.swift */; };
+		B058E9991E81613E00BF4895 /* PhotosAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9981E81613E00BF4895 /* PhotosAssembly.swift */; };
+		B058E99F1E816AA400BF4895 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E99A1E816AA400BF4895 /* 1.jpg */; };
+		B058E9A01E816AA400BF4895 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E99B1E816AA400BF4895 /* 2.jpg */; };
+		B058E9A11E816AA400BF4895 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E99C1E816AA400BF4895 /* 3.jpg */; };
+		B058E9A21E816AA400BF4895 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E99D1E816AA400BF4895 /* 4.jpg */; };
+		B058E9A51E816AC400BF4895 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E9A41E816AC400BF4895 /* 5.jpg */; };
+		B058E9A71E825EF700BF4895 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9A61E825EF700BF4895 /* PhotosCollectionViewCell.swift */; };
+		B058E9A91E82605000BF4895 /* PhotosDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9A81E82605000BF4895 /* PhotosDataDisplayManager.swift */; };
 		B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */; };
 		B093A6F51E79415F0059DECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F41E79415F0059DECA /* ViewController.swift */; };
-		B093A6F81E79727E0059DECA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F71E79727E0059DECA /* Extensions.swift */; };
-		B093A6FB1E7A75FB0059DECA /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6FA1E7A75FB0059DECA /* TextField.swift */; };
+		B093A6F81E79727E0059DECA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F71E79727E0059DECA /* UITableView.swift */; };
+		B093A6FB1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6FA1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift */; };
 		B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */; };
 		B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */; };
 		B0A05EFE1E6D37B100B5D1AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A05EFD1E6D37B100B5D1AD /* Assets.xcassets */; };
@@ -46,6 +73,9 @@
 		B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */; };
 		B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1C1E6D8F9800B5D1AD /* FilterInteractor.swift */; };
 		B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */; };
+		B0B45A321E840320008720F4 /* ProfessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45A311E840320008720F4 /* ProfessionTableViewCell.swift */; };
+		B0B45A341E8405B6008720F4 /* SocialNetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45A331E8405B6008720F4 /* SocialNetworkTableViewCell.swift */; };
+		B0B691FD1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B691FC1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift */; };
 		B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */; };
 		B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */; };
 		B0FAB8351E6EDDD800E5F06A /* AgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */; };
@@ -59,9 +89,18 @@
 		18527CC2BCD0C62F4D9FAF31 /* Pods_Filter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Filter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F82B21AD9CD7E0579705921 /* Pods-Filter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Filter/Pods-Filter.debug.xcconfig"; sourceTree = "<group>"; };
 		AC52DC3CEE0B7856610547AE /* Pods-Filter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Filter/Pods-Filter.release.xcconfig"; sourceTree = "<group>"; };
+		B001025E1E83B8EE00A86AC2 /* ShortProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileViewController.swift; path = Modules/ShortProfile/View/ShortProfileViewController.swift; sourceTree = "<group>"; };
+		B00102601E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileDisplayManager.swift; path = Modules/ShortProfile/View/ShortProfileDisplayManager.swift; sourceTree = "<group>"; };
+		B00102621E83BC9800A86AC2 /* ShortProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfilePresenter.swift; path = Modules/ShortProfile/Presenter/ShortProfilePresenter.swift; sourceTree = "<group>"; };
+		B00102641E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileCellModelsConverter.swift; path = Modules/ShortProfile/Presenter/ShortProfileCellModelsConverter.swift; sourceTree = "<group>"; };
+		B00102661E83BD9B00A86AC2 /* ShortProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileInteractor.swift; path = Modules/ShortProfile/Interactor/ShortProfileInteractor.swift; sourceTree = "<group>"; };
+		B00102681E83BDED00A86AC2 /* ShortProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileRouter.swift; path = Modules/ShortProfile/Router/ShortProfileRouter.swift; sourceTree = "<group>"; };
+		B001026A1E83BE2D00A86AC2 /* ShortProfileAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileAssembly.swift; path = Modules/ShortProfile/Assembly/ShortProfileAssembly.swift; sourceTree = "<group>"; };
+		B001026F1E83BF3C00A86AC2 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileService.swift; path = Services/ProfileService.swift; sourceTree = "<group>"; };
+		B00102711E83C39E00A86AC2 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusTableViewCell.swift; path = Modules/ShortProfile/View/Cells/StatusTableViewCell.swift; sourceTree = "<group>"; };
+		B00102731E83CB3300A86AC2 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTableViewCell.swift; path = Protocols/BasicTableViewCell.swift; sourceTree = "<group>"; };
+		B00102751E83E8D000A86AC2 /* InterestsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InterestsCell.xib; path = Modules/Filter/View/Cells/InterestsCell/InterestsCell.xib; sourceTree = "<group>"; };
 		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
-		B050AE2B1E716B1B00F4EB5F /* MeterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeterView.swift; path = Modules/Age/View/AgeScaleView/MeterView.swift; sourceTree = "<group>"; };
-		B050AE2E1E729D1600F4EB5F /* WheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelView.swift; path = Modules/Age/View/AgeScaleView/WheelView.swift; sourceTree = "<group>"; };
 		B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCollectionViewCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsDataDisplayManager.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsDataDisplayManager.swift; sourceTree = "<group>"; };
 		B050AE3B1E76AFEA00F4EB5F /* NewInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsViewController.swift; path = Modules/NewInterests/View/NewInterestsViewController.swift; sourceTree = "<group>"; };
@@ -81,10 +120,28 @@
 		B058E9771E7BB5D200BF4895 /* MapSearchAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSearchAssembly.swift; path = Modules/MapSearch/Assembly/MapSearchAssembly.swift; sourceTree = "<group>"; };
 		B058E9791E7BCDD500BF4895 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		B058E97B1E7BD00700BF4895 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
+		B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionView.swift; path = Modules/Age/View/Wheel/WheelCollectionView.swift; sourceTree = "<group>"; };
+		B058E9801E8127DD00BF4895 /* WheelDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelDataDisplayManager.swift; path = Modules/Age/View/Wheel/WheelDataDisplayManager.swift; sourceTree = "<group>"; };
+		B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionViewCell.swift; path = Modules/Age/View/Wheel/WheelCollectionViewCell.swift; sourceTree = "<group>"; };
+		B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionViewLayout.swift; path = Modules/Age/View/Wheel/WheelCollectionViewLayout.swift; sourceTree = "<group>"; };
+		B058E98C1E815E2A00BF4895 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Modules/Photos/View/PhotosViewController.swift; sourceTree = "<group>"; };
+		B058E98E1E815EDE00BF4895 /* PhotosPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosPresenter.swift; path = Modules/Photos/Presenter/PhotosPresenter.swift; sourceTree = "<group>"; };
+		B058E9901E815F6B00BF4895 /* PhotosCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCellModelsConverter.swift; path = Modules/Photos/Presenter/PhotosCellModelsConverter.swift; sourceTree = "<group>"; };
+		B058E9921E81605900BF4895 /* PhotosInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosInteractor.swift; path = Modules/Photos/Interactor/PhotosInteractor.swift; sourceTree = "<group>"; };
+		B058E9941E8160C600BF4895 /* PhotosService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosService.swift; path = Services/PhotosService.swift; sourceTree = "<group>"; };
+		B058E9961E81611B00BF4895 /* PhotosRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosRouter.swift; path = Modules/Photos/Router/PhotosRouter.swift; sourceTree = "<group>"; };
+		B058E9981E81613E00BF4895 /* PhotosAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosAssembly.swift; path = Modules/Photos/Assembly/PhotosAssembly.swift; sourceTree = "<group>"; };
+		B058E99A1E816AA400BF4895 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = Filter/1.jpg; sourceTree = "<group>"; };
+		B058E99B1E816AA400BF4895 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = Filter/2.jpg; sourceTree = "<group>"; };
+		B058E99C1E816AA400BF4895 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = Filter/3.jpg; sourceTree = "<group>"; };
+		B058E99D1E816AA400BF4895 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = Filter/4.jpg; sourceTree = "<group>"; };
+		B058E9A41E816AC400BF4895 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.jpg; path = Filter/5.jpg; sourceTree = "<group>"; };
+		B058E9A61E825EF700BF4895 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = Modules/Photos/View/PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		B058E9A81E82605000BF4895 /* PhotosDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosDataDisplayManager.swift; path = Modules/Photos/View/PhotosDataDisplayManager.swift; sourceTree = "<group>"; };
 		B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsCellModelsConverter.swift; path = Modules/NewInterests/Presenter/NewInterestsCellModelsConverter.swift; sourceTree = "<group>"; };
 		B093A6F41E79415F0059DECA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = UI/ViewController.swift; sourceTree = "<group>"; };
-		B093A6F71E79727E0059DECA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Extensions/Extensions.swift; sourceTree = "<group>"; };
-		B093A6FA1E7A75FB0059DECA /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = UI/TextField.swift; sourceTree = "<group>"; };
+		B093A6F71E79727E0059DECA /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = Extensions/UITableView.swift; sourceTree = "<group>"; };
+		B093A6FA1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldWithFixedRightView.swift; path = UI/TextFieldWithFixedRightView.swift; sourceTree = "<group>"; };
 		B0A05EF31E6D37B100B5D1AD /* Filter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A05EF61E6D37B100B5D1AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0A05EF81E6D37B100B5D1AD /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = Modules/Filter/View/FilterViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +156,9 @@
 		B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCell.swift; sourceTree = "<group>"; };
 		B0A05F1C1E6D8F9800B5D1AD /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterInteractor.swift; path = Modules/Filter/Interactor/FilterInteractor.swift; sourceTree = "<group>"; };
 		B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchSettingsService.swift; path = Services/SearchSettingsService.swift; sourceTree = "<group>"; };
+		B0B45A311E840320008720F4 /* ProfessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfessionTableViewCell.swift; path = Modules/ShortProfile/View/Cells/ProfessionTableViewCell.swift; sourceTree = "<group>"; };
+		B0B45A331E8405B6008720F4 /* SocialNetworkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocialNetworkTableViewCell.swift; path = Modules/ShortProfile/View/Cells/SocialNetworkTableViewCell.swift; sourceTree = "<group>"; };
+		B0B691FC1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewFlowLayout.swift; path = Modules/Photos/View/PhotosCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		B0FAB8221E6EC23900E5F06A /* FilterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterRouter.swift; path = Modules/Filter/Router/FilterRouter.swift; sourceTree = "<group>"; };
 		B0FAB8261E6EC52A00E5F06A /* FilterCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCellModelsConverter.swift; path = Modules/Filter/Presenter/FilterCellModelsConverter.swift; sourceTree = "<group>"; };
 		B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AgeViewController.swift; path = Modules/Age/View/AgeViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +189,71 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B00102581E83B82800A86AC2 /* ShortProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B001025D1E83B86000A86AC2 /* Assembly */,
+				B001025C1E83B85600A86AC2 /* Router */,
+				B001025B1E83B84E00A86AC2 /* Interactor */,
+				B001025A1E83B84800A86AC2 /* Presenter */,
+				B00102591E83B83C00A86AC2 /* View */,
+			);
+			name = ShortProfile;
+			sourceTree = "<group>";
+		};
+		B00102591E83B83C00A86AC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B001026C1E83BEEA00A86AC2 /* Cells */,
+				B00102601E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift */,
+				B001025E1E83B8EE00A86AC2 /* ShortProfileViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B001025A1E83B84800A86AC2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B00102641E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift */,
+				B00102621E83BC9800A86AC2 /* ShortProfilePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		B001025B1E83B84E00A86AC2 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B00102661E83BD9B00A86AC2 /* ShortProfileInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		B001025C1E83B85600A86AC2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B00102681E83BDED00A86AC2 /* ShortProfileRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B001025D1E83B86000A86AC2 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				B001026A1E83BE2D00A86AC2 /* ShortProfileAssembly.swift */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
+		B001026C1E83BEEA00A86AC2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B00102711E83C39E00A86AC2 /* StatusTableViewCell.swift */,
+				B0B45A311E840320008720F4 /* ProfessionTableViewCell.swift */,
+				B0B45A331E8405B6008720F4 /* SocialNetworkTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		B050AE251E71458F00F4EB5F /* DesignBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,21 +262,13 @@
 			name = DesignBook;
 			sourceTree = "<group>";
 		};
-		B050AE2D1E729CDA00F4EB5F /* MeterView */ = {
-			isa = PBXGroup;
-			children = (
-				B050AE2B1E716B1B00F4EB5F /* MeterView.swift */,
-				B050AE2E1E729D1600F4EB5F /* WheelView.swift */,
-			);
-			name = MeterView;
-			sourceTree = "<group>";
-		};
 		B050AE321E72D5D700F4EB5F /* InterestsCell */ = {
 			isa = PBXGroup;
 			children = (
 				B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */,
 				B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */,
 				B0A05F1A1E6D8DC400B5D1AD /* InterestsCell.swift */,
+				B00102751E83E8D000A86AC2 /* InterestsCell.xib */,
 			);
 			name = InterestsCell;
 			sourceTree = "<group>";
@@ -216,7 +333,7 @@
 			children = (
 				B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */,
 				B093A6F41E79415F0059DECA /* ViewController.swift */,
-				B093A6FA1E7A75FB0059DECA /* TextField.swift */,
+				B093A6FA1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -273,10 +390,77 @@
 			name = Assembly;
 			sourceTree = "<group>";
 		};
+		B058E97F1E81277600BF4895 /* Wheel */ = {
+			isa = PBXGroup;
+			children = (
+				B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */,
+				B058E9801E8127DD00BF4895 /* WheelDataDisplayManager.swift */,
+				B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */,
+				B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */,
+			);
+			name = Wheel;
+			sourceTree = "<group>";
+		};
+		B058E9861E815D7000BF4895 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B058E98B1E815D9300BF4895 /* Assembly */,
+				B058E98A1E815D8C00BF4895 /* Router */,
+				B058E9891E815D8400BF4895 /* Interactor */,
+				B058E9881E815D7E00BF4895 /* Presenter */,
+				B058E9871E815D7800BF4895 /* View */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		B058E9871E815D7800BF4895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B058E9A81E82605000BF4895 /* PhotosDataDisplayManager.swift */,
+				B058E9A61E825EF700BF4895 /* PhotosCollectionViewCell.swift */,
+				B058E98C1E815E2A00BF4895 /* PhotosViewController.swift */,
+				B0B691FC1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B058E9881E815D7E00BF4895 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B058E9901E815F6B00BF4895 /* PhotosCellModelsConverter.swift */,
+				B058E98E1E815EDE00BF4895 /* PhotosPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		B058E9891E815D8400BF4895 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B058E9921E81605900BF4895 /* PhotosInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		B058E98A1E815D8C00BF4895 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B058E9961E81611B00BF4895 /* PhotosRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B058E98B1E815D9300BF4895 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				B058E9981E81613E00BF4895 /* PhotosAssembly.swift */,
+			);
+			name = Assembly;
+			sourceTree = "<group>";
+		};
 		B093A6F61E7972620059DECA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B093A6F71E79727E0059DECA /* Extensions.swift */,
+				B093A6F71E79727E0059DECA /* UITableView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +469,11 @@
 			isa = PBXGroup;
 			children = (
 				B058E9791E7BCDD500BF4895 /* mapStyle.json */,
+				B058E99A1E816AA400BF4895 /* 1.jpg */,
+				B058E99B1E816AA400BF4895 /* 2.jpg */,
+				B058E99C1E816AA400BF4895 /* 3.jpg */,
+				B058E99D1E816AA400BF4895 /* 4.jpg */,
+				B058E9A41E816AC400BF4895 /* 5.jpg */,
 				B0A05F0F1E6D4D8B00B5D1AD /* Default-568h@2x.png */,
 				B0A05EF51E6D37B100B5D1AD /* Filter */,
 				B0A05EF41E6D37B100B5D1AD /* Products */,
@@ -304,6 +493,7 @@
 		B0A05EF51E6D37B100B5D1AD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				B0B45A301E83FB96008720F4 /* Protocols */,
 				B093A6F61E7972620059DECA /* Extensions */,
 				B050AE501E77FD7D00F4EB5F /* UI */,
 				B050AE251E71458F00F4EB5F /* DesignBook */,
@@ -373,16 +563,28 @@
 		B0A05F1E1E6D909D00B5D1AD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B058E9941E8160C600BF4895 /* PhotosService.swift */,
 				B058E97B1E7BD00700BF4895 /* LocationService.swift */,
 				B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */,
 				B050AE491E76D91D00F4EB5F /* InterestsService.swift */,
+				B001026F1E83BF3C00A86AC2 /* ProfileService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		B0B45A301E83FB96008720F4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B00102731E83CB3300A86AC2 /* BasicTableViewCell.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		B0FAB8281E6EDAFB00E5F06A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B00102581E83B82800A86AC2 /* ShortProfile */,
+				B058E9861E815D7000BF4895 /* Photos */,
 				B058E9671E7BB1AA00BF4895 /* MapSearch */,
 				B050AE351E76AE7100F4EB5F /* NewInterests */,
 				B0FAB82A1E6EDB1E00E5F06A /* Age */,
@@ -418,7 +620,7 @@
 		B0FAB82D1E6EDD7600E5F06A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B050AE2D1E729CDA00F4EB5F /* MeterView */,
+				B058E97F1E81277600BF4895 /* Wheel */,
 				B0FAB8341E6EDDD800E5F06A /* AgeViewController.swift */,
 			);
 			name = View;
@@ -536,6 +738,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B058E97A1E7BCDD500BF4895 /* mapStyle.json in Resources */,
+				B058E9A51E816AC400BF4895 /* 5.jpg in Resources */,
+				B058E9A21E816AA400BF4895 /* 4.jpg in Resources */,
+				B058E99F1E816AA400BF4895 /* 1.jpg in Resources */,
+				B00102761E83E8D000A86AC2 /* InterestsCell.xib in Resources */,
+				B058E9A01E816AA400BF4895 /* 2.jpg in Resources */,
+				B058E9A11E816AA400BF4895 /* 3.jpg in Resources */,
 				B0A05EFE1E6D37B100B5D1AD /* Assets.xcassets in Resources */,
 				B0A05F101E6D4D8B00B5D1AD /* Default-568h@2x.png in Resources */,
 			);
@@ -601,15 +809,22 @@
 				B0FAB8371E6EDE3F00E5F06A /* AgePresenter.swift in Sources */,
 				B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */,
 				B0FAB8351E6EDDD800E5F06A /* AgeViewController.swift in Sources */,
+				B058E98D1E815E2A00BF4895 /* PhotosViewController.swift in Sources */,
 				B058E9701E7BB2F000BF4895 /* MapSearchViewController.swift in Sources */,
+				B058E9911E815F6B00BF4895 /* PhotosCellModelsConverter.swift in Sources */,
 				B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */,
 				B058E9761E7BB5CA00BF4895 /* MapSearchRouter.swift in Sources */,
+				B0B45A321E840320008720F4 /* ProfessionTableViewCell.swift in Sources */,
 				B050AE4F1E77E75200F4EB5F /* SearchCell.swift in Sources */,
+				B001026B1E83BE2D00A86AC2 /* ShortProfileAssembly.swift in Sources */,
+				B058E9851E812A1000BF4895 /* WheelCollectionViewLayout.swift in Sources */,
+				B058E9991E81613E00BF4895 /* PhotosAssembly.swift in Sources */,
 				B050AE481E76D59600F4EB5F /* NewInterestsDataDisplayManager.swift in Sources */,
 				B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */,
 				B0FAB8391E6EDE4900E5F06A /* AgeInteractor.swift in Sources */,
 				B050AE4C1E76DC0C00F4EB5F /* AddInterestCell.swift in Sources */,
-				B093A6FB1E7A75FB0059DECA /* TextField.swift in Sources */,
+				B00102631E83BC9800A86AC2 /* ShortProfilePresenter.swift in Sources */,
+				B093A6FB1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift in Sources */,
 				B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */,
 				B058E9721E7BB5BB00BF4895 /* MapSearchPresenter.swift in Sources */,
 				B0A05F191E6D8D7800B5D1AD /* AgeCell.swift in Sources */,
@@ -617,25 +832,42 @@
 				B0FAB8231E6EC23900E5F06A /* FilterRouter.swift in Sources */,
 				B0A05F121E6D4DD300B5D1AD /* FilterPresenter.swift in Sources */,
 				B058E97C1E7BD00700BF4895 /* LocationService.swift in Sources */,
+				B00102611E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift in Sources */,
 				B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */,
-				B050AE2C1E716B1B00F4EB5F /* MeterView.swift in Sources */,
+				B00102721E83C39E00A86AC2 /* StatusTableViewCell.swift in Sources */,
+				B0B45A341E8405B6008720F4 /* SocialNetworkTableViewCell.swift in Sources */,
+				B00102671E83BD9B00A86AC2 /* ShortProfileInteractor.swift in Sources */,
 				B050AE441E76B0BC00F4EB5F /* NewInterestsAssembly.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
 				B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */,
 				B0A05F141E6D4EAF00B5D1AD /* FilterAssembly.swift in Sources */,
 				B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */,
+				B00102741E83CB3300A86AC2 /* BasicTableViewCell.swift in Sources */,
 				B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */,
-				B093A6F81E79727E0059DECA /* Extensions.swift in Sources */,
+				B093A6F81E79727E0059DECA /* UITableView.swift in Sources */,
+				B001025F1E83B8EE00A86AC2 /* ShortProfileViewController.swift in Sources */,
+				B00102701E83BF3C00A86AC2 /* ProfileService.swift in Sources */,
 				B093A6F51E79415F0059DECA /* ViewController.swift in Sources */,
+				B058E9A71E825EF700BF4895 /* PhotosCollectionViewCell.swift in Sources */,
 				B0FAB83B1E6EDE5100E5F06A /* AgeRouter.swift in Sources */,
-				B050AE2F1E729D1600F4EB5F /* WheelView.swift in Sources */,
 				B058E9781E7BB5D200BF4895 /* MapSearchAssembly.swift in Sources */,
+				B058E98F1E815EDE00BF4895 /* PhotosPresenter.swift in Sources */,
+				B058E9971E81611B00BF4895 /* PhotosRouter.swift in Sources */,
+				B058E9951E8160C600BF4895 /* PhotosService.swift in Sources */,
 				B0A05F0E1E6D408400B5D1AD /* FilterDataDisplayManager.swift in Sources */,
 				B050AE4A1E76D91D00F4EB5F /* InterestsService.swift in Sources */,
+				B00102691E83BDED00A86AC2 /* ShortProfileRouter.swift in Sources */,
+				B0B691FD1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift in Sources */,
+				B058E97E1E7FCE2F00BF4895 /* WheelCollectionView.swift in Sources */,
+				B058E9A91E82605000BF4895 /* PhotosDataDisplayManager.swift in Sources */,
 				B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */,
+				B058E9831E81280500BF4895 /* WheelCollectionViewCell.swift in Sources */,
+				B00102651E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift in Sources */,
+				B058E9811E8127DD00BF4895 /* WheelDataDisplayManager.swift in Sources */,
 				B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */,
 				B050AE401E76B07F00F4EB5F /* NewInterestsInteractor.swift in Sources */,
+				B058E9931E81605900BF4895 /* PhotosInteractor.swift in Sources */,
 				B050AE521E77FD9D00F4EB5F /* TextFieldWithButton.swift in Sources */,
 				B050AE3E1E76B03800F4EB5F /* NewInterestsPresenter.swift in Sources */,
 			);

@@ -17,7 +17,7 @@ fileprivate struct Constants {
     static let buttonTitleLeftOffset:CGFloat = 10
 }
 
-struct SexCellModel: FilterCellModel {
+struct SexCellModel: BasicTableViewCellModel {
     var cellIdentifier: String {
         return Constants.cellIdentifier
     }
@@ -30,7 +30,7 @@ struct SexCellModel: FilterCellModel {
     let femaleButtonAction: () -> Void
 }
 
-class SexCell: UITableViewCell, FilterCell {
+class SexCell: UITableViewCell, BasicTableViewCell {
     private let maleButton: UIButton
     private let femaleButton: UIButton
     private let middleLabel: UILabel
@@ -83,9 +83,9 @@ class SexCell: UITableViewCell, FilterCell {
         femaleButton.imageEdgeInsets = layout.femaleImageViewInset()
     }
     
-    //MARK : FilterCell
+    //MARK : BasicTableViewCell
     
-    func configure(withCellModel cellModel: FilterCellModel) {
+    func configure(withCellModel cellModel: BasicTableViewCellModel) {
         let model = cellModel as! SexCellModel
         maleButton.isSelected = model.maleButtonIsSelected
         femaleButton.isSelected = model.femaleButtonIsSelected

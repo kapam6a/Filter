@@ -21,8 +21,11 @@ class AgePresenter: AgeViewOutput, AgeModule, AgeInteractorOutput {
     private var initialValue: Int
     private var doneHandler: ((Int) -> Void)!
     
+    private var cellModelsConverter: AgeCellModelsConverter!
+    
     init() {
         initialValue = 0
+        cellModelsConverter = AgeCellModelsConverter(withViewOutput: self)
     }
     
     //MARK : AgeModule
@@ -39,7 +42,37 @@ class AgePresenter: AgeViewOutput, AgeModule, AgeInteractorOutput {
     //MARK : AgeViewOutput
     
     func viewDidLoad() {
+        let cellModels = cellModelsConverter.convertModels()
+        view.update(withCellModels: cellModels)
         view.update(withValue: initialValue)
     }
+    
+    func viewDidSelect(age: Int) {
+        view.update(withValue: age)
+        doneHandler(age)
+        router.closeModule()
+    }
 }
+
+class AgeCellModelsConverter {
+    private weak var viewOutput: AgeViewOutput!
+    
+    init(withViewOutput viewOutput: AgeViewOutput) {
+        self.viewOutput = viewOutput
+    }
+    
+    func convertModels() -> [WheelCollectionViewCellModel] {
+        var cellModels: [WheelCollectionViewCellModel] = []
+        
+        for index in 0...99  {
+            let model = WheelCollectionViewCellModel(value: index,
+                                                     cellAction: {
+                                                        self.viewOutput.viewDidSelect(age: index)
+            })
+            cellModels.append(model)
+        }
+        return cellModels
+    }
+}
+
 

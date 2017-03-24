@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextField: UITextField {
+class TextFieldWithFixedRightView: UITextField {
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         return CGRect(x: bounds.width - 11,
                       y: bounds.height / 2 - 11 / 2,

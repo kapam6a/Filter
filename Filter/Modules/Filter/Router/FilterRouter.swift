@@ -12,6 +12,7 @@ protocol FilterRouterInput {
     func openAgeModule(_ callback: (AgeModule) -> Void)
     func openInterestsModule(_ callback: (NewInterestsModule) -> Void)
     func openMapSearchModule(_ callback: (MapSearchModule) -> Void)
+    func openPhotosModule(_ callback: (PhotosModule) -> Void)
 }
 
 class FilterRouter: FilterRouterInput {
@@ -35,5 +36,13 @@ class FilterRouter: FilterRouterInput {
         let mapSearchModule = MapSearchAssembly().createMapSearchModule()
         callback(mapSearchModule)
         viewController.navigationController!.pushViewController(mapSearchModule.viewController, animated: true)
+    }
+    
+    func openPhotosModule(_ callback: (PhotosModule) -> Void) {
+        let photosModule = PhotosAssembly().createPhotosModule()
+        callback(photosModule)
+        let photosViewController = photosModule.viewController
+        photosViewController.modalPresentationStyle = .overCurrentContext
+        viewController.present(photosViewController, animated: true)
     }
 }

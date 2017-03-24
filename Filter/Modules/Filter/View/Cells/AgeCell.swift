@@ -9,30 +9,30 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let cellIdentifier    = "AgeCell"
-    static let fromLabelTitle    = "от"
-    static let toLabelTitle      = "до"
+    static let cellIdentifier  = "AgeCell"
+    static let fromLabelTitle  = "от"
+    static let toLabelTitle    = "до"
 }
 
-struct AgeCellModel: FilterCellModel {
+struct AgeCellModel: BasicTableViewCellModel {
     var cellIdentifier: String {
         return Constants.cellIdentifier
     }
     var cellClass: AnyClass {
         return AgeCell.self
     }
-    let minAge: String
-    let maxAge: String
-    let minAgeButtonAction: (_ minAge: String) -> Void
-    let maxAgeButtonAction: (_ maxAge: String) -> Void
+    let minAge: Int
+    let maxAge: Int
+    let minAgeButtonAction: (_ minAge: Int) -> Void
+    let maxAgeButtonAction: (_ maxAge: Int) -> Void
 }
 
-class AgeCell: UITableViewCell, FilterCell {
+class AgeCell: UITableViewCell, BasicTableViewCell {
     private let minAgeButton: UIButton
     private let maxAgeButton: UIButton
     
-    private var maxAgeButtonAction: ((String) -> Void)!
-    private var minAgeButtonAction: ((String) -> Void)!
+    private var maxAgeButtonAction: ((Int) -> Void)!
+    private var minAgeButtonAction: ((Int) -> Void)!
     
     private let fromLabel: UILabel
     private let toLabel: UILabel
@@ -45,13 +45,13 @@ class AgeCell: UITableViewCell, FilterCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        minAgeButton.addTarget(self, action: #selector(didTapMinAgeButton(_ :)), for: .touchUpInside)
+        minAgeButton.addTarget(self, action: #selector(didTapMinAgeButton), for: .touchUpInside)
         minAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
         minAgeButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
         minAgeButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(minAgeButton)
         
-        maxAgeButton.addTarget(self, action: #selector(didTapMaxAgeButton(_ :)), for: .touchUpInside)
+        maxAgeButton.addTarget(self, action: #selector(didTapMaxAgeButton), for: .touchUpInside)
         maxAgeButton.setBackgroundImage(#imageLiteral(resourceName: "oval_icon"), for: .normal)
         maxAgeButton.setTitleColor(DesignBook.Colors.avtDarkSkyBlue, for: .normal)
         maxAgeButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
@@ -82,12 +82,12 @@ class AgeCell: UITableViewCell, FilterCell {
         toLabel.frame = layout.toLabelFrame()
     }
     
-    //MARK : FilterCell
+    //MARK : BasicTableViewCell
     
-    func configure(withCellModel cellModel: FilterCellModel) {
+    func configure(withCellModel cellModel: BasicTableViewCellModel) {
         let model = cellModel as! AgeCellModel
-        minAgeButton.setTitle(model.minAge, for: .normal)
-        maxAgeButton.setTitle(model.maxAge, for: .normal)
+        minAgeButton.setTitle(String(model.minAge), for: .normal)
+        maxAgeButton.setTitle(String(model.maxAge), for: .normal)
         minAgeButtonAction = model.minAgeButtonAction
         maxAgeButtonAction = model.maxAgeButtonAction
     }
@@ -95,11 +95,11 @@ class AgeCell: UITableViewCell, FilterCell {
     //MARK : Action
 
     @objc func didTapMinAgeButton(_ sender: UIButton) {
-        minAgeButtonAction(minAgeButton.titleLabel!.text!)
+        minAgeButtonAction(NSDecimalNumber(string: minAgeButton.titleLabel?.text).intValue)
     }
     
     @objc func didTapMaxAgeButton(_ sender: UIButton) {
-        minAgeButtonAction(maxAgeButton.titleLabel!.text!)
+        maxAgeButtonAction(NSDecimalNumber(string: maxAgeButton.titleLabel?.text).intValue)
     }
 }
 
