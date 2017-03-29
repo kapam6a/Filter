@@ -20,9 +20,9 @@ class FilterSectionModelsConverter {
         
         let sexCellModel = SexCellModel(maleButtonIsSelected: filterSettings.male,
                                         femaleButtonIsSelected: filterSettings.female,
-                                        maleButtonAction: {
+                                        maleButtonAction: { [unowned self] in
                                             self.viewOutput.viewDidTapMaleButton()
-        }) {
+        }) { [unowned self] in
             self.viewOutput.viewDidTapFemaleButton()
         }
         let sexSection = FilterSectionModel(cellModels:[sexCellModel],
@@ -33,10 +33,10 @@ class FilterSectionModelsConverter {
         
         let ageCellModel = AgeCellModel(minAge: filterSettings.minAge,
                                         maxAge: filterSettings.maxAge,
-                                        minAgeButtonAction: { minAge in
+                                        minAgeButtonAction: {[unowned self] minAge in
                                             self.viewOutput.viewDidTapMinAgeButton(minAge)
                                         },
-                                        maxAgeButtonAction: { maxAge in
+                                        maxAgeButtonAction: {[unowned self] maxAge in
                                             self.viewOutput.viewDidTapMaxAgeButton(maxAge)
                                         })
         let ageSection = FilterSectionModel(cellModels:[ageCellModel],
@@ -46,7 +46,7 @@ class FilterSectionModelsConverter {
         
     
         let interestsCellModel = InterestsCellModel(interests: filterSettings.interests)
-        let searchCellModel = SearchCellModel {
+        let searchCellModel = SearchCellModel { [unowned self] in
             self.viewOutput.viewDidTapSearchBar()
         }
         let interestsSection = FilterSectionModel(cellModels:[interestsCellModel, searchCellModel],

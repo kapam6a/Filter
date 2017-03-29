@@ -35,9 +35,10 @@ class SearchCell: UITableViewCell, BasicTableViewCell, UITextFieldDelegate {
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        textField.font = DesignBook.Fonts.avtTextStyle3
         textField.attributedPlaceholder = NSAttributedString(string: Constants.title,
-                                                             attributes: [NSForegroundColorAttributeName: DesignBook.Colors.avtBluish,
-                                                                          NSFontAttributeName:DesignBook.Fonts.avtTextStyle3])
+                                                             attributes: [NSForegroundColorAttributeName: DesignBook.Colors.avtBluish])
+        
         textField.delegate = self
         contentView.addSubview(textField)
         

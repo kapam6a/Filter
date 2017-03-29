@@ -9,8 +9,12 @@
 import UIKit
 
 class ShortProfileDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-    private var cellModels: [BasicTableViewCellModel]!
+    private var cellModels: [BasicTableViewCellModel]
     private weak var tableView: UITableView!
+    
+    override init() {
+        cellModels = []
+    }
     
     func register(in tableView: UITableView) {
         self.tableView = tableView
@@ -36,6 +40,29 @@ class ShortProfileDisplayManager: NSObject, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: model.cellIdentifier, for: indexPath) as! BasicTableViewCell
         cell.configure(withCellModel: model)
         return cell as! UITableViewCell
+    }
+    
+    //MARK : UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+        let inset = DesignBook.Insets.tableViewCellInset
+        cell.contentView.frame = CGRect(x: inset.left,
+                                        y: 0,
+                                        width: cell.contentView.frame.width - (inset.left + inset.right),
+                                        height: cell.contentView.frame.height)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height:CGFloat = 44
+        if indexPath.row == 0 {
+            height = 66
+        }
+        return height
     }
 }
 

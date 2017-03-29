@@ -12,7 +12,7 @@ class FilterAssembly {
     func createFilterModule() -> FilterModule {
         let vc = FilterViewController()
         let presenter = FilterPresenter()
-        let interactor = FilterInteractor(withSearchSettingsService: SearchSettingsServiceImpl())
+        let interactor = FilterInteractor(withSearchSettingsService: ServiceAssembly().createSearchSettingsService())
         let router = FilterRouter()
         
         vc.output = presenter

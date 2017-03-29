@@ -9,21 +9,30 @@
 import Foundation
 
 protocol ShortProfileInteractorInput {
-
+    func requestUserProfile(with id: Int)
 }
 
 protocol ShortProfileInteractorOutput:class {
-    
+    func interactorRequestUserProfileDidFinish(withSuccess profileEntity: UserProfileEntity)
+    func interactorRequestUserProfileDidFail(withError error: Error)
 }
 
 class ShortProfileInteractor: ShortProfileInteractorInput {
     weak var output: ShortProfileInteractorOutput!
     
-    private let profileService: ProfileService
+    private let profileService: UserProfileService
     
-    init(withProfileService profileService: ProfileService) {
+    init(withProfileService profileService: UserProfileService) {
         self.profileService = profileService
     }
     
     //MARK : ShortProfileInteractorInput
+    
+    func requestUserProfile(with id: Int) {
+        profileService.requestUserProfile(successful: { profileEntity in
+            self.output.interactorRequestUserProfileDidFinish(withSuccess: profileEntity)
+        }) { error in
+            self.output.interactorRequestUserProfileDidFail(withError: error)
+        }
+    }
 }

@@ -13,7 +13,7 @@ protocol LocationService {
     func requestCurrentLocation(successful: @escaping (CLLocation) -> Void, failed: @escaping (Error) -> Void)
 }
 
-class LocationServiceImpl: NSObject, LocationService, CLLocationManagerDelegate {
+class LocationServiceImplementation: NSObject, LocationService, CLLocationManagerDelegate {
     private let locationManager: CLLocationManager
     
     private var successful: ((CLLocation) -> Void)!
@@ -37,10 +37,12 @@ class LocationServiceImpl: NSObject, LocationService, CLLocationManagerDelegate 
     //MARK : CLLocationManagerDelegate 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
         successful(locations.first!)
     }
     
     func  locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
         failed(error)
     }
 }

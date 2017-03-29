@@ -12,7 +12,7 @@ class PhotosAssembly {
     func createPhotosModule() -> PhotosModule {
         let vc = PhotosViewController()
         let presenter = PhotosPresenter()
-        let interactor = PhotosInteractor(withPhotosService: PhotosServiceImpl())
+        let interactor = PhotosInteractor(withPhotosService: ServiceAssembly().createPhotosService())
         let router = PhotosRouter()
         
         vc.output = presenter

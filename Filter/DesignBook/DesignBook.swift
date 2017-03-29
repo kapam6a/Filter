@@ -32,4 +32,9 @@ final class DesignBook {
         static let avtTextStyle2 = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightMedium)
         static let avtTextStyle1 = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightMedium)
     }
+    
+    final class Insets {
+        static let tableViewCellInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    }
+
 }

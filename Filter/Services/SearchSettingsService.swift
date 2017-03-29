@@ -20,13 +20,13 @@ protocol SearchSettingsService {
     func requestSearchSettings() -> SearchSettingsEntity
 }
 
-class SearchSettingsServiceImpl: SearchSettingsService{
+class SearchSettingsServiceImplementation: SearchSettingsService{
     func requestSearchSettings() -> SearchSettingsEntity {
         return SearchSettingsEntity(male: true,
                                     female: true,
                                     minAge: 26,
                                     maxAge: 33,
                                     interests: ["witch-house", "rapcore", "dogs", "auto - layout", "horror - movie",
-                                                "play", "cards", "weather", "black tea", "chocolate"])
+                                                "play", "cards", "weather", "black tea", "chocolate", "play", "cards", "weather", "black tea", "chocolate"])
     }
 }

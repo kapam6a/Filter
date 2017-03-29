@@ -15,14 +15,38 @@ class ShortProfileCellModelsConverter {
         self.viewOutput = viewOutput
     }
     
-    func convertModels(withPhotosEntities photosEntities: [PhotoEntity]) -> [PhotosCellModel]{
-        var cellModels: [PhotosCellModel] = []
+    func convertModels(with profileEntity: UserProfileEntity) -> [BasicTableViewCellModel]{
+        var cellModels: [BasicTableViewCellModel] = []
         
-        photosEntities.forEach { photosEntity in
-            let photosCellModel = PhotosCellModelImpl(path: photosEntity.url.path)
-            cellModels.append(photosCellModel)
-        }
-
+        let statusCellModel = StatusCellModel(photoPath: profileEntity.photoUrl.path,
+                                              status: profileEntity.status,
+                                              name: profileEntity.firstName) {
+                                                    self.viewOutput.viewDidTapChatButton()
+                                              }
+        cellModels.append(statusCellModel)
+        
+        let professionCellModel = CareerCellModel(age: profileEntity.age,
+                                                  career: profileEntity.work)
+        cellModels.append(professionCellModel)
+        
+        let navigationCellModel = NavigationCellModel(favoriteButtonAction: { [unowned self] in
+                                                        self.viewOutput.viewDidTapFavoriteButton()
+                                                    }, routeButtonAction: { [unowned self] in
+                                                        self.viewOutput.viewDidTapRouteButton()
+                                                    }, onMapButtonAction: { [unowned self] in
+                                                        self.viewOutput.viewDidTapOnMapButton()
+                                                    })
+        cellModels.append(navigationCellModel)
+        
+        let socialNetworkCellModel = SocialNetworkCellModel(facebookButtonAction: { [unowned self] in
+                                                               self.viewOutput.viewDidTapFacebookButton()
+                                                           }, instagramButtonAction: { [unowned self] in
+                                                               self.viewOutput.viewDidTapInstagramButton()
+                                                           }, threeDotsButtonAction: { [unowned self] in
+                                                               self.viewOutput.viewDidTapThreeDotsButton()
+                                                           })
+        cellModels.append(socialNetworkCellModel)
+    
         return cellModels
     }
 }

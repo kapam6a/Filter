@@ -9,10 +9,10 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let cellIdentifier = "NewInterestsCellImpl"
+    static let cellIdentifier = "PhotosCollectionViewCell"
 }
 
-struct PhotosCellModelImpl: PhotosCellModel {
+struct PhotosCellModel: BasicCollectionViewCellModel {
     var cellClass: AnyClass {
         return PhotosCollectionViewCell.self
     }
@@ -20,23 +20,35 @@ struct PhotosCellModelImpl: PhotosCellModel {
         return Constants.cellIdentifier
     }
     let path: String
+    let title: String
 }
 
-class PhotosCollectionViewCell: UICollectionViewCell, PhotosCell {
-    private let imageView: UIImageView
+class PhotosCollectionViewCell: UICollectionViewCell, BasicCollectionViewCell {
+    private let photoImageView: UIImageView
+    private let plusImageView: UIImageView
+    private let titleLabel: UILabel
     
     override init(frame: CGRect) {
-        imageView = UIImageView(frame: .zero)
+        plusImageView = UIImageView(frame: .zero)
+        titleLabel = UILabel(frame: .zero)
+        photoImageView = UIImageView(frame: .zero)
         
         super.init(frame: frame)
         
-        layer.cornerRadius = 4
-        layer.borderColor = DesignBook.Colors.avtDarkSkyBlue.cgColor
-        layer.borderWidth = 1
+        plusImageView.image = #imageLiteral(resourceName: "plus_icon")
+        contentView.addSubview(plusImageView)
         
-        clipsToBounds = true
+        titleLabel.font = DesignBook.Fonts.avtTextStyle1
+        titleLabel.textColor = DesignBook.Colors.avtDarkSkyBlue
+        contentView.addSubview(titleLabel)
         
-        contentView.addSubview(imageView)
+        photoImageView.contentMode = .scaleAspectFill
+        photoImageView.layer.cornerRadius = 4
+        photoImageView.clipsToBounds = true
+        photoImageView.layer.borderWidth = 1
+        
+        photoImageView.layer.borderColor = DesignBook.Colors.avtDarkSkyBlue.cgColor
+        contentView.addSubview(photoImageView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,32 +58,38 @@ class PhotosCollectionViewCell: UICollectionViewCell, PhotosCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let layout = Layout(bounds: contentView.bounds)
-        imageView.frame = layout.imageViewFrame()
+        plusImageView.frame = layout.plusImageViewFrame()
+        titleLabel.frame = layout.titleLabelFrame()
+        photoImageView.frame = layout.photoImageViewFrame()
     }
     
     //MARK : PhotosCell
     
-    func configure(withCellModel cellModel: PhotosCellModel) {
-        let model = cellModel as! PhotosCellModelImpl
-        imageView.image = UIImage(contentsOfFile: model.path)
-    }
-    
-    //MARK : Static methods 
-    
-   static func size(withModel model: PhotosCellModel) -> CGSize {
-        let photosCellModelImpl = model as! PhotosCellModelImpl
-        let path = photosCellModelImpl.path
-        let photo = UIImage(contentsOfFile: path)
-        return CGSize(width:photo!.size.width,
-                      height: photo!.size.height)
+    func configure(withCellModel cellModel: BasicCollectionViewCellModel) {
+        let model = cellModel as! PhotosCellModel
+        photoImageView.image = UIImage(contentsOfFile: model.path)
+        titleLabel.text = model.title
     }
 }
-
 
 fileprivate struct Layout {
     let bounds: CGRect
     
-    func imageViewFrame() -> CGRect {
+    func plusImageViewFrame() -> CGRect {
+        return CGRect(x: bounds.width / 2 - 18 / 2,
+                      y: bounds.height / 2 - 18 / 2,
+                      width: 18,
+                      height: 18)
+    }
+    
+    func titleLabelFrame() -> CGRect {
+        return CGRect(x: bounds.width / 2 - 50 / 2,
+                      y: plusImageViewFrame().maxY + 5,
+                      width: 50,
+                      height: 11)
+    }
+    
+    func photoImageViewFrame() -> CGRect {
         return CGRect(x: 0,
                       y: 0,
                       width: bounds.width,

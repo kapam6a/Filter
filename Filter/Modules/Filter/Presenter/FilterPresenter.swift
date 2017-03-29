@@ -23,6 +23,7 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     private var newInterestsModule: NewInterestsModule?
     private var mapSearchModule: MapSearchModule?
     private var photosModule: PhotosModule?
+    private var shortProfileModule: ShortProfileModule?
     
     //MARK : FilterModuleInput
     
@@ -49,10 +50,10 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapMinAgeButton(_ minAge: Int) {
-        router.openAgeModule { (ageModule) in
+        router.openAgeModule { [unowned self] ageModule in
             self.ageModule = ageModule
             ageModule.configure(initialValue: minAge,
-                                doneHandler: { [unowned self] (newMinAge) in
+                                doneHandler: { [unowned self] newMinAge in
                                     self.interactor.didSelectMinAge(newMinAge)
                                     self.interactor.getCurrentFilterSettings()
                                     self.ageModule = nil
@@ -61,10 +62,10 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapMaxAgeButton(_ maxAge: Int) {
-        router.openAgeModule { (ageModule) in
+        router.openAgeModule { [unowned self] ageModule in
             self.ageModule = ageModule
             ageModule.configure(initialValue: maxAge,
-                                doneHandler: { [unowned self] (newMaxAge) in
+                                doneHandler: { [unowned self] newMaxAge in
                                     self.interactor.didSelectMaxAge(newMaxAge)
                                     self.interactor.getCurrentFilterSettings()
                                     self.ageModule = nil
@@ -73,9 +74,9 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapSearchBar() {
-        router.openInterestsModule { (newInterestsModule) in
+        router.openInterestsModule { [unowned self] newInterestsModule in
             self.newInterestsModule = newInterestsModule
-            newInterestsModule.configure(doneHandler: { (newInterest) in
+            newInterestsModule.configure(doneHandler: { [unowned self] newInterest in
                 self.interactor.didSelectInterest(newInterest)
                 self.newInterestsModule = nil
             })
@@ -83,18 +84,27 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapMapButton() {
-        router.openMapSearchModule { (mapSearchModule) in
+        router.openMapSearchModule { [unowned self] mapSearchModule in
             self.mapSearchModule = mapSearchModule
-            mapSearchModule.configure(doneHandler: { (newInterest) in
+            mapSearchModule.configure(doneHandler: { [unowned self] newInterest in
                 self.mapSearchModule = nil
             })
         }
     }
     
+    func viewDidTapFilterButton() {
+        router.openShortProfileModule { [unowned self] shortProfileModule in
+            self.shortProfileModule = shortProfileModule
+            shortProfileModule.configure(doneHandler: { [unowned self] in
+                self.shortProfileModule = nil
+            }, userId: 44)
+        }
+    }
+    
     func viewDidTapDoneButton() {
-        router.openPhotosModule { (photosModule) in
+        router.openPhotosModule { [unowned self] photosModule in
             self.photosModule = photosModule
-            photosModule.configure(doneHandler: { (selectedPhoto) in
+            photosModule.configure(doneHandler: { [unowned self] selectedPhoto in
                 self.mapSearchModule = nil
             })
         }

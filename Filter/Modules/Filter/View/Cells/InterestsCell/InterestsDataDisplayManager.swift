@@ -28,6 +28,7 @@ class InterestsDataDisplayManager:NSObject, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellModels.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let interestsCell = cell as! InterestsCollectionViewCell
         interestsCell.title = cellModels[indexPath.row]
@@ -35,7 +36,7 @@ class InterestsDataDisplayManager:NSObject, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestsCollectionViewCell", for: indexPath) as! InterestsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestsCollectionViewCell", for: indexPath)
         return cell
     }
     
@@ -45,4 +46,5 @@ class InterestsDataDisplayManager:NSObject, UICollectionViewDelegate, UICollecti
          return InterestsCollectionViewCell.size(title: cellModels[indexPath.row])
     }
 }
+
 

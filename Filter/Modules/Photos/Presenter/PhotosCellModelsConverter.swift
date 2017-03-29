@@ -15,14 +15,23 @@ class PhotosCellModelsConverter {
         self.viewOutput = viewOutput
     }
     
-    func convertModels(withPhotosEntities photosEntities: [PhotoEntity]) -> [PhotosCellModel]{
-        var cellModels: [PhotosCellModel] = []
+    func convertModels(withPhotosEntities photosEntities: [PhotoEntity]) -> [BasicCollectionViewCellModel]{
+        var cellModels: [BasicCollectionViewCellModel] = []
         
-        photosEntities.forEach { photosEntity in
-            let photosCellModel = PhotosCellModelImpl(path: photosEntity.url.path)
-            cellModels.append(photosCellModel)
+        for index in 0...7 {
+            var path = ""
+            var title = "add photo"
+            if index < photosEntities.count {
+                path = photosEntities[index].url.path
+            }
+            if index == 0 {
+                title = "add avatar"
+            }
+            let cellModel = PhotosCellModel(path: path,
+                                            title: title)
+            cellModels.append(cellModel)
         }
-
+        
         return cellModels
     }
 }

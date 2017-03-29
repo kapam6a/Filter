@@ -10,6 +10,7 @@ import UIKit
 
 protocol MapSearchRouterInput {
     func closeModule()
+    func openShortProfileModule(_ callback: (ShortProfileModule) -> Void)
 }
 
 class MapSearchRouter: MapSearchRouterInput {
@@ -19,5 +20,12 @@ class MapSearchRouter: MapSearchRouterInput {
     
     func closeModule() {
         let _ = viewController.navigationController?.popViewController(animated: true)
+    }
+    
+    func openShortProfileModule(_ callback: (ShortProfileModule) -> Void) {
+        let shortProfileModule = ShortProfileAssembly().createShortProfileModule()
+        callback(shortProfileModule)
+        let vc = viewController as! MapSearchViewInput
+        vc.openChildViewController(shortProfileModule.viewController)
     }
 }

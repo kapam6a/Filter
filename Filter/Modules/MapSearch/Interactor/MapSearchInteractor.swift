@@ -14,8 +14,8 @@ protocol MapSearchInteractorInput {
 }
 
 protocol MapSearchInteractorOutput:class {
-    func interactorRequestDidFinish(withSuccess location: CLLocation)
-    func interactorRequestDidFail(withError error: Error)
+    func interactorRequestCurrentLocationDidFinish(withSuccess location: CLLocation)
+    func interactorRequestCurrentLocationDidFail(withError error: Error)
 }
 
 class MapSearchInteractor:  MapSearchInteractorInput {
@@ -23,7 +23,7 @@ class MapSearchInteractor:  MapSearchInteractorInput {
     
     private let locationService: LocationService
     
-    init(withLocationService locationService: LocationServiceImpl) {
+    init(withLocationService locationService: LocationService) {
         self.locationService = locationService
     }
     
@@ -31,9 +31,9 @@ class MapSearchInteractor:  MapSearchInteractorInput {
     
     func requestCurrentLocation() {
         locationService.requestCurrentLocation(successful: { (location) in
-            self.output.interactorRequestDidFinish(withSuccess: location)
+            self.output.interactorRequestCurrentLocationDidFinish(withSuccess: location)
         }) { (error) in
-            self.output.interactorRequestDidFail(withError: error)
+            self.output.interactorRequestCurrentLocationDidFail(withError: error)
         }
     }
 }

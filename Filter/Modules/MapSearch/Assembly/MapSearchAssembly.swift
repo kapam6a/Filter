@@ -12,7 +12,7 @@ class MapSearchAssembly {
     func createMapSearchModule() -> MapSearchModule {
         let vc = MapSearchViewController()
         let presenter = MapSearchPresenter()
-        let interactor = MapSearchInteractor(withLocationService: LocationServiceImpl())
+        let interactor = MapSearchInteractor(withLocationService: ServiceAssembly().createLocationService())
         let router = MapSearchRouter()
         
         vc.output = presenter

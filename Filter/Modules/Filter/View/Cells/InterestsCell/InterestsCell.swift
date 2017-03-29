@@ -23,29 +23,25 @@ struct InterestsCellModel: BasicTableViewCellModel {
 }
 
 class InterestsCell: UITableViewCell, BasicTableViewCell, UISearchBarDelegate {
-    private let interestsView: UICollectionView
+    private let interestsCollectionView: InterestsCollectionView
     private let dataDisplayManager: InterestsDataDisplayManager
     private let collectionViewFlowLayout: UICollectionViewFlowLayout
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         collectionViewFlowLayout = UICollectionViewFlowLayout()
 
-        interestsView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        interestsCollectionView = InterestsCollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
         
         dataDisplayManager = InterestsDataDisplayManager()
-        collectionViewFlowLayout.minimumInteritemSpacing = 5
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        interestsView.backgroundColor = .clear
-        dataDisplayManager.register(in: interestsView)
-
-        contentView.addSubview(interestsView)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        interestsView.frame = .zero
+        interestsCollectionView.backgroundColor = .clear
+        interestsCollectionView.bounces = false
+        dataDisplayManager.register(in: interestsCollectionView)
+        collectionViewFlowLayout.minimumInteritemSpacing = 5
+        
+        contentView.addSubview(interestsCollectionView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +50,8 @@ class InterestsCell: UITableViewCell, BasicTableViewCell, UISearchBarDelegate {
     
     override func layoutSubviews() {
         let layout = Layout(bounds: contentView.bounds)
-        interestsView.frame = layout.interestsViewFrame()
+        interestsCollectionView.frame = layout.interestsViewFrame()
+        interestsCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     //MARK : BasicTableViewCell
@@ -65,8 +62,9 @@ class InterestsCell: UITableViewCell, BasicTableViewCell, UISearchBarDelegate {
         dataDisplayManager.setup(withCellModels: model.interests)
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 50.0, height: 155.0)
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        interestsCollectionView.frame.size = size
+        return interestsCollectionView.sizeThatFits(size)
     }
 }
 

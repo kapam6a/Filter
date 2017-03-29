@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PhotosViewInput {
-    func update(withCellModels cellModels: [PhotosCellModel])
+    func update(withCellModels cellModels: [BasicCollectionViewCellModel])
 }
 
 protocol PhotosViewOutput: class {
@@ -63,7 +63,7 @@ class PhotosViewController:UIViewController, PhotosViewInput {
     
     //MARK : PhotosViewInput
     
-    func update(withCellModels cellModels: [PhotosCellModel]) {
+    func update(withCellModels cellModels: [BasicCollectionViewCellModel]) {
         dataDisplayManager.setup(withCellModels: cellModels)
     }
     
@@ -85,8 +85,8 @@ fileprivate struct Layout {
     }
     
     func closeButtonFrame() -> CGRect {
-        return CGRect(x: bounds.width - 30,
-                      y: 30,
+        return CGRect(x: bounds.width - 30 - 15,
+                      y: 84,
                       width: 30,
                       height: 30)
     }

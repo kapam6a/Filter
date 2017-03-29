@@ -13,6 +13,7 @@ protocol FilterRouterInput {
     func openInterestsModule(_ callback: (NewInterestsModule) -> Void)
     func openMapSearchModule(_ callback: (MapSearchModule) -> Void)
     func openPhotosModule(_ callback: (PhotosModule) -> Void)
+    func openShortProfileModule(_ callback: (ShortProfileModule) -> Void)
 }
 
 class FilterRouter: FilterRouterInput {
@@ -44,5 +45,11 @@ class FilterRouter: FilterRouterInput {
         let photosViewController = photosModule.viewController
         photosViewController.modalPresentationStyle = .overCurrentContext
         viewController.present(photosViewController, animated: true)
+    }
+    
+     func openShortProfileModule(_ callback: (ShortProfileModule) -> Void) {
+        let shortProfileModule = ShortProfileAssembly().createShortProfileModule()
+        callback(shortProfileModule)
+        viewController.navigationController!.pushViewController(shortProfileModule.viewController, animated: true)
     }
 }

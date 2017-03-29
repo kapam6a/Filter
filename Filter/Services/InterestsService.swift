@@ -17,7 +17,7 @@ protocol InterestsService {
     func requestInterests(withSearchText searchText: String) -> [InterestsEntity]
 }
 
-class InterestsServiceImpl: InterestsService{
+class InterestsServiceImplementation: InterestsService{
     private var interests: [InterestsEntity] = []
     
     init() {

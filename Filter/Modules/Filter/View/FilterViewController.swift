@@ -20,6 +20,7 @@ protocol FilterViewOutput:class {
     func viewDidTapMaxAgeButton(_ maxAge: Int)
     func viewDidTapSearchBar()
     func viewDidTapMapButton()
+    func viewDidTapFilterButton()
     func viewDidTapDoneButton()
 }
 
@@ -57,8 +58,14 @@ class FilterViewController: ViewController, FilterViewInput {
         let mapBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigation_item_search_icon"),
                                                style: .plain,
                                                target: self,
-                                               action: #selector(didTapMapBarButtonItem(_ :)))
-        navigationItem.setRightBarButton(mapBarButtonItem, animated: false)
+                                               action: #selector(didTapMapBarButtonItem))
+        
+        let filterBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter_icon"),
+                                                  style: .plain,
+                                                  target: self,
+                                                  action: #selector(didTapFilterBarButtonItem))
+        
+        navigationItem.setRightBarButtonItems([filterBarButtonItem, mapBarButtonItem], animated: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,6 +102,10 @@ class FilterViewController: ViewController, FilterViewInput {
         output.viewDidTapMapButton()
     }
     
+    func didTapFilterBarButtonItem(_ sender: UIBarButtonItem) {
+        output.viewDidTapFilterButton()
+    }
+    
     func didTapDoneButton(_ sender: UIButton) {
         output.viewDidTapDoneButton()
     }
@@ -103,15 +114,13 @@ class FilterViewController: ViewController, FilterViewInput {
 fileprivate struct Layout {
     let bounds: CGRect
     
-    func tableViewFrame() -> CGRect {
-        return CGRect(x: 0,
-                      y: 0,
-                      width: bounds.width,
-                      height: bounds.height)
-    }
+    private let inset = DesignBook.Insets.tableViewCellInset
     
-    func tableViewContentInset() -> UIEdgeInsets {
-        return .zero
+    func tableViewFrame() -> CGRect {
+        return CGRect(x: inset.left,
+                      y: 0,
+                      width: bounds.width - inset.left - inset.right,
+                      height: bounds.height)
     }
     
     func doneButtonFrame() -> CGRect {

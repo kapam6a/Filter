@@ -16,10 +16,10 @@ protocol PhotosService {
     func requestPhotos(successful: @escaping ([PhotoEntity]) -> Void, failed: @escaping (Error) -> Void)
 }
 
-class PhotosServiceImpl: PhotosService {
+class PhotosServiceImplementation: PhotosService {
     func requestPhotos(successful: @escaping ([PhotoEntity]) -> Void, failed: @escaping (Error) -> Void) {
         var photosEntities: [PhotoEntity] = []
-        
+
         let photoURL1 = URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/1.jpg")
         photosEntities.append(PhotoEntity(url: photoURL1))
         
@@ -35,6 +35,15 @@ class PhotosServiceImpl: PhotosService {
         let photoURL5 = URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/5.jpg")
         photosEntities.append(PhotoEntity(url: photoURL5))
         
+        let photoURL6 = URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/1.jpg")
+         photosEntities.append(PhotoEntity(url: photoURL6))
+        
+        let photoURL7 = URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/2.jpg")
+        photosEntities.append(PhotoEntity(url: photoURL7))
+        
+        let photoURL8 = URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/3.jpg")
+        photosEntities.append(PhotoEntity(url: photoURL8))
+ 
         successful(photosEntities)
     }
 }

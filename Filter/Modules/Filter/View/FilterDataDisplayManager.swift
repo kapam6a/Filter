@@ -18,6 +18,14 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     private var sectionModels: [FilterSectionModel]!
     private weak var tableView: UITableView!
     
+    private var createdTableViewCells: [IndexPath : UITableViewCell]
+    
+    override init() {
+        createdTableViewCells = [:]
+        
+        super.init()
+    }
+    
     //MARK : Public
         
     func register(in tableView: UITableView) {
@@ -46,11 +54,12 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellModel = sectionModels[indexPath.section].cellModels[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as! BasicTableViewCell
         cell.configure(withCellModel: cellModel)
-        let filtercell  =  cell  as! UITableViewCell
-        filtercell.invalidateIntrinsicContentSize()
-
+        
+        createdTableViewCells[indexPath] = cell as? UITableViewCell
+        
         return cell as! UITableViewCell
     }
     
@@ -58,7 +67,6 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
-        cell.contentView.frame = CGRect(x: 15, y: 0, width: cell.contentView.frame.width - 15 * 2, height: cell.contentView.frame.height )
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
@@ -85,8 +93,15 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
         return sectionModels[section].footerTitle
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        let cell = createdTableViewCells[indexPath]!
+        let cellSize = cell.sizeThatFits(tableView.frame.size)
+        
+        return cellSize.height
     }
 }
 

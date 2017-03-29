@@ -19,6 +19,8 @@ class MapSearchPresenter: MapSearchViewOutput, MapSearchModule, MapSearchInterac
     var interactor: MapSearchInteractorInput!
     var router: MapSearchRouterInput!
     
+    private var shortProfileModule: ShortProfileModule?
+    
     private var doneHandler: ((String) -> Void)!
     
     //MARK : NewInterestsModule
@@ -36,14 +38,23 @@ class MapSearchPresenter: MapSearchViewOutput, MapSearchModule, MapSearchInterac
     func viewDidLoad() {
         interactor.requestCurrentLocation()
     }
+    
+    func viewDidTapMarker(with id: Int) {
+        router.openShortProfileModule { [unowned self] shortProfileModule in
+            self.shortProfileModule = shortProfileModule
+            shortProfileModule.configure(doneHandler: { [unowned self] in
+                self.shortProfileModule = nil
+            }, userId: id)
+        }
+    }
 
     //MARK : MapSearchInteractorOutput
     
-    func interactorRequestDidFinish(withSuccess location: CLLocation) {
+    func interactorRequestCurrentLocationDidFinish(withSuccess location: CLLocation) {
         view.upload(withLocation: location)
     }
     
-    func interactorRequestDidFail(withError error: Error) {
+    func interactorRequestCurrentLocationDidFail(withError error: Error) {
         
     }
 }

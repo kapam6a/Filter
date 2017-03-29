@@ -13,6 +13,3 @@ extension UITableView {
         return contentSize
     }
 }
-
-
-

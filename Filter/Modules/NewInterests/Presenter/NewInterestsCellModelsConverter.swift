@@ -20,7 +20,7 @@ class NewInterestsCellModelsConverter {
                 
         for entity in interests {
             let cellModel = AddInterestCellModel(name: entity.name,
-                                                 plusButtonAction: { title in
+                                                 plusButtonAction: { [unowned self] title in
                                                         self.viewOutput.viewDidTapPlusButton(withTitle: title)
                                                 })
             cellModels.append(cellModel)
