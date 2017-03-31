@@ -9,7 +9,6 @@
 import UIKit
 
 protocol AgeViewInput {
-    func update(withCellModels cellModels: [WheelCollectionViewCellModel])
     func update(withValue initialValue: Int)
 }
 
@@ -23,20 +22,19 @@ class AgeViewController:ViewController, AgeViewInput {
     
     private let wheelCollectionView: WheelCollectionView
     
-    private var dataDisplayManager: WheelDataDisplayManager
-    
     private let valueLabel: UILabel
     
     init() {
-        wheelCollectionView = WheelCollectionView(frame: .zero, collectionViewLayout: WheelCollectionViewLayout())
-        dataDisplayManager = WheelDataDisplayManager()
+        wheelCollectionView = WheelCollectionView(frame: .zero)
         
         valueLabel = UILabel(frame: .zero)
         
         super.init(nibName: nil, bundle: nil)
         
         wheelCollectionView.backgroundColor = .clear
-        dataDisplayManager.register(in: wheelCollectionView)
+        wheelCollectionView.action = { value in
+            self.output.viewDidSelect(age: value)
+        }
         
         valueLabel.textColor = DesignBook.Colors.avtWhite
         valueLabel.font = DesignBook.Fonts.avtTextStyle5
@@ -62,10 +60,6 @@ class AgeViewController:ViewController, AgeViewInput {
     }
     
     //MARK : AgeViewInput
-    
-    func update(withCellModels cellModels: [WheelCollectionViewCellModel]) {
-        dataDisplayManager.setup(withCellModels: cellModels)
-    }
     
     func update(withValue initialValue: Int) {
         valueLabel.text = String(initialValue)

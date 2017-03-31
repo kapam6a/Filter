@@ -9,14 +9,18 @@
 import Foundation
 import CoreLocation
 
+struct LocationEntity {
+    let location: CLLocation
+}
+
 protocol LocationService {
-    func requestCurrentLocation(successful: @escaping (CLLocation) -> Void, failed: @escaping (Error) -> Void)
+    func requestCurrentLocation(successful: @escaping (LocationEntity) -> Void, failed: @escaping (Error) -> Void)
 }
 
 class LocationServiceImplementation: NSObject, LocationService, CLLocationManagerDelegate {
     private let locationManager: CLLocationManager
     
-    private var successful: ((CLLocation) -> Void)!
+    private var successful: ((LocationEntity) -> Void)!
     private var failed: ((Error) -> Void)!
     
     override init() {
@@ -25,24 +29,27 @@ class LocationServiceImplementation: NSObject, LocationService, CLLocationManage
         super.init()
         
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.distanceFilter = 1
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
-    func requestCurrentLocation(successful: @escaping (CLLocation) -> Void, failed: @escaping (Error) -> Void) {
+    func requestCurrentLocation(successful: @escaping (LocationEntity) -> Void, failed: @escaping (Error) -> Void) {
         self.successful = successful
         self.failed = failed
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
     }
     
     //MARK : CLLocationManagerDelegate 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locationManager.stopUpdatingLocation()
-        successful(locations.first!)
+        print("didUpdateLocations")
+        successful(LocationEntity(location: locations.last!))
     }
     
     func  locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.stopUpdatingLocation()
+        print("didFailWithError")
         failed(error)
     }
 }

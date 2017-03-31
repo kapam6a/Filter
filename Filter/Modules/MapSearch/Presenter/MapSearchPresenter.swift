@@ -19,9 +19,12 @@ class MapSearchPresenter: MapSearchViewOutput, MapSearchModule, MapSearchInterac
     var interactor: MapSearchInteractorInput!
     var router: MapSearchRouterInput!
     
-    private var shortProfileModule: ShortProfileModule?
-    
     private var doneHandler: ((String) -> Void)!
+    private var modelsConverter: MapModelsConverter!
+    
+    init() {
+        modelsConverter = MapModelsConverter(with: self)
+    }
     
     //MARK : NewInterestsModule
     
@@ -40,18 +43,16 @@ class MapSearchPresenter: MapSearchViewOutput, MapSearchModule, MapSearchInterac
     }
     
     func viewDidTapMarker(with id: Int) {
-        router.openShortProfileModule { [unowned self] shortProfileModule in
-            self.shortProfileModule = shortProfileModule
-            shortProfileModule.configure(doneHandler: { [unowned self] in
-                self.shortProfileModule = nil
-            }, userId: id)
-        }
+        
     }
 
     //MARK : MapSearchInteractorOutput
     
-    func interactorRequestCurrentLocationDidFinish(withSuccess location: CLLocation) {
-        view.upload(withLocation: location)
+    func interactorRequestCurrentLocationDidFinish(withSuccess locationEntity: LocationEntity) {
+        let myMapMarkerModel = modelsConverter.convertMyModel(with: locationEntity)
+        view.upload(with: myMapMarkerModel)
+        
+        interactor.requestSuitableUsers()
     }
     
     func interactorRequestCurrentLocationDidFail(withError error: Error) {

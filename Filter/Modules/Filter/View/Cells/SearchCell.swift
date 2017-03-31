@@ -23,7 +23,7 @@ struct SearchCellModel: BasicTableViewCellModel {
     let searchCellAction: () -> Void
 }
 
-class SearchCell: UITableViewCell, BasicTableViewCell, UITextFieldDelegate {
+class SearchCell: TableViewCellWithSeparator, BasicTableViewCell, UITextFieldDelegate {
     private let loupe: UIImageView
     private let textField: UITextField
     
@@ -50,6 +50,7 @@ class SearchCell: UITableViewCell, BasicTableViewCell, UITextFieldDelegate {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         let layout = Layout(bounds: contentView.bounds)
         loupe.frame = layout.loupeFrame()
         textField.frame = layout.textFieldFrame()

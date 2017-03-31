@@ -27,7 +27,7 @@ struct AgeCellModel: BasicTableViewCellModel {
     let maxAgeButtonAction: (_ maxAge: Int) -> Void
 }
 
-class AgeCell: UITableViewCell, BasicTableViewCell {
+class AgeCell: TableViewCellWithSeparator, BasicTableViewCell {
     private let minAgeButton: UIButton
     private let maxAgeButton: UIButton
     
@@ -75,6 +75,7 @@ class AgeCell: UITableViewCell, BasicTableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         let layout = Layout(bounds: contentView.bounds)
         minAgeButton.frame = layout.minAgeButtonFrame()
         maxAgeButton.frame = layout.maxAgeButtonFrame()

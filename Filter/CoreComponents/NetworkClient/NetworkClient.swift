@@ -13,23 +13,34 @@ protocol NetworkClient {
 }
 
 class NetworkClientImplementation: NetworkClient {
-    private let urlSession: URLSession
     private let request: URLRequest
     
     init(with request: URLRequest) {
-        urlSession = URLSession.shared
         self.request = request
     }
     
     //MARK : NetworkClient
     
     func sendRequest(successful: @escaping(Data) -> Void, failed: @escaping(Error) -> Void) {
-        let dataTask = urlSession.dataTask(with: request) { data, response, error in
-            if let data = data {
-                successful(data)
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            successful(data)
+                        }
+                    }
+                } else {
+                    let error = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                    DispatchQueue.main.async {
+                        failed(error)
+                    }
+                }
             }
             if let error = error {
-                failed(error)
+                DispatchQueue.main.async {
+                    failed(error)
+                }
             }
         }
         dataTask.resume()

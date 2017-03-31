@@ -25,7 +25,7 @@ struct CareerCellModel: BasicTableViewCellModel {
     let career: String
 }
 
-class CareerTableViewCell: UITableViewCell, BasicTableViewCell {
+class CareerTableViewCell: TableViewCellWithSeparator, BasicTableViewCell {
     private let container: UIView
     
     private let ageValueLabel: UILabel

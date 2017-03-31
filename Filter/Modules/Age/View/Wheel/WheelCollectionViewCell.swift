@@ -8,24 +8,18 @@
 
 import UIKit
 
-struct WheelCollectionViewCellModel: WheelCellModel {
-    var cellIdentifier: String {
-        return "WheelCollectionViewCellModel"
+class WheelCollectionViewCell: UICollectionViewCell {
+    var value: Int {
+        didSet {
+           label.text = String(value)
+        }
     }
-    var cellClass: AnyClass {
-        return WheelCollectionViewCell.self
-    }
-    let value: Int
-    let cellAction: () -> Void
-}
-
-class WheelCollectionViewCell: UICollectionViewCell, WheelCell {
-    private let label: UILabel
     
-    private var cellAction: (() -> Void)!
+    private let label: UILabel
     
     override init(frame: CGRect) {
         label = UILabel(frame: .zero)
+        value = 0
         
         super.init(frame: frame)
         
@@ -45,15 +39,10 @@ class WheelCollectionViewCell: UICollectionViewCell, WheelCell {
         label.frame = contentView.bounds
     }
     
-    func configure(withCellModel cellModel: WheelCellModel) {
-        let model = cellModel as! WheelCollectionViewCellModel
-        label.text = String(model.value)
-        cellAction = model.cellAction
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            cellAction()
-        }
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        let circularlayoutAttributes = layoutAttributes as! CircularCollectionViewLayoutAttributes
+        self.layer.anchorPoint = circularlayoutAttributes.anchorPoint
+        self.center.y += (circularlayoutAttributes.anchorPoint.y - 0.5) * self.bounds.height
     }
 }

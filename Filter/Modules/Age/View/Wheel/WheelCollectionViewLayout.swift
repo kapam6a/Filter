@@ -47,7 +47,7 @@ class WheelCollectionViewLayout: UICollectionViewFlowLayout {
             let x = (collectionView!.bounds.width * 2) * cos(angle) + collectionView!.bounds.width * 3
             let y = (collectionView!.bounds.width * 2) * sin(angle) + collectionView!.bounds.height
             
-            attributes.center = CGPoint(x: x / 2, y: y / 2 + collectionView!.contentOffset.y)
+            attributes.center = CGPoint(x: x / 2 , y: y / 2 + collectionView!.contentOffset.y)
             attributes.size = itemSize
             attributes.transform = CGAffineTransform(rotationAngle: radianForSection * CGFloat(i))
             
@@ -63,3 +63,87 @@ class WheelCollectionViewLayout: UICollectionViewFlowLayout {
         return true
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+class WheelLayout: UICollectionViewFlowLayout {
+    var attributesList: [CircularCollectionViewLayoutAttributes]  = []
+    
+    var radius: CGFloat = 400
+    var anglePerItem: CGFloat {
+        return atan(itemSize.width / radius)
+    }
+    
+    var angleAtExtreme: CGFloat {
+        return collectionView!.numberOfItems(inSection: 0) > 0 ?
+            -CGFloat(collectionView!.numberOfItems(inSection: 0) - 1) * anglePerItem : 0
+    }
+    var angle: CGFloat {
+        return angleAtExtreme * collectionView!.contentOffset.x / (collectionViewContentSize.width - collectionView!.bounds.width)
+    }
+    
+    override init() {
+        super.init()
+        
+        minimumLineSpacing = 5
+        itemSize = CGSize(width: Constants.itemWidth,
+                          height: Constants.itemHeight)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepare() {
+        super.prepare()
+        
+        let centerX = collectionView!.contentOffset.x + (collectionView!.bounds.width / 2.0)
+        attributesList = (0..<collectionView!.numberOfItems(inSection: 0)).map { (i) -> CircularCollectionViewLayoutAttributes in
+            let attributes = CircularCollectionViewLayoutAttributes(forCellWith: IndexPath(item: i,
+                                                                                           section: 0))
+            attributes.size = itemSize
+            attributes.center = CGPoint(x: centerX, y: collectionView!.bounds.midY)
+            attributes.angle = angle + (anglePerItem * CGFloat(i))
+            
+            let anchorPointY = ((itemSize.height / 2.0) + radius) / itemSize.height
+            attributes.anchorPoint = CGPoint(x: 0.5, y: anchorPointY)
+            return attributes
+        }
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return attributesList
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+            return attributesList[indexPath.row]
+    }
+
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: CGFloat(collectionView!.numberOfItems(inSection: 0)) * itemSize.width,
+                      height: collectionView!.frame.height)
+    }
+    
+    override class var layoutAttributesClass: Swift.AnyClass {
+        return CircularCollectionViewLayoutAttributes.self
+    }
+}
+
+class CircularCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes {
+    var anchorPoint = CGPoint(x: 0.5, y: 0.5)
+    var angle: CGFloat = 0 {
+        didSet {
+            zIndex = Int(angle * 1000000)
+            transform = CGAffineTransform(rotationAngle: angle)
+        }
+    }
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copiedAttributes: CircularCollectionViewLayoutAttributes =
+            super.copy(with: zone) as! CircularCollectionViewLayoutAttributes
+        copiedAttributes.anchorPoint = anchorPoint
+        copiedAttributes.angle = angle
+        return copiedAttributes
+    }
+}
+
+

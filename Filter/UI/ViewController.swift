@@ -43,9 +43,13 @@ class ViewController: UIViewController {
     }
     
     func adjustContainerSize(withSize size:CGSize) {
-        container.frame.size.height = size.height
-        let scrollView = view as! UIScrollView
-        scrollView.contentSize.height = size.height + 30
+        let layout = Layout(bounds: view.bounds)
+        let containerFrame = layout.containerFrame()
+        if size.height > containerFrame.height {
+            container.frame.size.height = size.height
+            let scrollView = view as! UIScrollView
+            scrollView.contentSize.height = size.height + 30
+        }
     }
 }
 

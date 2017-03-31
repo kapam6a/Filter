@@ -41,6 +41,8 @@ class FilterViewController: ViewController, FilterViewInput {
         super.init(nibName: nil, bundle: nil)
     
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         tableView.bounces = false
         
         dataDisplayManager.register(in: tableView)
@@ -93,7 +95,10 @@ class FilterViewController: ViewController, FilterViewInput {
     
     func update(withSectionModels sectionModels: [FilterSectionModel]) {
         dataDisplayManager.setup(withSectionModels: sectionModels)
-        tableView.reloadData()
+        tableView.sizeToFit()
+        adjustContainerSize(withSize: CGSize(width: tableView.frame.width,
+                                             height: tableView.frame.height + doneButton.frame.height))
+
     }
     
     //MARK : Actions
@@ -114,20 +119,21 @@ class FilterViewController: ViewController, FilterViewInput {
 fileprivate struct Layout {
     let bounds: CGRect
     
-    private let inset = DesignBook.Insets.tableViewCellInset
+    private let inset = DesignBook.Insets.tableViewInset
+    private let doneButtonHeight: CGFloat = 49
     
     func tableViewFrame() -> CGRect {
         return CGRect(x: inset.left,
                       y: 0,
                       width: bounds.width - inset.left - inset.right,
-                      height: bounds.height)
+                      height: bounds.height - doneButtonHeight)
     }
     
     func doneButtonFrame() -> CGRect {
         return CGRect(x: 0,
-                      y: bounds.height - 49,
+                      y: bounds.height - doneButtonHeight,
                       width: bounds.width,
-                      height: 49)
+                      height: doneButtonHeight)
     }
 
 }

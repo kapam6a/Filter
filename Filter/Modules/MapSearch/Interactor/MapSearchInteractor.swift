@@ -11,10 +11,11 @@ import CoreLocation
 
 protocol MapSearchInteractorInput {
     func requestCurrentLocation()
+    func requestSuitableUsers()
 }
 
 protocol MapSearchInteractorOutput:class {
-    func interactorRequestCurrentLocationDidFinish(withSuccess location: CLLocation)
+    func interactorRequestCurrentLocationDidFinish(withSuccess locationEntity: LocationEntity)
     func interactorRequestCurrentLocationDidFail(withError error: Error)
 }
 
@@ -23,6 +24,8 @@ class MapSearchInteractor:  MapSearchInteractorInput {
     
     private let locationService: LocationService
     
+    private var myLocation: CLLocation?
+    
     init(withLocationService locationService: LocationService) {
         self.locationService = locationService
     }
@@ -30,10 +33,15 @@ class MapSearchInteractor:  MapSearchInteractorInput {
     //MARK : MapSearchInteractorInput
     
     func requestCurrentLocation() {
-        locationService.requestCurrentLocation(successful: { (location) in
-            self.output.interactorRequestCurrentLocationDidFinish(withSuccess: location)
-        }) { (error) in
+        locationService.requestCurrentLocation(successful: { locationEntity in
+            self.output.interactorRequestCurrentLocationDidFinish(withSuccess: locationEntity)
+            self.myLocation = locationEntity.location
+        }) { error in
             self.output.interactorRequestCurrentLocationDidFail(withError: error)
         }
+    }
+    
+    func requestSuitableUsers() {
+        
     }
 }

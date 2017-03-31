@@ -36,7 +36,7 @@ class AddInterestCell: UITableViewCell, BasicTableViewCell{
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         plusButton.addTarget(self, action: #selector(didTapPlusButton(_ :)), for: .touchUpInside)
-        plusButton.setImage(#imageLiteral(resourceName: "plus_icon"), for: .normal)
+        plusButton.setImage(#imageLiteral(resourceName: "plus_circle_icon"), for: .normal)
         contentView.addSubview(plusButton)
         
         titleLabel.font = DesignBook.Fonts.avtTextStyle3

@@ -41,6 +41,7 @@ class ShortProfilePresenter: ShortProfileViewOutput, ShortProfileModule, ShortPr
     //MARK : ShortProfileViewOutput
     
     func viewDidLoad() {
+        view.goIntoLoadingState()
         interactor.requestUserProfile(with: userId)
     }
     
@@ -75,12 +76,14 @@ class ShortProfilePresenter: ShortProfileViewOutput, ShortProfileModule, ShortPr
      //MARK : ShortProfileInteractorOutput
     
     func interactorRequestUserProfileDidFinish(withSuccess profileEntity: UserProfileEntity) {
+        view.goIntoNormalState()
         let cellModels = cellModelsConverter.convertModels(with: profileEntity)
         view.update(withCellModels: cellModels)
     }
     
     func interactorRequestUserProfileDidFail(withError error: Error) {
-        
+        view.goIntoNormalState()
+        view.goIntoErrorState(with: error)
     }
 }
 

@@ -34,7 +34,7 @@ final class DesignBook {
     }
     
     final class Insets {
-        static let tableViewCellInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        static let tableViewInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
 
 }

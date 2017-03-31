@@ -10,8 +10,8 @@ import UIKit
 import GoogleMaps
 
 protocol  MapSearchViewInput {
-    func upload(withLocation location: CLLocation)
-    func openChildViewController(_ childViewController: UIViewController)
+    func upload(with mapMarkerModels: [MapMarkerModel])
+    func upload(with myMapMarkerModel: MapMarkerModel)
 }
 
 protocol  MapSearchViewOutput: class {
@@ -23,23 +23,23 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     weak var output: MapSearchViewOutput!
     
     private let mapView: GMSMapView
-    private let markerInfoWindowView: UIView
-    private var childViewController: UIViewController!
+    
+    private var mapMarkerModels: [MapMarkerModel]!
+    private var myMapMarkerModel: MapMarkerModel!
+    
+    let label: UILabel
+    var count = 0
     
     init() {
         mapView = GMSMapView(frame: .zero)
-        markerInfoWindowView = UIView(frame: .zero)
-        markerInfoWindowView.backgroundColor = .red
-        
+        label = UILabel(frame: CGRect(x: 100, y: 100, width: 100, height: 30))
+        label.backgroundColor = .white
+            
         super.init(nibName: nil, bundle: nil)
 
         let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json")!
         mapView.mapStyle = try! GMSMapStyle(contentsOfFileURL: styleURL)
         mapView.delegate = self
-    }
-    
-    func tap() {
-        print("aregwerbwerb")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,7 +51,7 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mapView)
-        
+        view.addSubview(label)
         output.viewDidLoad()
     }
     
@@ -59,43 +59,37 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
         super.viewDidLayoutSubviews()
         let layout = Layout(bounds: view.bounds)
         mapView.frame = layout.mapViewFrame()
-        markerInfoWindowView.frame = layout.markerInfoWindowViewFrame()
     }
     
     //MARK : MapSearchViewInput
     
-    func upload(withLocation location: CLLocation) {
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
+    func upload(with myMapMarkerModel: MapMarkerModel) {
+        label.backgroundColor = UIColor(red:CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
+        label.text = String(count)
+        count += 1
+        
+        let camera = GMSCameraPosition.camera(withLatitude: myMapMarkerModel.location.coordinate.latitude,
+                                              longitude: myMapMarkerModel.location.coordinate.longitude,
+                                              zoom: myMapMarkerModel.zoom)
         mapView.camera = camera
-        let marker = GMSMarker(position: location.coordinate)
-        marker.icon = UIImage(cgImage: #imageLiteral(resourceName: "my_marker_icon").cgImage!)
-        marker.map = mapView
+        let myMarker = MapMarker(with: mapView)
+        myMarker.configure(with: myMapMarkerModel)
     }
     
-    func openChildViewController(_ childViewController: UIViewController) {
-        self.childViewController = childViewController
-        addChildViewController(self.childViewController)
-        self.childViewController.view.frame = markerInfoWindowView.bounds
-        markerInfoWindowView.addSubview(self.childViewController.view)
-        self.childViewController.didMove(toParentViewController: self)
+     func upload(with mapMarkerModels: [MapMarkerModel]) {
+        mapMarkerModels.forEach { mapMarkerModel in
+            let marker = MapMarker(with: mapView)
+            marker.configure(with: myMapMarkerModel)
+        }
     }
     
     //MARK : GMSMapViewDelegate
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        output.viewDidTapMarker(with: 44)
+        let marker = marker as! MapMarker
+        output.viewDidTapMarker(with: marker.userId)
         return false
-    }
-    
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        return markerInfoWindowView
-    }
-    
-    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
-        childViewController.willMove(toParentViewController: nil)
-        childViewController.view.removeFromSuperview()
-        childViewController.removeFromParentViewController()
-    }
+    }  
 }
 
 fileprivate struct Layout {
@@ -106,12 +100,5 @@ fileprivate struct Layout {
                       y: 0,
                       width: bounds.width ,
                       height: bounds.height)
-    }
-    
-    func markerInfoWindowViewFrame() -> CGRect {
-        return CGRect(x: 0,
-                      y: 0,
-                      width:253,
-                      height: 198)
     }
 }

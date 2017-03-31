@@ -28,7 +28,7 @@ struct NavigationCellModel: BasicTableViewCellModel {
     let onMapButtonAction: () -> Void
 }
 
-class NavigationTableViewCell: UITableViewCell, BasicTableViewCell {
+class NavigationTableViewCell: TableViewCellWithSeparator, BasicTableViewCell {
     private let favoriteButton: UIButton
     private let routeButton: UIButton
     private let onMapButton: UIButton

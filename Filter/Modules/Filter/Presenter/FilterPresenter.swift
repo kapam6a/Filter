@@ -78,7 +78,6 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
             self.newInterestsModule = newInterestsModule
             newInterestsModule.configure(doneHandler: { [unowned self] newInterest in
                 self.interactor.didSelectInterest(newInterest)
-                self.newInterestsModule = nil
             })
         }
     }

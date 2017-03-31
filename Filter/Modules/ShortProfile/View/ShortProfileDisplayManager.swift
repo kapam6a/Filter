@@ -27,6 +27,7 @@ class ShortProfileDisplayManager: NSObject, UITableViewDelegate, UITableViewData
         self.cellModels.forEach({ cellModel in
             tableView.register(cellModel.cellClass, forCellReuseIdentifier: cellModel.cellIdentifier)
         })
+        tableView.reloadData()
     }
     
     //MARK : UITableViewDataSource
@@ -46,11 +47,6 @@ class ShortProfileDisplayManager: NSObject, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
-        let inset = DesignBook.Insets.tableViewCellInset
-        cell.contentView.frame = CGRect(x: inset.left,
-                                        y: 0,
-                                        width: cell.contentView.frame.width - (inset.left + inset.right),
-                                        height: cell.contentView.frame.height)
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {

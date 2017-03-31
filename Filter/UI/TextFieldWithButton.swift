@@ -22,9 +22,10 @@ protocol TextFieldWithButtonDelegate: class {
 class TextFieldWithButton: UIView {
     private let textField: TextFieldWithFixedRightView
     private let button: UIButton
-    private let separator: UIView
+    private let divider: UIView
     private let loupe: UIImageView
     private let showLoupe: Bool
+    private let separator: UIView
     
     var placeHolder: String {
         didSet {
@@ -45,10 +46,11 @@ class TextFieldWithButton: UIView {
     init(frame: CGRect, showLoupe: Bool) {
         textField = TextFieldWithFixedRightView(frame: .zero)
         button = UIButton(type: .custom)
-        separator = UIView(frame: .zero)
+        divider = UIView(frame: .zero)
         placeHolder = ""
         buttonTitle =  ""
         loupe = UIImageView(image: #imageLiteral(resourceName: "search_icon"))
+        separator = UIView(frame: .zero)
         self.showLoupe = showLoupe
  
         super.init(frame: frame)
@@ -73,12 +75,15 @@ class TextFieldWithButton: UIView {
         button.addTarget(self, action: #selector(didTapButton(_ : )), for: .touchUpInside)
         addSubview(button)
         
-        separator.backgroundColor = DesignBook.Colors.avtBluish
-        addSubview(separator)
+        divider.backgroundColor = DesignBook.Colors.avtBluish
+        addSubview(divider)
         
         if showLoupe {
             addSubview(loupe)
         }
+        
+        separator.backgroundColor = DesignBook.Colors.avtBluish
+        addSubview(separator)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,8 +96,9 @@ class TextFieldWithButton: UIView {
                             showLoupe: showLoupe)
         loupe.frame = layout.loupeFrame()
         button.frame = layout.buttonFrame()
-        separator.frame = layout.separatorFrame()
+        divider.frame = layout.dividerFrame()
         textField.frame = layout.textFieldFrame()
+        separator.frame = layout.separatorFrame()
     }
     
     //MARK : Actions
@@ -117,7 +123,7 @@ fileprivate struct Layout {
     let button: UIButton
     let showLoupe: Bool
     
-    private let separatorPadding: CGFloat = 22
+    private let dividerPadding: CGFloat = 22
     private let loupeSide: CGFloat = 15
     private let textFieldLeftOffset: CGFloat = 10
     
@@ -137,8 +143,8 @@ fileprivate struct Layout {
         
     }
     
-    func separatorFrame() -> CGRect {
-        return CGRect(x: buttonFrame().minX - separatorPadding,
+    func dividerFrame() -> CGRect {
+        return CGRect(x: buttonFrame().minX - dividerPadding,
                       y: bounds.height / 2 - bounds.height / 4,
                       width: 1,
                       height:bounds.height / 2)
@@ -149,7 +155,14 @@ fileprivate struct Layout {
         let x = loupeFrame().maxX + textFieldLeftOffset
         return CGRect(x: x,
                       y: 0,
-                      width: separatorFrame().minX - separatorPadding - x,
+                      width: dividerFrame().minX - dividerPadding - x,
                       height:bounds.height)
+    }
+    
+    func separatorFrame() -> CGRect {
+        return CGRect(x: 0,
+                      y: bounds.height - 1,
+                      width: bounds.width,
+                      height: 1)
     }
 }

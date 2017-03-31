@@ -30,7 +30,7 @@ struct SexCellModel: BasicTableViewCellModel {
     let femaleButtonAction: () -> Void
 }
 
-class SexCell: UITableViewCell, BasicTableViewCell {
+class SexCell: TableViewCellWithSeparator, BasicTableViewCell {
     private let maleButton: UIButton
     private let femaleButton: UIButton
     private let middleLabel: UILabel
@@ -75,6 +75,7 @@ class SexCell: UITableViewCell, BasicTableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         let layout = Layout(bounds: contentView.bounds)
         maleButton.frame = layout.maleButtonFrame()
         femaleButton.frame = layout.femaleButtonFrame()

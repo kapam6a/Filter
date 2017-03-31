@@ -15,13 +15,14 @@ struct FilterSectionModel{
 }
 
 class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-    private var sectionModels: [FilterSectionModel]!
+    private var sectionModels: [FilterSectionModel]
     private weak var tableView: UITableView!
     
     private var createdTableViewCells: [IndexPath : UITableViewCell]
     
     override init() {
         createdTableViewCells = [:]
+        sectionModels = []
         
         super.init()
     }
@@ -40,6 +41,7 @@ class FilterDataDisplayManager: NSObject, UITableViewDelegate, UITableViewDataSo
         cellModels.forEach { model in
             tableView.register(model.cellClass, forCellReuseIdentifier: model.cellIdentifier)
         }
+        tableView.reloadData()
     }
     
     //MARK : UITableViewDataSource

@@ -34,6 +34,7 @@ class NewInterestsViewController:ViewController, NewInterestsViewInput, TextFiel
         super.init(nibName: nil, bundle: nil)
         
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.bounces = false
 
         dataDisplayManager.register(in: tableView)

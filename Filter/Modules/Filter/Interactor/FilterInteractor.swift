@@ -45,15 +45,17 @@ class FilterInteractor: FilterInteractorInput {
     //MARK : FilterInteractorInput
     
     func getFilterSettings() {
-        let searchSettingsEntity = searchSettingsService.requestSearchSettings()
-        
-        currentFilterSettings.male = searchSettingsEntity.male
-        currentFilterSettings.female = searchSettingsEntity.female
-        currentFilterSettings.minAge = searchSettingsEntity.minAge
-        currentFilterSettings.maxAge = searchSettingsEntity.maxAge
-        currentFilterSettings.interests = searchSettingsEntity.interests
-
-        output.interactorDidGetFilterSettings(currentFilterSettings)
+        searchSettingsService.requestSearchSettings(successful: { searchSettings in
+            self.currentFilterSettings.male = searchSettings.male
+            self.currentFilterSettings.female = searchSettings.female
+            self.currentFilterSettings.minAge = searchSettings.minAge
+            self.currentFilterSettings.maxAge = searchSettings.maxAge
+            self.currentFilterSettings.interests = searchSettings.interests
+            
+            self.output.interactorDidGetFilterSettings(self.currentFilterSettings)
+        }) { error in
+            
+        }
     }
     
     func getCurrentFilterSettings() {

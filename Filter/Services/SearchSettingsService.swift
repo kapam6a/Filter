@@ -17,16 +17,16 @@ struct SearchSettingsEntity {
 }
 
 protocol SearchSettingsService {
-    func requestSearchSettings() -> SearchSettingsEntity
+    func requestSearchSettings(successful: @escaping (SearchSettingsEntity) -> Void, failed: @escaping (Error) -> Void)
 }
 
 class SearchSettingsServiceImplementation: SearchSettingsService{
-    func requestSearchSettings() -> SearchSettingsEntity {
-        return SearchSettingsEntity(male: true,
-                                    female: true,
-                                    minAge: 26,
-                                    maxAge: 33,
-                                    interests: ["witch-house", "rapcore", "dogs", "auto - layout", "horror - movie",
-                                                "play", "cards", "weather", "black tea", "chocolate", "play", "cards", "weather", "black tea", "chocolate"])
+    func requestSearchSettings(successful: @escaping (SearchSettingsEntity) -> Void, failed: @escaping (Error) -> Void) {
+        successful(SearchSettingsEntity(male: true,
+                                        female: true,
+                                        minAge: 26,
+                                        maxAge: 33,
+                                        interests: ["witch-house", "rapcore", "dogs", "auto - layout", "horror - movie",
+                                                    "play", "cards", "weather", "black tea", "chocolate", "play", "cards", "weather", "black tea", "chocolate"]))
     }
 }
