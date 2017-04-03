@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var rootModule: FilterModule!
     
+    let deamon: Deamon
+    
+    override init() {
+        deamon = DeamonAssembly().createLocationDeamon()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         rootModule = FilterAssembly().createFilterModule()
@@ -24,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         GMSServices.provideAPIKey("AIzaSyBskBANCZoBNNDLMhkVbmU1wjLCnEdlmTc")
+        
+        deamon.start()
         
         return true
     }

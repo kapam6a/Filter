@@ -8,25 +8,60 @@
 
 import Foundation
 
+struct UserEntity {
+    let photoUrl: URL
+    let aboutMe: String
+    let age: Int
+    let city: String
+    let email: String
+    let firstName: String
+    let id: Int
+    let nick: String
+    let phoneNumber: String
+    let secondName:String
+    let sex: Int
+    let status: String
+    let work: String
+    let latitude: Double
+    let longitude: Double
+}
+
 protocol UserProfileService {
-    func requestUserProfile(successful: @escaping (UserProfileEntity) -> Void, failed: @escaping (Error) -> Void)
+    func requestUser(userId: Int, successful: @escaping (UserEntity) -> Void, failed: @escaping (Error) -> Void)
+    func requestCurrentUser(successful: @escaping (UserEntity) -> Void, failed: @escaping (Error) -> Void)
 }
 
 class UserProfileServiceImplementation: NSObject, UserProfileService {
     private let networkClient: NetworkClient
-    private let mapper: UserProfileMapper
+    private let mapper: UserMapper
+    private let requestFactory: RequestFactory
+    private let storage: Storage
     
-    init(with networkClient: NetworkClient, _ mapper: UserProfileMapper) {
+    init(networkClient: NetworkClient, mapper: UserMapper, requestFactory: RequestFactory, storage: Storage) {
         self.networkClient = networkClient
         self.mapper = mapper
+        self.requestFactory = requestFactory
+        self.storage = storage
     }
     
-    func requestUserProfile(successful: @escaping (UserProfileEntity) -> Void, failed: @escaping (Error) -> Void) {
-        networkClient.sendRequest(successful: { data in
+    //Mark : UserProfileService
+    
+    func requestUser(userId: Int, successful: @escaping (UserEntity) -> Void, failed: @escaping (Error) -> Void) {
+        let token = storage.getToken()
+        let request = requestFactory.userRequest(userId: userId,
+                                                 token: token)
+        
+        networkClient.sendRequest(request: request,
+                               successful: { data in
                                     let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                                    successful(self.mapper.mapUserProfile(json))
-                                 }) { error in
-                                    failed(error)
-                                 }
+                                    successful(self.mapper.mapUser(json))
+        }) { error in
+            failed(error)
+        }
+    }
+    
+    func requestCurrentUser(successful: @escaping (UserEntity) -> Void, failed: @escaping (Error) -> Void) {
+        let currentProfile = storage.getProfileInformation()
+        successful(currentProfile)
     }
 }

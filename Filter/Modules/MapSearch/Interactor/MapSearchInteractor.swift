@@ -10,38 +10,70 @@ import Foundation
 import CoreLocation
 
 protocol MapSearchInteractorInput {
-    func requestCurrentLocation()
-    func requestSuitableUsers()
+    func requestCurrentUser()
+    func requestCloseUsers()
 }
 
 protocol MapSearchInteractorOutput:class {
-    func interactorRequestCurrentLocationDidFinish(withSuccess locationEntity: LocationEntity)
-    func interactorRequestCurrentLocationDidFail(withError error: Error)
+    func interactorRequestCurrentUserDidFinish(withSuccess currentUser: UserEntity)
+    func interactorRequestCloseUsersDidFinish(withSuccess closeUsers: [UserEntity])
+    func interactorRequestDidFail(withError error: Error)
+
 }
 
 class MapSearchInteractor:  MapSearchInteractorInput {
     weak var output: MapSearchInteractorOutput!
     
     private let locationService: LocationService
+    private let closeUsersService: CloseUsersService
+    private let userProfileService: UserProfileService
     
-    private var myLocation: CLLocation?
+    private var currentLocationEntity: LocationEntity!
     
-    init(withLocationService locationService: LocationService) {
+    init(locationService: LocationService, closeUsersService: CloseUsersService, userProfileService: UserProfileService) {
         self.locationService = locationService
+        self.closeUsersService = closeUsersService
+        self.userProfileService = userProfileService
     }
     
     //MARK : MapSearchInteractorInput
     
-    func requestCurrentLocation() {
+    func requestCurrentUser() {
         locationService.requestCurrentLocation(successful: { locationEntity in
-            self.output.interactorRequestCurrentLocationDidFinish(withSuccess: locationEntity)
-            self.myLocation = locationEntity.location
+            self.currentLocationEntity = locationEntity
+            
+            self.userProfileService.requestCurrentUser(successful: { currentUser in
+                                                        self.output.interactorRequestCurrentUserDidFinish(withSuccess: UserEntity(photoUrl: currentUser.photoUrl,
+                                                                                                                                  aboutMe: currentUser.aboutMe,
+                                                                                                                                  age: currentUser.age,
+                                                                                                                                  city: currentUser.city,
+                                                                                                                                  email: currentUser.email,
+                                                                                                                                  firstName: currentUser.firstName,
+                                                                                                                                  id: currentUser.id,
+                                                                                                                                  nick: currentUser.nick,
+                                                                                                                                  phoneNumber: currentUser.phoneNumber,
+                                                                                                                                  secondName: currentUser.secondName,
+                                                                                                                                  sex: currentUser.sex,
+                                                                                                                                  status: currentUser.status,
+                                                                                                                                  work: currentUser.work,
+                                                                                                                                  latitude: locationEntity.latitude,
+                                                                                                                                  longitude: locationEntity.longitude))
+                                                    }, failed: { error in
+                                                        self.output.interactorRequestDidFail(withError: error)
+                                                    })
         }) { error in
-            self.output.interactorRequestCurrentLocationDidFail(withError: error)
+            self.output.interactorRequestDidFail(withError: error)
         }
     }
     
-    func requestSuitableUsers() {
-        
+    func requestCloseUsers() {
+        closeUsersService.requestCloseUsers(latitude: currentLocationEntity.latitude,
+                                            longitude: currentLocationEntity.longitude,
+                                            successful: { userEntities in
+                                                self.output.interactorRequestCloseUsersDidFinish(withSuccess: userEntities)
+                                            },
+                                            failed: { error in
+                                                 self.output.interactorRequestDidFail(withError: error)
+                                            })
     }
 }

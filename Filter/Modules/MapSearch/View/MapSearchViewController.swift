@@ -11,7 +11,7 @@ import GoogleMaps
 
 protocol  MapSearchViewInput {
     func upload(with mapMarkerModels: [MapMarkerModel])
-    func upload(with myMapMarkerModel: MapMarkerModel)
+    func upload(with currentMarkerModel: MapMarkerModel)
 }
 
 protocol  MapSearchViewOutput: class {
@@ -27,14 +27,9 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     private var mapMarkerModels: [MapMarkerModel]!
     private var myMapMarkerModel: MapMarkerModel!
     
-    let label: UILabel
-    var count = 0
-    
     init() {
         mapView = GMSMapView(frame: .zero)
-        label = UILabel(frame: CGRect(x: 100, y: 100, width: 100, height: 30))
-        label.backgroundColor = .white
-            
+        
         super.init(nibName: nil, bundle: nil)
 
         let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json")!
@@ -51,7 +46,7 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(mapView)
-        view.addSubview(label)
+        
         output.viewDidLoad()
     }
     
@@ -63,11 +58,7 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     
     //MARK : MapSearchViewInput
     
-    func upload(with myMapMarkerModel: MapMarkerModel) {
-        label.backgroundColor = UIColor(red:CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
-        label.text = String(count)
-        count += 1
-        
+    func upload(with currentMarkerModel: MapMarkerModel) {
         let camera = GMSCameraPosition.camera(withLatitude: myMapMarkerModel.location.coordinate.latitude,
                                               longitude: myMapMarkerModel.location.coordinate.longitude,
                                               zoom: myMapMarkerModel.zoom)

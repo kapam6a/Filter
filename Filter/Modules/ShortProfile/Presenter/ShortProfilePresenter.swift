@@ -75,13 +75,13 @@ class ShortProfilePresenter: ShortProfileViewOutput, ShortProfileModule, ShortPr
     
      //MARK : ShortProfileInteractorOutput
     
-    func interactorRequestUserProfileDidFinish(withSuccess profileEntity: UserProfileEntity) {
+    func interactorRequestUserDidFinish(withSuccess user: UserEntity) {
         view.goIntoNormalState()
-        let cellModels = cellModelsConverter.convertModels(with: profileEntity)
+        let cellModels = cellModelsConverter.convertModels(with: user)
         view.update(withCellModels: cellModels)
     }
     
-    func interactorRequestUserProfileDidFail(withError error: Error) {
+    func interactorRequestDidFail(withError error: Error) {
         view.goIntoNormalState()
         view.goIntoErrorState(with: error)
     }

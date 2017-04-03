@@ -15,18 +15,18 @@ class ShortProfileCellModelsConverter {
         self.viewOutput = viewOutput
     }
     
-    func convertModels(with profileEntity: UserProfileEntity) -> [BasicTableViewCellModel]{
+    func convertModels(with user: UserEntity) -> [BasicTableViewCellModel]{
         var cellModels: [BasicTableViewCellModel] = []
         
-        let statusCellModel = StatusCellModel(photoPath: profileEntity.photoUrl.path,
-                                              status: profileEntity.status,
-                                              name: profileEntity.firstName) {
+        let statusCellModel = StatusCellModel(photoPath: user.photoUrl.path,
+                                              status: user.status,
+                                              name: user.firstName) {
                                                     self.viewOutput.viewDidTapChatButton()
                                               }
         cellModels.append(statusCellModel)
         
-        let professionCellModel = CareerCellModel(age: profileEntity.age,
-                                                  career: profileEntity.work)
+        let professionCellModel = CareerCellModel(age: user.age,
+                                                  career: user.work)
         cellModels.append(professionCellModel)
         
         let navigationCellModel = NavigationCellModel(favoriteButtonAction: { [unowned self] in

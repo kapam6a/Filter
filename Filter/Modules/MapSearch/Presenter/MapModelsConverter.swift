@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MapModelsConverter {
     private weak var viewOutput: MapSearchViewOutput!
@@ -15,32 +16,42 @@ class MapModelsConverter {
         self.viewOutput = viewOutput
     }
     
-    func convertModels(with locationEntities: [LocationEntity]) -> [MapMarkerModel] {
+    func convertMarkerModels(with users: [UserEntity]) -> [MapMarkerModel] {
         var mapMarkerkModels: [MapMarkerModel] = []
         
-        locationEntities.forEach{ locationEntitie in
+        users.forEach{ user in
             var image = UIImage()
             
-//            if locationEntitie.sex == 1 {
-//                image = #imageLiteral(resourceName: "male_marker_icon")
-//            } else {
-//                image = #imageLiteral(resourceName: "female_marker_icon")
-//            }
-            
-            let mapMarkerModel = MapMarkerModel(image: #imageLiteral(resourceName: "male_marker_icon"),
-                                                location: locationEntitie.location,
-                                                userId: 1,
+            if user.sex == 1 {
+                image = #imageLiteral(resourceName: "male_marker_icon")
+            } else {
+                image = #imageLiteral(resourceName: "female_marker_icon")
+            }
+            let location = CLLocation(latitude: user.latitude,
+                                      longitude: user.longitude)
+            let mapMarkerModel = MapMarkerModel(image: image,
+                                                location: location,
+                                                userId: user.id,
                                                 zoom: 0)
             mapMarkerkModels.append(mapMarkerModel)
         }
         return mapMarkerkModels
     }
     
-    func convertMyModel(with locationEntity: LocationEntity) -> MapMarkerModel {
-            return MapMarkerModel(image: #imageLiteral(resourceName: "my_marker_icon"),
-                                  location: locationEntity.location,
-                                  userId: 0,
-                                  zoom:18)
-          }
-
+    func convertCurrentMarkerModel(with user: UserEntity) -> MapMarkerModel {
+        var image = UIImage()
+        
+        if user.sex == 1 {
+            image = #imageLiteral(resourceName: "male_marker_icon")
+        } else {
+            image = #imageLiteral(resourceName: "female_marker_icon")
+        }
+        let location = CLLocation(latitude: user.latitude,
+                                  longitude: user.longitude)
+        
+        return MapMarkerModel(image: image,
+                              location: location,
+                              userId: user.id,
+                              zoom:18)
+    }
 }

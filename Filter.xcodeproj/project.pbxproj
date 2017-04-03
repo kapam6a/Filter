@@ -26,10 +26,13 @@
 		B03B4A621E8BDAD900D76446 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A611E8BDAD900D76446 /* NetworkClient.swift */; };
 		B03B4A651E8BE0E300D76446 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A641E8BE0E300D76446 /* ServiceAssembly.swift */; };
 		B03B4A6A1E8BEBA200D76446 /* UserProfileMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A691E8BEBA200D76446 /* UserProfileMapper.swift */; };
-		B03B4A6C1E8BF54100D76446 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A6B1E8BF54100D76446 /* RequestFactory.swift */; };
-		B03B4A6F1E8BF73800D76446 /* NetworkClientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A6E1E8BF73800D76446 /* NetworkClientAssembly.swift */; };
 		B03CA7D81E8E379600BDE713 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA7D71E8E379600BDE713 /* MapMarker.swift */; };
 		B03CA7DA1E8E4DD200BDE713 /* MapModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA7D91E8E4DD200BDE713 /* MapModelsConverter.swift */; };
+		B044B4E51E921A00004347D3 /* Deamon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E41E921A00004347D3 /* Deamon.swift */; };
+		B044B4E81E923378004347D3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E71E923378004347D3 /* Storage.swift */; };
+		B044B4EA1E9237C0004347D3 /* DeamonAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */; };
+		B044B4FA1E926AEC004347D3 /* CloseUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4F91E926AEC004347D3 /* CloseUsersService.swift */; };
+		B044B4FC1E927260004347D3 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4FB1E927260004347D3 /* RequestFactory.swift */; };
 		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
 		B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */; };
 		B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */; };
@@ -117,10 +120,13 @@
 		B03B4A611E8BDAD900D76446 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = CoreComponents/NetworkClient/NetworkClient.swift; sourceTree = "<group>"; };
 		B03B4A641E8BE0E300D76446 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceAssembly.swift; path = Services/Assembly/ServiceAssembly.swift; sourceTree = "<group>"; };
 		B03B4A691E8BEBA200D76446 /* UserProfileMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileMapper.swift; path = CoreComponents/Mapper/UserProfileMapper.swift; sourceTree = "<group>"; };
-		B03B4A6B1E8BF54100D76446 /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestFactory.swift; path = CoreComponents/NetworkClient/RequestFactory.swift; sourceTree = "<group>"; };
-		B03B4A6E1E8BF73800D76446 /* NetworkClientAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClientAssembly.swift; path = CoreComponents/NetworkClient/Assembly/NetworkClientAssembly.swift; sourceTree = "<group>"; };
 		B03CA7D71E8E379600BDE713 /* MapMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapMarker.swift; path = Modules/MapSearch/View/MapMarker.swift; sourceTree = "<group>"; };
 		B03CA7D91E8E4DD200BDE713 /* MapModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapModelsConverter.swift; path = Modules/MapSearch/Presenter/MapModelsConverter.swift; sourceTree = "<group>"; };
+		B044B4E41E921A00004347D3 /* Deamon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deamon.swift; path = Deamons/Deamon.swift; sourceTree = "<group>"; };
+		B044B4E71E923378004347D3 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = CoreComponents/Storage/Storage.swift; sourceTree = "<group>"; };
+		B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeamonAssembly.swift; path = Deamons/DeamonAssembly.swift; sourceTree = "<group>"; };
+		B044B4F91E926AEC004347D3 /* CloseUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloseUsersService.swift; path = Services/CloseUsersService.swift; sourceTree = "<group>"; };
+		B044B4FB1E927260004347D3 /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestFactory.swift; path = CoreComponents/URLRequest/RequestFactory.swift; sourceTree = "<group>"; };
 		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
 		B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCollectionViewCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsDataDisplayManager.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsDataDisplayManager.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 		B03B4A601E8BD6BE00D76446 /* CoreComponents */ = {
 			isa = PBXGroup;
 			children = (
+				B044B4EB1E923E00004347D3 /* URLRequest */,
+				B044B4E61E92330A004347D3 /* Storage */,
 				B03B4A681E8BEB6300D76446 /* Mapper */,
 				B03B4A671E8BEB5500D76446 /* NetowrkClient */,
 			);
@@ -295,9 +303,7 @@
 		B03B4A671E8BEB5500D76446 /* NetowrkClient */ = {
 			isa = PBXGroup;
 			children = (
-				B03B4A6D1E8BF6D500D76446 /* Assembly */,
 				B03B4A611E8BDAD900D76446 /* NetworkClient.swift */,
-				B03B4A6B1E8BF54100D76446 /* RequestFactory.swift */,
 			);
 			name = NetowrkClient;
 			sourceTree = "<group>";
@@ -310,12 +316,29 @@
 			name = Mapper;
 			sourceTree = "<group>";
 		};
-		B03B4A6D1E8BF6D500D76446 /* Assembly */ = {
+		B044B4E31E921938004347D3 /* Deamons */ = {
 			isa = PBXGroup;
 			children = (
-				B03B4A6E1E8BF73800D76446 /* NetworkClientAssembly.swift */,
+				B044B4E41E921A00004347D3 /* Deamon.swift */,
+				B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */,
 			);
-			name = Assembly;
+			name = Deamons;
+			sourceTree = "<group>";
+		};
+		B044B4E61E92330A004347D3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B044B4E71E923378004347D3 /* Storage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		B044B4EB1E923E00004347D3 /* URLRequest */ = {
+			isa = PBXGroup;
+			children = (
+				B044B4FB1E927260004347D3 /* RequestFactory.swift */,
+			);
+			name = URLRequest;
 			sourceTree = "<group>";
 		};
 		B050AE251E71458F00F4EB5F /* DesignBook */ = {
@@ -560,6 +583,7 @@
 		B0A05EF51E6D37B100B5D1AD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				B044B4E31E921938004347D3 /* Deamons */,
 				B0B45A301E83FB96008720F4 /* Protocols */,
 				B093A6F61E7972620059DECA /* Extensions */,
 				B050AE501E77FD7D00F4EB5F /* UI */,
@@ -637,6 +661,7 @@
 				B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */,
 				B050AE491E76D91D00F4EB5F /* InterestsService.swift */,
 				B001026F1E83BF3C00A86AC2 /* UserProfileService.swift */,
+				B044B4F91E926AEC004347D3 /* CloseUsersService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -883,9 +908,9 @@
 				B058E9701E7BB2F000BF4895 /* MapSearchViewController.swift in Sources */,
 				B058E9911E815F6B00BF4895 /* PhotosCellModelsConverter.swift in Sources */,
 				B0A05EF71E6D37B100B5D1AD /* AppDelegate.swift in Sources */,
+				B044B4E51E921A00004347D3 /* Deamon.swift in Sources */,
 				B058E9761E7BB5CA00BF4895 /* MapSearchRouter.swift in Sources */,
 				B0B45A321E840320008720F4 /* CareerTableViewCell.swift in Sources */,
-				B03B4A6C1E8BF54100D76446 /* RequestFactory.swift in Sources */,
 				B050AE4F1E77E75200F4EB5F /* SearchCell.swift in Sources */,
 				B001026B1E83BE2D00A86AC2 /* ShortProfileAssembly.swift in Sources */,
 				B058E9851E812A1000BF4895 /* WheelCollectionViewLayout.swift in Sources */,
@@ -909,12 +934,14 @@
 				B00102611E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift in Sources */,
 				B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */,
 				B00102721E83C39E00A86AC2 /* StatusTableViewCell.swift in Sources */,
+				B044B4FC1E927260004347D3 /* RequestFactory.swift in Sources */,
 				B0B45A341E8405B6008720F4 /* SocialNetworkTableViewCell.swift in Sources */,
 				B00102671E83BD9B00A86AC2 /* ShortProfileInteractor.swift in Sources */,
 				B050AE441E76B0BC00F4EB5F /* NewInterestsAssembly.swift in Sources */,
 				B03B4A6A1E8BEBA200D76446 /* UserProfileMapper.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
+				B044B4FA1E926AEC004347D3 /* CloseUsersService.swift in Sources */,
 				B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */,
 				B0A05F141E6D4EAF00B5D1AD /* FilterAssembly.swift in Sources */,
 				B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */,
@@ -922,6 +949,7 @@
 				B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */,
 				B093A6F81E79727E0059DECA /* UITableView.swift in Sources */,
 				B001025F1E83B8EE00A86AC2 /* ShortProfileViewController.swift in Sources */,
+				B044B4E81E923378004347D3 /* Storage.swift in Sources */,
 				B00102701E83BF3C00A86AC2 /* UserProfileService.swift in Sources */,
 				B00C0CF01E8904240059B695 /* BasicCollectionViewCell.swift in Sources */,
 				B093A6F51E79415F0059DECA /* ViewController.swift in Sources */,
@@ -943,13 +971,13 @@
 				B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */,
 				B058E9831E81280500BF4895 /* WheelCollectionViewCell.swift in Sources */,
 				B00102651E83BD1E00A86AC2 /* ShortProfileCellModelsConverter.swift in Sources */,
-				B03B4A6F1E8BF73800D76446 /* NetworkClientAssembly.swift in Sources */,
 				B0A05F201E6D90EE00B5D1AD /* SearchSettingsService.swift in Sources */,
 				B03B4A5A1E8A4AC000D76446 /* TableViewCellWithSeparator.swift in Sources */,
 				B050AE401E76B07F00F4EB5F /* NewInterestsInteractor.swift in Sources */,
 				B058E9931E81605900BF4895 /* PhotosInteractor.swift in Sources */,
 				B050AE521E77FD9D00F4EB5F /* TextFieldWithButton.swift in Sources */,
 				B050AE3E1E76B03800F4EB5F /* NewInterestsPresenter.swift in Sources */,
+				B044B4EA1E9237C0004347D3 /* DeamonAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

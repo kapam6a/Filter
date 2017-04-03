@@ -9,20 +9,20 @@
 import Foundation
 
 protocol NetworkClient {
-    func sendRequest(successful: @escaping(Data) -> Void, failed: @escaping(Error) -> Void)
+    func sendRequest(request: URLRequest, successful: @escaping(Data) -> Void, failed: @escaping(Error) -> Void)
 }
 
 class NetworkClientImplementation: NetworkClient {
-    private let request: URLRequest
+    private let urlSession: URLSession
     
-    init(with request: URLRequest) {
-        self.request = request
+    init() {
+        urlSession = URLSession.shared
     }
     
     //MARK : NetworkClient
     
-    func sendRequest(successful: @escaping(Data) -> Void, failed: @escaping(Error) -> Void) {
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+    func sendRequest(request: URLRequest, successful: @escaping(Data) -> Void, failed: @escaping(Error) -> Void) {
+        let dataTask = urlSession.dataTask(with: request) { data, response, error in
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 200 {
                     if let data = data {

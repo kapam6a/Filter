@@ -8,28 +8,19 @@
 
 import Foundation
 
-struct UserProfileEntity {
-    let photoUrl: URL
-    let aboutMe: String
-    let age: Int
-    let city: String
-    let email: String
-    let firstName: String
-    let id: Int
-    let nick: String
-    let phoneNumber: String
-    let secondName:String
-    let sex: Int
-    let status: String
-    let work: String
+protocol UserMapper {
+    func mapUser(_ dictionary: [String: Any]) -> UserEntity
+    func mapUsers(_ dictionary: [String: Any]) -> [UserEntity]
 }
 
-protocol UserProfileMapper {
-    func mapUserProfile(_ dictionary: [String: Any]) -> UserProfileEntity
-}
-
-class UserProfileMapperImplementation: UserProfileMapper {
-    func mapUserProfile(_ dictionary: [String: Any]) -> UserProfileEntity {
+class UserMapperImplementation: UserMapper {
+    func mapUsers(_ dictionary: [String: Any]) -> [UserEntity] {
+        var userEntities: [UserEntity] = []
+        
+        return userEntities
+    }
+    
+    func mapUser(_ dictionary: [String: Any]) -> UserEntity {
         let user = dictionary["user"] as! [String: Any]
         let userInfo = user["user"] as! [String: Any]
         let aboutMe = userInfo["aboutMe"] as? String ?? ""
@@ -44,19 +35,23 @@ class UserProfileMapperImplementation: UserProfileMapper {
         let sex = userInfo["sex"] as! Int
         let status = userInfo["status"] as? String ?? ""
         let work = userInfo["work"] as? String ?? ""
+        let latitude = userInfo["latitude"] as? Double ?? 0
+        let longitude = userInfo["longitude"] as? Double ?? 0
         
-        return UserProfileEntity(photoUrl: URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/face.jpg"),
-                                 aboutMe: aboutMe,
-                                 age: age,
-                                 city: city,
-                                 email: email,
-                                 firstName: firstName,
-                                 id: id,
-                                 nick: nick,
-                                 phoneNumber: phoneNumber,
-                                 secondName: secondName,
-                                 sex: sex,
-                                 status: status,
-                                 work: work)
+        return UserEntity(photoUrl: URL(fileURLWithPath: "/Users/admin/Desktop/Filter/Filter/face.jpg"),
+                          aboutMe: aboutMe,
+                          age: age,
+                          city: city,
+                          email: email,
+                          firstName: firstName,
+                          id: id,
+                          nick: nick,
+                          phoneNumber: phoneNumber,
+                          secondName: secondName,
+                          sex: sex,
+                          status: status,
+                          work: work,
+                          latitude: latitude,
+                          longitude: longitude)
     }
 }

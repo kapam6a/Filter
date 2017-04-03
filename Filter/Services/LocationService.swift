@@ -10,7 +10,8 @@ import Foundation
 import CoreLocation
 
 struct LocationEntity {
-    let location: CLLocation
+    let latitude: Double
+    let longitude: Double
 }
 
 protocol LocationService {
@@ -29,27 +30,24 @@ class LocationServiceImplementation: NSObject, LocationService, CLLocationManage
         super.init()
         
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.distanceFilter = 1
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
     }
     
     func requestCurrentLocation(successful: @escaping (LocationEntity) -> Void, failed: @escaping (Error) -> Void) {
         self.successful = successful
         self.failed = failed
+        
+        locationManager.requestLocation()
     }
     
     //MARK : CLLocationManagerDelegate 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocations")
-        successful(LocationEntity(location: locations.last!))
+        let coordinate = locations.last!.coordinate
+        self.successful(LocationEntity(latitude: coordinate.latitude,
+                                      longitude: coordinate.longitude))
     }
     
     func  locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("didFailWithError")
         failed(error)
     }
 }

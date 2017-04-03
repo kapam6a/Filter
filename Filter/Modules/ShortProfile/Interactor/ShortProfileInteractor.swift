@@ -13,8 +13,8 @@ protocol ShortProfileInteractorInput {
 }
 
 protocol ShortProfileInteractorOutput:class {
-    func interactorRequestUserProfileDidFinish(withSuccess profileEntity: UserProfileEntity)
-    func interactorRequestUserProfileDidFail(withError error: Error)
+    func interactorRequestUserDidFinish(withSuccess user: UserEntity)
+    func interactorRequestDidFail(withError error: Error)
 }
 
 class ShortProfileInteractor: ShortProfileInteractorInput {
@@ -28,11 +28,12 @@ class ShortProfileInteractor: ShortProfileInteractorInput {
     
     //MARK : ShortProfileInteractorInput
     
-    func requestUserProfile(with id: Int) {
-        profileService.requestUserProfile(successful: { profileEntity in
-            self.output.interactorRequestUserProfileDidFinish(withSuccess: profileEntity)
+    func requestUserProfile(with userId: Int) {
+        profileService.requestUser(userId: userId,
+                                   successful: { user in
+                                    self.output.interactorRequestUserDidFinish(withSuccess: user)
         }) { error in
-            self.output.interactorRequestUserProfileDidFail(withError: error)
+            self.output.interactorRequestDidFail(withError: error)
         }
     }
 }

@@ -39,23 +39,28 @@ class MapSearchPresenter: MapSearchViewOutput, MapSearchModule, MapSearchInterac
     //MARK : MapSearchViewOutput
     
     func viewDidLoad() {
-        interactor.requestCurrentLocation()
+        interactor.requestCurrentUser()
     }
     
     func viewDidTapMarker(with id: Int) {
-        
+
     }
 
     //MARK : MapSearchInteractorOutput
     
-    func interactorRequestCurrentLocationDidFinish(withSuccess locationEntity: LocationEntity) {
-        let myMapMarkerModel = modelsConverter.convertMyModel(with: locationEntity)
-        view.upload(with: myMapMarkerModel)
+    func interactorRequestCurrentUserDidFinish(withSuccess currentUser: UserEntity) {
+        let currentMarkerModel = modelsConverter.convertCurrentMarkerModel(with: currentUser)
+        view.upload(with: currentMarkerModel)
         
-        interactor.requestSuitableUsers()
+        interactor.requestCloseUsers()
     }
     
-    func interactorRequestCurrentLocationDidFail(withError error: Error) {
+    func interactorRequestCloseUsersDidFinish(withSuccess closeUsers: [UserEntity]) {
+        let markerModels = modelsConverter.convertMarkerModels(with: closeUsers)
+        view.upload(with: markerModels)
+    }
+    
+    func interactorRequestDidFail(withError error: Error) {
         
     }
 }
