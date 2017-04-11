@@ -16,7 +16,7 @@ fileprivate struct Constants {
 
 protocol RequestFactory {
     func userRequest(userId: Int, token: String) -> URLRequest
-    func closeUsersRequest(latitude: Double, longitude: Double, token: String) -> URLRequest
+    func closestUsersRequest(latitude: Double, longitude: Double, token: String) -> URLRequest
     func updateLastCoordinateRequest(userId: Int, latitude: Double, longitude: Double, token: String) -> URLRequest
 }
 
@@ -29,7 +29,7 @@ class RequestFactoryImplementation: RequestFactory {
         return request
     }
     
-    func closeUsersRequest(latitude: Double,
+    func closestUsersRequest(latitude: Double,
                           longitude: Double,
                               token: String) -> URLRequest {
         let url = URL(string: Constants.mainURLPath + "users/")!
@@ -47,14 +47,13 @@ class RequestFactoryImplementation: RequestFactory {
         let url = URL(string: Constants.mainURLPath + "users/\(userId))/coordinates")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let body = "user_id=\(userId)&" +
-            "lat=\(latitude)&" +
-            "lon=\(longitude)&" +
-            "date=\(Date())&" +
-            "deviceType=\(deviceType)&" +
-            "token=\(token)&" +
-            "deviceID=\(uuid)"
+        let body = "lat=\(latitude)&" +
+                   "lon=\(longitude)&" +
+                   "date=\(Date())&" +
+                   "deviceType=\(deviceType)&" +
+                   "deviceID=\(uuid)"
         request.httpBody = body.data(using: .utf8)
+        request.addValue(Constants.headerValue + "{\(token)}", forHTTPHeaderField: Constants.headerField)
         return request
     }
 }

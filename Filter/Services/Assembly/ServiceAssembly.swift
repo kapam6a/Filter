@@ -9,44 +9,33 @@
 import Foundation
 
 class ServiceAssembly {
-    static func createUserProfileService() -> UserProfileService {
-        let mapper = UserMapperImplementation()
-        let networkClient = NetworkClientImplementation()
+    func createUserService() -> UserService {
+        let converter = UserConverterImplementation()
+        let networkClient = NetworkClientAssembly().createNetworkClient()
         let requestFactory = RequestFactoryImplementation()
-        let storage = StorageImplementation()
-        return UserProfileServiceImplementation(networkClient: networkClient,
-                                                       mapper: mapper,
-                                               requestFactory: requestFactory,
-                                                      storage: storage)
+        let storage = StorageAssembly().createStorage()
+        return UserServiceImplementation(networkClient: networkClient,
+                                         converter: converter,
+                                         requestFactory: requestFactory,
+                                         storage: storage)
     }
     
-    static func createCloseUsersService() -> CloseUsersService {
-        let mapper = UserMapperImplementation()
-        let networkClient = NetworkClientImplementation()
-        let requestFactory = RequestFactoryImplementation()
-        let storage = StorageImplementation()
-        return CloseUsersServiceImplementation(networkClient: networkClient,
-                                                      mapper: mapper,
-                                              requestFactory: requestFactory,
-                                                     storage: storage)
-    }
-    
-    static func createLocationService() -> LocationService {
+    func createLocationService() -> LocationService {
         let locationService = LocationServiceImplementation()
         return locationService
     }
     
-    static func createPhotosService() -> PhotosService {
+    func createPhotosService() -> PhotosService {
         let photosService = PhotosServiceImplementation()
         return photosService
     }
     
-    static func createSearchSettingsService() -> SearchSettingsService {
+    func createSearchSettingsService() -> SearchSettingsService {
         let searchSettingsService = SearchSettingsServiceImplementation()
         return searchSettingsService
     }
     
-    static func createInterestsService() -> InterestsService {
+    func createInterestsService() -> InterestsService {
         let interestsService = InterestsServiceImplementation()
         return interestsService
     }

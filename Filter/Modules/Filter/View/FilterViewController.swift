@@ -95,10 +95,6 @@ class FilterViewController: ViewController, FilterViewInput {
     
     func update(withSectionModels sectionModels: [FilterSectionModel]) {
         dataDisplayManager.setup(withSectionModels: sectionModels)
-        tableView.sizeToFit()
-        adjustContainerSize(withSize: CGSize(width: tableView.frame.width,
-                                             height: tableView.frame.height + doneButton.frame.height))
-
     }
     
     //MARK : Actions

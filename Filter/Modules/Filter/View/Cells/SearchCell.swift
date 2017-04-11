@@ -74,15 +74,18 @@ class SearchCell: TableViewCellWithSeparator, BasicTableViewCell, UITextFieldDel
 fileprivate struct Layout {
     let bounds: CGRect
     
+    private let loupeSide: CGFloat = 15
+    private let space: CGFloat = 10
+    
     func loupeFrame() -> CGRect {
         return CGRect(x: 0,
-                      y: bounds.height / 2 - 15 / 2,
-                      width: 15,
-                      height: 15)
+                      y: bounds.height / 2 - loupeSide / 2,
+                      width: loupeSide,
+                      height: loupeSide)
     }
     
     func textFieldFrame() -> CGRect {
-        let x = loupeFrame().maxX + 10
+        let x = loupeFrame().maxX + space
         return CGRect(x: x ,
                       y: 0,
                       width: bounds.width - x,

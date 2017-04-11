@@ -15,24 +15,27 @@
 		B00102671E83BD9B00A86AC2 /* ShortProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102661E83BD9B00A86AC2 /* ShortProfileInteractor.swift */; };
 		B00102691E83BDED00A86AC2 /* ShortProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102681E83BDED00A86AC2 /* ShortProfileRouter.swift */; };
 		B001026B1E83BE2D00A86AC2 /* ShortProfileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001026A1E83BE2D00A86AC2 /* ShortProfileAssembly.swift */; };
-		B00102701E83BF3C00A86AC2 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001026F1E83BF3C00A86AC2 /* UserProfileService.swift */; };
+		B00102701E83BF3C00A86AC2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B001026F1E83BF3C00A86AC2 /* UserService.swift */; };
 		B00102721E83C39E00A86AC2 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102711E83C39E00A86AC2 /* StatusTableViewCell.swift */; };
 		B00102741E83CB3300A86AC2 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00102731E83CB3300A86AC2 /* BasicTableViewCell.swift */; };
 		B00C0CF01E8904240059B695 /* BasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C0CEF1E8904240059B695 /* BasicCollectionViewCell.swift */; };
 		B00C0CF61E893F740059B695 /* NavigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C0CF51E893F740059B695 /* NavigationTableViewCell.swift */; };
 		B00C0CF81E894AE80059B695 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B00C0CF71E894AE80059B695 /* face.jpg */; };
+		B018CBAF1E9B665C00518C25 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018CBAE1E9B665C00518C25 /* ErrorHandler.swift */; };
+		B018CBB11E9B682F00518C25 /* NetworkClientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018CBB01E9B682F00518C25 /* NetworkClientAssembly.swift */; };
+		B018CBB31E9B79FA00518C25 /* StorageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B018CBB21E9B79FA00518C25 /* StorageMapper.swift */; };
 		B03B4A5A1E8A4AC000D76446 /* TableViewCellWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A591E8A4AC000D76446 /* TableViewCellWithSeparator.swift */; };
 		B03B4A5F1E8A9A1E00D76446 /* InterestsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A5E1E8A9A1E00D76446 /* InterestsCollectionView.swift */; };
 		B03B4A621E8BDAD900D76446 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A611E8BDAD900D76446 /* NetworkClient.swift */; };
 		B03B4A651E8BE0E300D76446 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A641E8BE0E300D76446 /* ServiceAssembly.swift */; };
-		B03B4A6A1E8BEBA200D76446 /* UserProfileMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A691E8BEBA200D76446 /* UserProfileMapper.swift */; };
+		B03B4A6A1E8BEBA200D76446 /* UserConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B4A691E8BEBA200D76446 /* UserConverter.swift */; };
 		B03CA7D81E8E379600BDE713 /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA7D71E8E379600BDE713 /* MapMarker.swift */; };
 		B03CA7DA1E8E4DD200BDE713 /* MapModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA7D91E8E4DD200BDE713 /* MapModelsConverter.swift */; };
 		B044B4E51E921A00004347D3 /* Deamon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E41E921A00004347D3 /* Deamon.swift */; };
 		B044B4E81E923378004347D3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E71E923378004347D3 /* Storage.swift */; };
 		B044B4EA1E9237C0004347D3 /* DeamonAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */; };
-		B044B4FA1E926AEC004347D3 /* CloseUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4F91E926AEC004347D3 /* CloseUsersService.swift */; };
 		B044B4FC1E927260004347D3 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B4FB1E927260004347D3 /* RequestFactory.swift */; };
+		B044B5021E936DF7004347D3 /* AnnotationMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044B5011E936DF7004347D3 /* AnnotationMarkerView.swift */; };
 		B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE261E7145BD00F4EB5F /* DesignBook.swift */; };
 		B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */; };
 		B050AE341E76A17A00F4EB5F /* InterestsDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */; };
@@ -46,6 +49,7 @@
 		B050AE4C1E76DC0C00F4EB5F /* AddInterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE4B1E76DC0C00F4EB5F /* AddInterestCell.swift */; };
 		B050AE4F1E77E75200F4EB5F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE4E1E77E75200F4EB5F /* SearchCell.swift */; };
 		B050AE521E77FD9D00F4EB5F /* TextFieldWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */; };
+		B0514E101E9B481B006ED817 /* StorageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0514E0F1E9B481B006ED817 /* StorageAssembly.swift */; };
 		B058E9701E7BB2F000BF4895 /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E96F1E7BB2F000BF4895 /* MapSearchViewController.swift */; };
 		B058E9721E7BB5BB00BF4895 /* MapSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9711E7BB5BB00BF4895 /* MapSearchPresenter.swift */; };
 		B058E9741E7BB5C300BF4895 /* MapSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9731E7BB5C300BF4895 /* MapSearchInteractor.swift */; };
@@ -53,7 +57,7 @@
 		B058E9781E7BB5D200BF4895 /* MapSearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9771E7BB5D200BF4895 /* MapSearchAssembly.swift */; };
 		B058E97A1E7BCDD500BF4895 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B058E9791E7BCDD500BF4895 /* mapStyle.json */; };
 		B058E97C1E7BD00700BF4895 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E97B1E7BD00700BF4895 /* LocationService.swift */; };
-		B058E97E1E7FCE2F00BF4895 /* WheelCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */; };
+		B058E97E1E7FCE2F00BF4895 /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E97D1E7FCE2F00BF4895 /* WheelView.swift */; };
 		B058E9831E81280500BF4895 /* WheelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */; };
 		B058E9851E812A1000BF4895 /* WheelCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */; };
 		B058E98D1E815E2A00BF4895 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E98C1E815E2A00BF4895 /* PhotosViewController.swift */; };
@@ -70,6 +74,13 @@
 		B058E9A51E816AC400BF4895 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B058E9A41E816AC400BF4895 /* 5.jpg */; };
 		B058E9A71E825EF700BF4895 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9A61E825EF700BF4895 /* PhotosCollectionViewCell.swift */; };
 		B058E9A91E82605000BF4895 /* PhotosDataDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058E9A81E82605000BF4895 /* PhotosDataDisplayManager.swift */; };
+		B06EF6EB1E97636700CBDF7D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF6E91E97636700CBDF7D /* User+CoreDataClass.swift */; };
+		B06EF6EC1E97636700CBDF7D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF6EA1E97636700CBDF7D /* User+CoreDataProperties.swift */; };
+		B06EF6EE1E97C0B000CBDF7D /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF6ED1E97C0B000CBDF7D /* MapKitViewController.swift */; };
+		B06EF9D31E9377CF004FB4B1 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF9D21E9377CF004FB4B1 /* Label.swift */; };
+		B06EF9D81E9630D5004FB4B1 /* CoreDataStackCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF9D71E9630D4004FB4B1 /* CoreDataStackCoordinator.swift */; };
+		B06EF9DB1E963402004FB4B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B06EF9D91E963402004FB4B1 /* Model.xcdatamodeld */; };
+		B06EF9DD1E9648E6004FB4B1 /* CoreDataStackCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06EF9DC1E9648E6004FB4B1 /* CoreDataStackCoordinatorAssembly.swift */; };
 		B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */; };
 		B093A6F51E79415F0059DECA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F41E79415F0059DECA /* ViewController.swift */; };
 		B093A6F81E79727E0059DECA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093A6F71E79727E0059DECA /* UITableView.swift */; };
@@ -109,24 +120,27 @@
 		B00102661E83BD9B00A86AC2 /* ShortProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileInteractor.swift; path = Modules/ShortProfile/Interactor/ShortProfileInteractor.swift; sourceTree = "<group>"; };
 		B00102681E83BDED00A86AC2 /* ShortProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileRouter.swift; path = Modules/ShortProfile/Router/ShortProfileRouter.swift; sourceTree = "<group>"; };
 		B001026A1E83BE2D00A86AC2 /* ShortProfileAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShortProfileAssembly.swift; path = Modules/ShortProfile/Assembly/ShortProfileAssembly.swift; sourceTree = "<group>"; };
-		B001026F1E83BF3C00A86AC2 /* UserProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileService.swift; path = Services/UserProfileService.swift; sourceTree = "<group>"; };
+		B001026F1E83BF3C00A86AC2 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = Services/UserService.swift; sourceTree = "<group>"; };
 		B00102711E83C39E00A86AC2 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusTableViewCell.swift; path = Modules/ShortProfile/View/Cells/StatusTableViewCell.swift; sourceTree = "<group>"; };
 		B00102731E83CB3300A86AC2 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicTableViewCell.swift; path = Protocols/BasicTableViewCell.swift; sourceTree = "<group>"; };
 		B00C0CEF1E8904240059B695 /* BasicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicCollectionViewCell.swift; path = Protocols/BasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		B00C0CF51E893F740059B695 /* NavigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationTableViewCell.swift; path = Modules/ShortProfile/View/Cells/NavigationTableViewCell.swift; sourceTree = "<group>"; };
 		B00C0CF71E894AE80059B695 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = face.jpg; path = Filter/face.jpg; sourceTree = "<group>"; };
+		B018CBAE1E9B665C00518C25 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandler.swift; path = CoreComponents/NetworkClient/ErrorHandler.swift; sourceTree = "<group>"; };
+		B018CBB01E9B682F00518C25 /* NetworkClientAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClientAssembly.swift; path = CoreComponents/NetworkClient/NetworkClientAssembly.swift; sourceTree = "<group>"; };
+		B018CBB21E9B79FA00518C25 /* StorageMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageMapper.swift; path = CoreComponents/Storage/StorageMapper.swift; sourceTree = "<group>"; };
 		B03B4A591E8A4AC000D76446 /* TableViewCellWithSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellWithSeparator.swift; path = UI/TableViewCellWithSeparator.swift; sourceTree = "<group>"; };
 		B03B4A5E1E8A9A1E00D76446 /* InterestsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCollectionView.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCollectionView.swift; sourceTree = "<group>"; };
 		B03B4A611E8BDAD900D76446 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkClient.swift; path = CoreComponents/NetworkClient/NetworkClient.swift; sourceTree = "<group>"; };
 		B03B4A641E8BE0E300D76446 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceAssembly.swift; path = Services/Assembly/ServiceAssembly.swift; sourceTree = "<group>"; };
-		B03B4A691E8BEBA200D76446 /* UserProfileMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileMapper.swift; path = CoreComponents/Mapper/UserProfileMapper.swift; sourceTree = "<group>"; };
+		B03B4A691E8BEBA200D76446 /* UserConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserConverter.swift; path = CoreComponents/Converter/UserConverter.swift; sourceTree = "<group>"; };
 		B03CA7D71E8E379600BDE713 /* MapMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapMarker.swift; path = Modules/MapSearch/View/MapMarker.swift; sourceTree = "<group>"; };
 		B03CA7D91E8E4DD200BDE713 /* MapModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapModelsConverter.swift; path = Modules/MapSearch/Presenter/MapModelsConverter.swift; sourceTree = "<group>"; };
 		B044B4E41E921A00004347D3 /* Deamon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deamon.swift; path = Deamons/Deamon.swift; sourceTree = "<group>"; };
 		B044B4E71E923378004347D3 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = CoreComponents/Storage/Storage.swift; sourceTree = "<group>"; };
 		B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeamonAssembly.swift; path = Deamons/DeamonAssembly.swift; sourceTree = "<group>"; };
-		B044B4F91E926AEC004347D3 /* CloseUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CloseUsersService.swift; path = Services/CloseUsersService.swift; sourceTree = "<group>"; };
 		B044B4FB1E927260004347D3 /* RequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestFactory.swift; path = CoreComponents/URLRequest/RequestFactory.swift; sourceTree = "<group>"; };
+		B044B5011E936DF7004347D3 /* AnnotationMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationMarkerView.swift; path = Modules/MapSearch/View/AnnotationMarkerView.swift; sourceTree = "<group>"; };
 		B050AE261E7145BD00F4EB5F /* DesignBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignBook.swift; path = DesignBook/DesignBook.swift; sourceTree = "<group>"; };
 		B050AE301E72D5D300F4EB5F /* InterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsCollectionViewCell.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B050AE331E76A17A00F4EB5F /* InterestsDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestsDataDisplayManager.swift; path = Modules/Filter/View/Cells/InterestsCell/InterestsDataDisplayManager.swift; sourceTree = "<group>"; };
@@ -140,6 +154,7 @@
 		B050AE4B1E76DC0C00F4EB5F /* AddInterestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddInterestCell.swift; path = Modules/NewInterests/View/AddInterestCell.swift; sourceTree = "<group>"; };
 		B050AE4E1E77E75200F4EB5F /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCell.swift; path = Modules/Filter/View/Cells/SearchCell.swift; sourceTree = "<group>"; };
 		B050AE511E77FD9D00F4EB5F /* TextFieldWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldWithButton.swift; path = UI/TextFieldWithButton.swift; sourceTree = "<group>"; };
+		B0514E0F1E9B481B006ED817 /* StorageAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageAssembly.swift; path = CoreComponents/Storage/StorageAssembly.swift; sourceTree = "<group>"; };
 		B058E96F1E7BB2F000BF4895 /* MapSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSearchViewController.swift; path = Modules/MapSearch/View/MapSearchViewController.swift; sourceTree = "<group>"; };
 		B058E9711E7BB5BB00BF4895 /* MapSearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSearchPresenter.swift; path = Modules/MapSearch/Presenter/MapSearchPresenter.swift; sourceTree = "<group>"; };
 		B058E9731E7BB5C300BF4895 /* MapSearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSearchInteractor.swift; path = Modules/MapSearch/Interactor/MapSearchInteractor.swift; sourceTree = "<group>"; };
@@ -147,7 +162,7 @@
 		B058E9771E7BB5D200BF4895 /* MapSearchAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSearchAssembly.swift; path = Modules/MapSearch/Assembly/MapSearchAssembly.swift; sourceTree = "<group>"; };
 		B058E9791E7BCDD500BF4895 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		B058E97B1E7BD00700BF4895 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Services/LocationService.swift; sourceTree = "<group>"; };
-		B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionView.swift; path = Modules/Age/View/Wheel/WheelCollectionView.swift; sourceTree = "<group>"; };
+		B058E97D1E7FCE2F00BF4895 /* WheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelView.swift; path = Modules/Age/View/Wheel/WheelView.swift; sourceTree = "<group>"; };
 		B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionViewCell.swift; path = Modules/Age/View/Wheel/WheelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WheelCollectionViewLayout.swift; path = Modules/Age/View/Wheel/WheelCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B058E98C1E815E2A00BF4895 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Modules/Photos/View/PhotosViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +179,14 @@
 		B058E9A41E816AC400BF4895 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 5.jpg; path = Filter/5.jpg; sourceTree = "<group>"; };
 		B058E9A61E825EF700BF4895 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = Modules/Photos/View/PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		B058E9A81E82605000BF4895 /* PhotosDataDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosDataDisplayManager.swift; path = Modules/Photos/View/PhotosDataDisplayManager.swift; sourceTree = "<group>"; };
+		B06EF6E91E97636700CBDF7D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "CoreDataStack/ManagedObjects/User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B06EF6EA1E97636700CBDF7D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "CoreDataStack/ManagedObjects/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B06EF6ED1E97C0B000CBDF7D /* MapKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapKitViewController.swift; path = Modules/MapSearch/View/MapKitViewController.swift; sourceTree = "<group>"; };
+		B06EF6EF1E97C11B00CBDF7D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B06EF9D21E9377CF004FB4B1 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = UI/Label.swift; sourceTree = "<group>"; };
+		B06EF9D71E9630D4004FB4B1 /* CoreDataStackCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackCoordinator.swift; path = CoreDataStack/CoreDataStackCoordinator.swift; sourceTree = "<group>"; };
+		B06EF9DA1E963402004FB4B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B06EF9DC1E9648E6004FB4B1 /* CoreDataStackCoordinatorAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackCoordinatorAssembly.swift; path = CoreDataStack/CoreDataStackCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		B093A6F21E780D890059DECA /* NewInterestsCellModelsConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewInterestsCellModelsConverter.swift; path = Modules/NewInterests/Presenter/NewInterestsCellModelsConverter.swift; sourceTree = "<group>"; };
 		B093A6F41E79415F0059DECA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = UI/ViewController.swift; sourceTree = "<group>"; };
 		B093A6F71E79727E0059DECA /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = Extensions/UITableView.swift; sourceTree = "<group>"; };
@@ -286,8 +309,8 @@
 			children = (
 				B044B4EB1E923E00004347D3 /* URLRequest */,
 				B044B4E61E92330A004347D3 /* Storage */,
-				B03B4A681E8BEB6300D76446 /* Mapper */,
-				B03B4A671E8BEB5500D76446 /* NetowrkClient */,
+				B03B4A681E8BEB6300D76446 /* Converter */,
+				B03B4A671E8BEB5500D76446 /* NetworkClient */,
 			);
 			name = CoreComponents;
 			sourceTree = "<group>";
@@ -300,27 +323,29 @@
 			name = Assembly;
 			sourceTree = "<group>";
 		};
-		B03B4A671E8BEB5500D76446 /* NetowrkClient */ = {
+		B03B4A671E8BEB5500D76446 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
 				B03B4A611E8BDAD900D76446 /* NetworkClient.swift */,
+				B018CBAE1E9B665C00518C25 /* ErrorHandler.swift */,
+				B018CBB01E9B682F00518C25 /* NetworkClientAssembly.swift */,
 			);
-			name = NetowrkClient;
+			name = NetworkClient;
 			sourceTree = "<group>";
 		};
-		B03B4A681E8BEB6300D76446 /* Mapper */ = {
+		B03B4A681E8BEB6300D76446 /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				B03B4A691E8BEBA200D76446 /* UserProfileMapper.swift */,
+				B03B4A691E8BEBA200D76446 /* UserConverter.swift */,
 			);
-			name = Mapper;
+			name = Converter;
 			sourceTree = "<group>";
 		};
 		B044B4E31E921938004347D3 /* Deamons */ = {
 			isa = PBXGroup;
 			children = (
-				B044B4E41E921A00004347D3 /* Deamon.swift */,
 				B044B4E91E9237C0004347D3 /* DeamonAssembly.swift */,
+				B044B4E41E921A00004347D3 /* Deamon.swift */,
 			);
 			name = Deamons;
 			sourceTree = "<group>";
@@ -329,6 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				B044B4E71E923378004347D3 /* Storage.swift */,
+				B0514E0F1E9B481B006ED817 /* StorageAssembly.swift */,
+				B018CBB21E9B79FA00518C25 /* StorageMapper.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -422,6 +449,7 @@
 				B093A6F41E79415F0059DECA /* ViewController.swift */,
 				B093A6FA1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift */,
 				B03B4A591E8A4AC000D76446 /* TableViewCellWithSeparator.swift */,
+				B06EF9D21E9377CF004FB4B1 /* Label.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -443,6 +471,8 @@
 			children = (
 				B058E96F1E7BB2F000BF4895 /* MapSearchViewController.swift */,
 				B03CA7D71E8E379600BDE713 /* MapMarker.swift */,
+				B044B5011E936DF7004347D3 /* AnnotationMarkerView.swift */,
+				B06EF6ED1E97C0B000CBDF7D /* MapKitViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -483,7 +513,7 @@
 		B058E97F1E81277600BF4895 /* Wheel */ = {
 			isa = PBXGroup;
 			children = (
-				B058E97D1E7FCE2F00BF4895 /* WheelCollectionView.swift */,
+				B058E97D1E7FCE2F00BF4895 /* WheelView.swift */,
 				B058E9821E81280500BF4895 /* WheelCollectionViewCell.swift */,
 				B058E9841E812A1000BF4895 /* WheelCollectionViewLayout.swift */,
 			);
@@ -546,6 +576,26 @@
 			name = Assembly;
 			sourceTree = "<group>";
 		};
+		B06EF9D61E963099004FB4B1 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				B06EF9EA1E967D5B004FB4B1 /* ManagedObjects */,
+				B06EF9DC1E9648E6004FB4B1 /* CoreDataStackCoordinatorAssembly.swift */,
+				B06EF9D71E9630D4004FB4B1 /* CoreDataStackCoordinator.swift */,
+				B06EF9D91E963402004FB4B1 /* Model.xcdatamodeld */,
+			);
+			name = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		B06EF9EA1E967D5B004FB4B1 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B06EF6E91E97636700CBDF7D /* User+CoreDataClass.swift */,
+				B06EF6EA1E97636700CBDF7D /* User+CoreDataProperties.swift */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		B093A6F61E7972620059DECA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +633,7 @@
 		B0A05EF51E6D37B100B5D1AD /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				B06EF9D61E963099004FB4B1 /* CoreDataStack */,
 				B044B4E31E921938004347D3 /* Deamons */,
 				B0B45A301E83FB96008720F4 /* Protocols */,
 				B093A6F61E7972620059DECA /* Extensions */,
@@ -660,8 +711,7 @@
 				B058E97B1E7BD00700BF4895 /* LocationService.swift */,
 				B0A05F1F1E6D90EE00B5D1AD /* SearchSettingsService.swift */,
 				B050AE491E76D91D00F4EB5F /* InterestsService.swift */,
-				B001026F1E83BF3C00A86AC2 /* UserProfileService.swift */,
-				B044B4F91E926AEC004347D3 /* CloseUsersService.swift */,
+				B001026F1E83BF3C00A86AC2 /* UserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -756,6 +806,7 @@
 		BB344A6D9C763437B8344085 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B06EF6EF1E97C11B00CBDF7D /* MapKit.framework */,
 				18527CC2BCD0C62F4D9FAF31 /* Pods_Filter.framework */,
 			);
 			name = Frameworks;
@@ -903,7 +954,9 @@
 				B0FAB83D1E6EDE5A00E5F06A /* AgeAssembly.swift in Sources */,
 				B0FAB8371E6EDE3F00E5F06A /* AgePresenter.swift in Sources */,
 				B0A05EF91E6D37B100B5D1AD /* FilterViewController.swift in Sources */,
+				B06EF6EC1E97636700CBDF7D /* User+CoreDataProperties.swift in Sources */,
 				B0FAB8351E6EDDD800E5F06A /* AgeViewController.swift in Sources */,
+				B06EF9D31E9377CF004FB4B1 /* Label.swift in Sources */,
 				B058E98D1E815E2A00BF4895 /* PhotosViewController.swift in Sources */,
 				B058E9701E7BB2F000BF4895 /* MapSearchViewController.swift in Sources */,
 				B058E9911E815F6B00BF4895 /* PhotosCellModelsConverter.swift in Sources */,
@@ -923,6 +976,7 @@
 				B00102631E83BC9800A86AC2 /* ShortProfilePresenter.swift in Sources */,
 				B093A6FB1E7A75FB0059DECA /* TextFieldWithFixedRightView.swift in Sources */,
 				B093A6F31E780D890059DECA /* NewInterestsCellModelsConverter.swift in Sources */,
+				B018CBB31E9B79FA00518C25 /* StorageMapper.swift in Sources */,
 				B058E9721E7BB5BB00BF4895 /* MapSearchPresenter.swift in Sources */,
 				B0A05F191E6D8D7800B5D1AD /* AgeCell.swift in Sources */,
 				B03CA7D81E8E379600BDE713 /* MapMarker.swift in Sources */,
@@ -934,26 +988,33 @@
 				B00102611E83B9FD00A86AC2 /* ShortProfileDisplayManager.swift in Sources */,
 				B050AE311E72D5D300F4EB5F /* InterestsCollectionViewCell.swift in Sources */,
 				B00102721E83C39E00A86AC2 /* StatusTableViewCell.swift in Sources */,
+				B018CBAF1E9B665C00518C25 /* ErrorHandler.swift in Sources */,
+				B06EF6EE1E97C0B000CBDF7D /* MapKitViewController.swift in Sources */,
 				B044B4FC1E927260004347D3 /* RequestFactory.swift in Sources */,
+				B06EF9DD1E9648E6004FB4B1 /* CoreDataStackCoordinatorAssembly.swift in Sources */,
 				B0B45A341E8405B6008720F4 /* SocialNetworkTableViewCell.swift in Sources */,
+				B044B5021E936DF7004347D3 /* AnnotationMarkerView.swift in Sources */,
 				B00102671E83BD9B00A86AC2 /* ShortProfileInteractor.swift in Sources */,
 				B050AE441E76B0BC00F4EB5F /* NewInterestsAssembly.swift in Sources */,
-				B03B4A6A1E8BEBA200D76446 /* UserProfileMapper.swift in Sources */,
+				B03B4A6A1E8BEBA200D76446 /* UserConverter.swift in Sources */,
 				B0A05F161E6D5CD700B5D1AD /* SexCell.swift in Sources */,
+				B018CBB11E9B682F00518C25 /* NetworkClientAssembly.swift in Sources */,
 				B0A05F1B1E6D8DC400B5D1AD /* InterestsCell.swift in Sources */,
-				B044B4FA1E926AEC004347D3 /* CloseUsersService.swift in Sources */,
 				B050AE3C1E76AFEA00F4EB5F /* NewInterestsViewController.swift in Sources */,
 				B0A05F141E6D4EAF00B5D1AD /* FilterAssembly.swift in Sources */,
 				B0A05F1D1E6D8F9800B5D1AD /* FilterInteractor.swift in Sources */,
 				B00102741E83CB3300A86AC2 /* BasicTableViewCell.swift in Sources */,
 				B0FAB8271E6EC52A00E5F06A /* FilterCellModelsConverter.swift in Sources */,
+				B0514E101E9B481B006ED817 /* StorageAssembly.swift in Sources */,
 				B093A6F81E79727E0059DECA /* UITableView.swift in Sources */,
+				B06EF9D81E9630D5004FB4B1 /* CoreDataStackCoordinator.swift in Sources */,
 				B001025F1E83B8EE00A86AC2 /* ShortProfileViewController.swift in Sources */,
 				B044B4E81E923378004347D3 /* Storage.swift in Sources */,
-				B00102701E83BF3C00A86AC2 /* UserProfileService.swift in Sources */,
+				B00102701E83BF3C00A86AC2 /* UserService.swift in Sources */,
 				B00C0CF01E8904240059B695 /* BasicCollectionViewCell.swift in Sources */,
 				B093A6F51E79415F0059DECA /* ViewController.swift in Sources */,
 				B058E9A71E825EF700BF4895 /* PhotosCollectionViewCell.swift in Sources */,
+				B06EF6EB1E97636700CBDF7D /* User+CoreDataClass.swift in Sources */,
 				B0FAB83B1E6EDE5100E5F06A /* AgeRouter.swift in Sources */,
 				B058E9781E7BB5D200BF4895 /* MapSearchAssembly.swift in Sources */,
 				B058E98F1E815EDE00BF4895 /* PhotosPresenter.swift in Sources */,
@@ -965,7 +1026,8 @@
 				B050AE4A1E76D91D00F4EB5F /* InterestsService.swift in Sources */,
 				B00102691E83BDED00A86AC2 /* ShortProfileRouter.swift in Sources */,
 				B0B691FD1E82B79E0020663F /* PhotosCollectionViewFlowLayout.swift in Sources */,
-				B058E97E1E7FCE2F00BF4895 /* WheelCollectionView.swift in Sources */,
+				B058E97E1E7FCE2F00BF4895 /* WheelView.swift in Sources */,
+				B06EF9DB1E963402004FB4B1 /* Model.xcdatamodeld in Sources */,
 				B058E9A91E82605000BF4895 /* PhotosDataDisplayManager.swift in Sources */,
 				B03B4A651E8BE0E300D76446 /* ServiceAssembly.swift in Sources */,
 				B050AE271E7145BD00F4EB5F /* DesignBook.swift in Sources */,
@@ -1127,6 +1189,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B06EF9D91E963402004FB4B1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B06EF9DA1E963402004FB4B1 /* Model.xcdatamodel */,
+			);
+			currentVersion = B06EF9DA1E963402004FB4B1 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = CoreDataStack/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B0A05EEB1E6D37B100B5D1AD /* Project object */;
 }

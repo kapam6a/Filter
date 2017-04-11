@@ -23,7 +23,6 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     private var newInterestsModule: NewInterestsModule?
     private var mapSearchModule: MapSearchModule?
     private var photosModule: PhotosModule?
-    private var shortProfileModule: ShortProfileModule?
     
     //MARK : FilterModuleInput
     
@@ -92,12 +91,7 @@ class FilterPresenter: FilterViewOutput, FilterInteractorOutput, FilterModule {
     }
     
     func viewDidTapFilterButton() {
-        router.openShortProfileModule { [unowned self] shortProfileModule in
-            self.shortProfileModule = shortProfileModule
-            shortProfileModule.configure(doneHandler: { [unowned self] in
-                self.shortProfileModule = nil
-            }, userId: 44)
-        }
+    
     }
     
     func viewDidTapDoneButton() {

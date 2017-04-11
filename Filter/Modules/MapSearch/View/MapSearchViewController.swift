@@ -11,7 +11,7 @@ import GoogleMaps
 
 protocol  MapSearchViewInput {
     func upload(with mapMarkerModels: [MapMarkerModel])
-    func upload(with currentMarkerModel: MapMarkerModel)
+    func upload(with myMarkerModel: MapMarkerModel)
 }
 
 protocol  MapSearchViewOutput: class {
@@ -24,11 +24,13 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     
     private let mapView: GMSMapView
     
-    private var mapMarkerModels: [MapMarkerModel]!
-    private var myMapMarkerModel: MapMarkerModel!
+    private var mapMarkers: [MapMarker]
+    private var myMapMarker: MapMarker
     
     init() {
         mapView = GMSMapView(frame: .zero)
+        mapMarkers = []
+        myMapMarker = MapMarker(with: mapView)
         
         super.init(nibName: nil, bundle: nil)
 
@@ -58,19 +60,22 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
     
     //MARK : MapSearchViewInput
     
-    func upload(with currentMarkerModel: MapMarkerModel) {
-        let camera = GMSCameraPosition.camera(withLatitude: myMapMarkerModel.location.coordinate.latitude,
-                                              longitude: myMapMarkerModel.location.coordinate.longitude,
-                                              zoom: myMapMarkerModel.zoom)
+    func upload(with myMarkerModel: MapMarkerModel) {
+        myMapMarker.removeFromMap()
+        let camera = GMSCameraPosition.camera(withLatitude: myMarkerModel.location.coordinate.latitude,
+                                              longitude: myMarkerModel.location.coordinate.longitude,
+                                              zoom: myMarkerModel.zoom)
         mapView.camera = camera
-        let myMarker = MapMarker(with: mapView)
-        myMarker.configure(with: myMapMarkerModel)
+        myMapMarker.configure(with: myMarkerModel)
     }
     
      func upload(with mapMarkerModels: [MapMarkerModel]) {
+        mapMarkers.forEach { mapMarker in
+            mapMarker.removeFromMap()
+        }
         mapMarkerModels.forEach { mapMarkerModel in
             let marker = MapMarker(with: mapView)
-            marker.configure(with: myMapMarkerModel)
+            marker.configure(with: mapMarkerModel)
         }
     }
     
@@ -80,7 +85,7 @@ class MapSearchViewController:UIViewController, MapSearchViewInput, GMSMapViewDe
         let marker = marker as! MapMarker
         output.viewDidTapMarker(with: marker.userId)
         return false
-    }  
+    }
 }
 
 fileprivate struct Layout {

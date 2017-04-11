@@ -30,7 +30,6 @@ class StatusTableViewCell: UITableViewCell, BasicTableViewCell {
 
     private let photoImageView: UIImageView
     private let statusLabel: UILabel
-    private let emojiImageView: UIImageView
     private let nameLabel: UILabel
     private let chatButton: UIButton
     
@@ -42,7 +41,6 @@ class StatusTableViewCell: UITableViewCell, BasicTableViewCell {
         
         photoImageView = UIImageView(frame: .zero)
         statusLabel = UILabel(frame: .zero)
-        emojiImageView = UIImageView(frame: .zero)
         nameLabel = UILabel(frame: .zero)
         chatButton = UIButton(type: .custom)
         
@@ -63,8 +61,6 @@ class StatusTableViewCell: UITableViewCell, BasicTableViewCell {
         statusLabel.lineBreakMode = .byWordWrapping        
         container.addSubview(statusLabel)
         
-        container.addSubview(emojiImageView)
-
         nameLabel.textColor = DesignBook.Colors.avtWhite
         nameLabel.font = DesignBook.Fonts.avtTextStyle4
         container.addSubview(nameLabel)
@@ -85,7 +81,6 @@ class StatusTableViewCell: UITableViewCell, BasicTableViewCell {
         photoImageView.frame = layout.photoImageViewFrame()
         nameLabel.frame = layout.nameLabelFrame()
         nameLabel.frame.size = nameLabel.sizeThatFits(.zero)
-        emojiImageView.frame = layout.emojiImageViewFrame()
         statusLabel.frame = layout.statusLabelFrame()
         chatButton.frame = layout.chatButtonFrame()
     }
@@ -115,9 +110,6 @@ fileprivate struct Layout {
     private let photoImageViewWidth: CGFloat = 32
     private let photoImageViewHeight: CGFloat = 42
     
-    private let emojiimageViewWidth: CGFloat = 21
-    private let emojiImageViewHeight: CGFloat = 23
-    
     private let chatButtonWidth: CGFloat = 22
     private let chatButtonHeight: CGFloat = 22
     
@@ -140,19 +132,12 @@ fileprivate struct Layout {
     }
     
     func statusLabelFrame() -> CGRect {
-        return CGRect(x: emojiImageViewFrame().maxX + interItemSpacing,
-                      y: emojiImageViewFrame().minY,
+        return CGRect(x: photoImageViewWidth + offset,
+                      y: photoImageViewHeight - 28,
                       width: 120,
                       height: 28)
     }
     
-    func emojiImageViewFrame() -> CGRect {
-        return CGRect(x: photoImageViewWidth + offset,
-                      y: photoImageViewHeight - emojiImageViewHeight,
-                      width: emojiimageViewWidth,
-                      height: emojiImageViewHeight)
-    }
-
     func nameLabelFrame() -> CGRect {
         return CGRect(x: photoImageViewWidth + offset,
                       y: 0,

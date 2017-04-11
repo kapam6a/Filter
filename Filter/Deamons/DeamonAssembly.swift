@@ -10,9 +10,13 @@ import Foundation
 
 class DeamonAssembly {
     func createLocationDeamon() -> Deamon{
-        let storage = StorageImplementation()
+        let storage = StorageAssembly().createStorage()
         let requestFactory = RequestFactoryImplementation()
+        let networkClient = NetworkClientAssembly().createNetworkClient()
+        let converter = UserConverterImplementation()
         return LocationDeamon(storage: storage,
-                       requestFactory: requestFactory)
+                              requestFactory: requestFactory,
+                              networkClient: networkClient,
+                              converter: converter)
     }
 }

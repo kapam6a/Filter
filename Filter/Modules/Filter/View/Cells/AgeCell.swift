@@ -95,11 +95,11 @@ class AgeCell: TableViewCellWithSeparator, BasicTableViewCell {
     
     //MARK : Action
 
-    @objc func didTapMinAgeButton(_ sender: UIButton) {
+    func didTapMinAgeButton(_ sender: UIButton) {
         minAgeButtonAction(NSDecimalNumber(string: minAgeButton.titleLabel?.text).intValue)
     }
     
-    @objc func didTapMaxAgeButton(_ sender: UIButton) {
+    func didTapMaxAgeButton(_ sender: UIButton) {
         maxAgeButtonAction(NSDecimalNumber(string: maxAgeButton.titleLabel?.text).intValue)
     }
 }
@@ -107,31 +107,35 @@ class AgeCell: TableViewCellWithSeparator, BasicTableViewCell {
 fileprivate struct Layout {
     let bounds: CGRect
     
+    private let buttonSide: CGFloat = 31
+    private let labelSide: CGFloat = 15
+    private let space: CGFloat = 17
+    
     func minAgeButtonFrame() -> CGRect {
-        return CGRect(x: 32,
-                      y: bounds.height / 2 - 31 / 2,
-                      width: 31,
-                      height: 31)
+        return CGRect(x: fromLabelFrame().maxX + space,
+                      y: bounds.height / 2 - buttonSide / 2,
+                      width: buttonSide,
+                      height: buttonSide)
     }
     
     func maxAgeButtonFrame() -> CGRect {
-        return CGRect(x: 116,
-                      y: bounds.height / 2 - 31 / 2,
-                      width: 31,
-                      height: 31)
+        return CGRect(x: toLabelFrame().maxX + space,
+                      y: bounds.height / 2 - buttonSide / 2,
+                      width: buttonSide,
+                      height: buttonSide)
     }
     
     func fromLabelFrame() -> CGRect {
         return CGRect(x: 0,
-                      y: bounds.height / 2 - 12 / 2,
-                      width: 15,
-                      height: 15)
+                      y: bounds.height / 2 - labelSide / 2,
+                      width: labelSide,
+                      height: labelSide)
     }
     
     func toLabelFrame() -> CGRect {
-        return CGRect(x: 83,
-                      y: bounds.height / 2 - 12 / 2,
-                      width: 15,
-                      height: 15)
+        return CGRect(x: minAgeButtonFrame().maxX + space,
+                      y: bounds.height / 2 - labelSide / 2,
+                      width: labelSide,
+                      height: labelSide)
     }
 }

@@ -45,7 +45,7 @@ class SexCell: TableViewCellWithSeparator, BasicTableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        femaleButton.addTarget(self, action: #selector(didTapFemaleButton(_ :)), for: .touchUpInside)
+        femaleButton.addTarget(self, action: #selector(didTapFemaleButton), for: .touchUpInside)
         femaleButton.setImage(#imageLiteral(resourceName: "female_icon_normal"), for: .normal)
         femaleButton.setImage(#imageLiteral(resourceName: "female_icon_selected"), for: .selected)
         femaleButton.setTitle(Constants.femaleButtonTitle, for: .normal)
@@ -54,7 +54,7 @@ class SexCell: TableViewCellWithSeparator, BasicTableViewCell {
         femaleButton.titleLabel!.font = DesignBook.Fonts.avtTextStyle3
         contentView.addSubview(femaleButton)
         
-        maleButton.addTarget(self, action: #selector(didTapMaleButton(_ :)), for: .touchUpInside)
+        maleButton.addTarget(self, action: #selector(didTapMaleButton), for: .touchUpInside)
         maleButton.setImage(#imageLiteral(resourceName: "male_icon_normal"), for: .normal)
         maleButton.setImage(#imageLiteral(resourceName: "male_icon_selected"), for: .selected)
         maleButton.setTitle(Constants.maleButtonTitle, for: .normal)
@@ -96,12 +96,12 @@ class SexCell: TableViewCellWithSeparator, BasicTableViewCell {
     
     //MARK : Action
     
-    @objc func didTapMaleButton(_ sender: UIButton) {
+    func didTapMaleButton(_ sender: UIButton) {
         maleButton.isSelected = !maleButton.isSelected
         maleButtonAction()
     }
     
-    @objc func didTapFemaleButton(_ sender: UIButton) {
+    func didTapFemaleButton(_ sender: UIButton) {
         femaleButton.isSelected = !femaleButton.isSelected
         femaleButtonAction()
     }

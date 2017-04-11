@@ -18,7 +18,7 @@ class ShortProfileCellModelsConverter {
     func convertModels(with user: UserEntity) -> [BasicTableViewCellModel]{
         var cellModels: [BasicTableViewCellModel] = []
         
-        let statusCellModel = StatusCellModel(photoPath: user.photoUrl.path,
+        let statusCellModel = StatusCellModel(photoPath: user.photoURLPath,
                                               status: user.status,
                                               name: user.firstName) {
                                                     self.viewOutput.viewDidTapChatButton()

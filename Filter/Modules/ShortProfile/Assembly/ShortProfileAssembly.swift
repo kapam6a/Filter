@@ -12,7 +12,7 @@ class ShortProfileAssembly {
     func createShortProfileModule() -> ShortProfileModule {
         let vc = ShortProfileViewController()
         let presenter = ShortProfilePresenter()
-        let interactor = ShortProfileInteractor(withProfileService: ServiceAssembly.createUserProfileService())
+        let interactor = ShortProfileInteractor(userService: ServiceAssembly().createUserService())
         let router = ShortProfileRouter()
         
         vc.output = presenter

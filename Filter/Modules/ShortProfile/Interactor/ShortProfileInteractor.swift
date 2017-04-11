@@ -20,17 +20,17 @@ protocol ShortProfileInteractorOutput:class {
 class ShortProfileInteractor: ShortProfileInteractorInput {
     weak var output: ShortProfileInteractorOutput!
     
-    private let profileService: UserProfileService
+    private let userService: UserService
     
-    init(withProfileService profileService: UserProfileService) {
-        self.profileService = profileService
+    init(userService: UserService) {
+        self.userService = userService
     }
     
     //MARK : ShortProfileInteractorInput
     
     func requestUserProfile(with userId: Int) {
-        profileService.requestUser(userId: userId,
-                                   successful: { user in
+        userService.requestUser(userId: userId,
+                                successful: { user in
                                     self.output.interactorRequestUserDidFinish(withSuccess: user)
         }) { error in
             self.output.interactorRequestDidFail(withError: error)

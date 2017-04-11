@@ -15,6 +15,7 @@ struct MapMarkerModel {
     let location: CLLocation
     let userId: Int
     let zoom: Float
+    let status: String
 }
 
 class MapMarker: GMSMarker {
@@ -23,13 +24,21 @@ class MapMarker: GMSMarker {
     init(with map: GMSMapView ) {
         super.init()
         
+        iconView = AnnotationMarkerView(frame: CGRect(x: 0, y: 0, width: 100, height: 110))
         self.map = map
+        tracksViewChanges = true
     }
     
     func configure(with mapMarkerModel: MapMarkerModel) {
         position = mapMarkerModel.location.coordinate
-        icon = mapMarkerModel.image
         userId = mapMarkerModel.userId
+        let annotationView = iconView as! AnnotationMarkerView
+        annotationView.setup(title: mapMarkerModel.status,
+                             image: mapMarkerModel.image)
+    }
+    
+    func removeFromMap() {
+        map = nil
     }
 }
 

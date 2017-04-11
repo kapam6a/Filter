@@ -8,36 +8,28 @@
 
 import UIKit
 
-protocol AgeViewInput {
+protocol AgeViewInput: class {
     func update(withValue initialValue: Int)
 }
 
 protocol AgeViewOutput: class {
     func viewDidLoad()
     func viewDidSelect(age: Int)
+    func viewWillDisappear()
 }
 
-class AgeViewController:ViewController, AgeViewInput {
+class AgeViewController:ViewController, AgeViewInput, WheelViewDelegate {
     weak var output: AgeViewOutput!
     
-    private let wheelCollectionView: WheelCollectionView
-    
-    private let valueLabel: UILabel
-    
+    private let wheelView: WheelView
+        
     init() {
-        wheelCollectionView = WheelCollectionView(frame: .zero)
-        
-        valueLabel = UILabel(frame: .zero)
-        
+        wheelView = WheelView(frame: .zero, numberOfItems: 100)
+
         super.init(nibName: nil, bundle: nil)
         
-        wheelCollectionView.backgroundColor = .clear
-        wheelCollectionView.action = { value in
-            self.output.viewDidSelect(age: value)
-        }
-        
-        valueLabel.textColor = DesignBook.Colors.avtWhite
-        valueLabel.font = DesignBook.Fonts.avtTextStyle5
+        wheelView.backgroundColor = .clear
+        wheelView.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,8 +38,7 @@ class AgeViewController:ViewController, AgeViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        container.addSubview(wheelCollectionView)
-        container.addSubview(valueLabel)
+        container.addSubview(wheelView)
         
         output.viewDidLoad()
     }
@@ -55,29 +46,32 @@ class AgeViewController:ViewController, AgeViewInput {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let layout = Layout(bounds: container.bounds)
-        wheelCollectionView.frame = layout.wheelCollectionViewFrame()
-        valueLabel.frame = layout.valueLabelFrame()
+        wheelView.frame = layout.wheelCollectionViewFrame()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        output.viewWillDisappear()
     }
     
     //MARK : AgeViewInput
     
     func update(withValue initialValue: Int) {
-        valueLabel.text = String(initialValue)
+        wheelView.setup(initialValue: initialValue)
+    }
+    
+    //MARK : WheelViewDelegate
+    
+    func wheelView(_ wheelView: WheelView, didChangeValue value: Int) {
+        output.viewDidSelect(age: value)
     }
 }
 
 fileprivate struct Layout {
     let bounds: CGRect
-    
+        
     func wheelCollectionViewFrame() -> CGRect {
         return bounds
-    }
-    
-    func valueLabelFrame() -> CGRect {
-        return CGRect(x: bounds.width / 5,
-                      y: bounds.height / 2 - 30 / 2,
-                      width: 30,
-                      height: 30)
     }
 }
 

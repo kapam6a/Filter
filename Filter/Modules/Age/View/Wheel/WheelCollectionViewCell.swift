@@ -26,7 +26,6 @@ class WheelCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = DesignBook.Colors.avtDarkSkyBlue
         label.font = DesignBook.Fonts.avtTextStyle1
-        
         contentView.addSubview(label)
     }
     
@@ -41,8 +40,9 @@ class WheelCollectionViewCell: UICollectionViewCell {
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        let circularlayoutAttributes = layoutAttributes as! CircularCollectionViewLayoutAttributes
-        self.layer.anchorPoint = circularlayoutAttributes.anchorPoint
-        self.center.y += (circularlayoutAttributes.anchorPoint.y - 0.5) * self.bounds.height
+        let circularlayoutAttributes = layoutAttributes as! WheelCollectionViewLayoutAttributes
+        layer.anchorPoint = circularlayoutAttributes.anchorPoint
+        center.x += (circularlayoutAttributes.anchorPoint.x - 1.5) * bounds.width
+        transform = CGAffineTransform(rotationAngle: -circularlayoutAttributes.angle)
     }
 }

@@ -12,7 +12,7 @@ class NewInterestsAssembly {
     func createNewInterestsModule() -> NewInterestsModule {
         let vc = NewInterestsViewController()
         let presenter = NewInterestsPresenter()
-        let interactor = NewInterestsInteractor(withInterestsService: ServiceAssembly.createInterestsService())
+        let interactor = NewInterestsInteractor(withInterestsService: ServiceAssembly().createInterestsService())
         let router = NewInterestsRouter()
         
         vc.output = presenter

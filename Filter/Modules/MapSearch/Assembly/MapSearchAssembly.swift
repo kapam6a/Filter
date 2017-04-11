@@ -12,9 +12,8 @@ class MapSearchAssembly {
     func createMapSearchModule() -> MapSearchModule {
         let vc = MapSearchViewController()
         let presenter = MapSearchPresenter()
-        let interactor = MapSearchInteractor(locationService: ServiceAssembly.createLocationService(),
-                                           closeUsersService: ServiceAssembly.createCloseUsersService(),
-                                           userProfileService: ServiceAssembly.createUserProfileService())
+        let interactor = MapSearchInteractor(locationService: ServiceAssembly().createLocationService(),
+                                             userService: ServiceAssembly().createUserService())
         let router = MapSearchRouter()
         
         vc.output = presenter

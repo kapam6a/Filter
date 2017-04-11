@@ -14,9 +14,11 @@ protocol NetworkClient {
 
 class NetworkClientImplementation: NetworkClient {
     private let urlSession: URLSession
+    private let errorHandler: ErrorHandler
     
-    init() {
+    init(errorHandler: ErrorHandler) {
         urlSession = URLSession.shared
+        self.errorHandler = errorHandler
     }
     
     //MARK : NetworkClient
@@ -33,6 +35,7 @@ class NetworkClientImplementation: NetworkClient {
                 } else {
                     let error = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
                     DispatchQueue.main.async {
+                        self.errorHandler.handle(error: error)
                         failed(error)
                     }
                 }

@@ -18,11 +18,12 @@ class AgePresenter: AgeViewOutput, AgeModule, AgeInteractorOutput {
     var interactor: AgeInteractorInput!
     var router: AgeRouterInput!
     
-    private var initialValue: Int
     private var doneHandler: ((Int) -> Void)!
     
+    private var selectedAge: Int
+    
     init() {
-        initialValue = 0
+        selectedAge = 0
     }
     
     //MARK : AgeModule
@@ -32,19 +33,21 @@ class AgePresenter: AgeViewOutput, AgeModule, AgeInteractorOutput {
     }
     
     func configure(initialValue: Int, doneHandler: @escaping (Int) -> Void) {
-        self.initialValue = initialValue
+        selectedAge = initialValue
         self.doneHandler = doneHandler
     }
     
     //MARK : AgeViewOutput
     
     func viewDidLoad() {
-        view.update(withValue: initialValue)
+//        view.update(withValue: selectedAge)
     }
     
     func viewDidSelect(age: Int) {
-        view.update(withValue: age)
-        doneHandler(age)
-        router.closeModule()
+        selectedAge = age
+    }
+    
+    func viewWillDisappear() {
+        doneHandler(selectedAge)
     }
 }

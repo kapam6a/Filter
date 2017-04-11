@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NewInterestsViewInput {
+protocol NewInterestsViewInput: class {
     func update(withCellModels cellModels: [BasicTableViewCellModel])
 }
 
@@ -20,7 +20,7 @@ protocol NewInterestsViewOutput: class {
 }
 
 class NewInterestsViewController:ViewController, NewInterestsViewInput, TextFieldWithButtonDelegate {
-    weak var output: NewInterestsViewOutput!
+    var output: NewInterestsViewOutput!
     
     private let tableView: UITableView
     private let dataDisplayManager: NewInterestsDataDisplayManager

@@ -22,7 +22,7 @@ class MapModelsConverter {
         users.forEach{ user in
             var image = UIImage()
             
-            if user.sex == 1 {
+            if user.sex {
                 image = #imageLiteral(resourceName: "male_marker_icon")
             } else {
                 image = #imageLiteral(resourceName: "female_marker_icon")
@@ -32,16 +32,17 @@ class MapModelsConverter {
             let mapMarkerModel = MapMarkerModel(image: image,
                                                 location: location,
                                                 userId: user.id,
-                                                zoom: 0)
+                                                zoom: 0,
+                                                status: user.status)
             mapMarkerkModels.append(mapMarkerModel)
         }
         return mapMarkerkModels
     }
     
-    func convertCurrentMarkerModel(with user: UserEntity) -> MapMarkerModel {
+    func convertMyMarkerModel(with user: UserEntity) -> MapMarkerModel {
         var image = UIImage()
-        
-        if user.sex == 1 {
+
+        if user.sex {
             image = #imageLiteral(resourceName: "male_marker_icon")
         } else {
             image = #imageLiteral(resourceName: "female_marker_icon")
@@ -52,6 +53,7 @@ class MapModelsConverter {
         return MapMarkerModel(image: image,
                               location: location,
                               userId: user.id,
-                              zoom:18)
+                              zoom:18,
+                              status: user.status)
     }
 }

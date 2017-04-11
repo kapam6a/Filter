@@ -46,7 +46,6 @@ class PhotosCollectionViewCell: UICollectionViewCell, BasicCollectionViewCell {
         photoImageView.layer.cornerRadius = 4
         photoImageView.clipsToBounds = true
         photoImageView.layer.borderWidth = 1
-        
         photoImageView.layer.borderColor = DesignBook.Colors.avtDarkSkyBlue.cgColor
         contentView.addSubview(photoImageView)
     }
